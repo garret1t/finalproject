@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>GrassTile.png</Source>
+      <Name>GrassTile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\GrassTile.xnb</Output>
+      <Time>2014-12-04T15:01:18.0007217-05:00</Time>
+    </Item>
+    <Item>
+      <Source>RockTile.png</Source>
+      <Name>RockTile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\RockTile.xnb</Output>
+      <Time>2014-12-04T15:01:18.0127217-05:00</Time>
+    </Item>
+    <Item>
+      <Source>SandTile.png</Source>
+      <Name>SandTile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\SandTile.xnb</Output>
+      <Time>2014-12-04T15:01:18.0177217-05:00</Time>
+    </Item>
+    <Item>
+      <Source>WaterTile.png</Source>
+      <Name>WaterTile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WaterTile.xnb</Output>
+      <Time>2014-12-04T15:04:55.1507217-05:00</Time>
+    </Item>
+    <Item>
+      <Source>WizardDown.png</Source>
+      <Name>WizardDown</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardDown.xnb</Output>
+      <Time>2014-12-05T15:01:28.1037095-05:00</Time>
+    </Item>
+    <Item>
+      <Source>WizardLeft.png</Source>
+      <Name>WizardLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardLeft.xnb</Output>
+      <Time>2014-12-05T15:01:28.1047095-05:00</Time>
+    </Item>
+    <Item>
+      <Source>WizardRight.png</Source>
+      <Name>WizardRight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardRight.xnb</Output>
+      <Time>2014-12-05T15:01:28.1067095-05:00</Time>
+    </Item>
+    <Item>
+      <Source>WizardUp.png</Source>
+      <Name>WizardUp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardUp.xnb</Output>
+      <Time>2014-12-05T15:01:28.1077095-05:00</Time>
+    </Item>
+    <Item>
+      <Source>FireballDown.png</Source>
+      <Name>FireballDown</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballDown.xnb</Output>
+      <Time>2014-12-05T15:13:58.5455645-05:00</Time>
+    </Item>
+    <Item>
+      <Source>FireballLeft.png</Source>
+      <Name>FireballLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballLeft.xnb</Output>
+      <Time>2014-12-05T15:13:58.5475647-05:00</Time>
+    </Item>
+    <Item>
+      <Source>FireballRight.png</Source>
+      <Name>FireballRight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballRight.xnb</Output>
+      <Time>2014-12-05T15:13:58.5485648-05:00</Time>
+    </Item>
+    <Item>
+      <Source>FireballUp.png</Source>
+      <Name>FireballUp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballUp.xnb</Output>
+      <Time>2014-12-05T15:13:58.5495649-05:00</Time>
+    </Item>
+    <Item>
+      <Source>air.png</Source>
+      <Name>air</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\air.xnb</Output>
+      <Time>2014-12-09T15:01:00.2267828-05:00</Time>
+    </Item>
+    <Item>
+      <Source>earth.png</Source>
+      <Name>earth</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\earth.xnb</Output>
+      <Time>2014-12-09T15:01:00.2277828-05:00</Time>
+    </Item>
+    <Item>
+      <Source>fire.png</Source>
+      <Name>fire</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\fire.xnb</Output>
+      <Time>2014-12-09T15:01:00.2287828-05:00</Time>
+    </Item>
+    <Item>
+      <Source>gui.png</Source>
+      <Name>gui</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\gui.xnb</Output>
+      <Time>2014-12-09T15:07:39.0707828-05:00</Time>
+    </Item>
+    <Item>
+      <Source>heart.png</Source>
+      <Name>heart</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\heart.xnb</Output>
+      <Time>2014-12-09T15:01:00.2317828-05:00</Time>
+    </Item>
+    <Item>
+      <Source>heartEmpty.png</Source>
+      <Name>heartEmpty</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\heartEmpty.xnb</Output>
+      <Time>2014-12-09T15:01:00.2327828-05:00</Time>
+    </Item>
+    <Item>
+      <Source>water.png</Source>
+      <Name>water</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\water.xnb</Output>
+      <Time>2014-12-09T15:01:00.2337828-05:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Computer Programming II\Final Project\Final Project\Final ProjectContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Computer Programming II\Final Project\Final Project\Final Project\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Computer Programming II\Final Project\Final Project\Final ProjectContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2013-09-16T09:42:13.1108047-04:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
