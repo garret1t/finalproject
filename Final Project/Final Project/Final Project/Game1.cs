@@ -118,7 +118,7 @@ namespace Final_Project
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-
+            
             wizard.UpdateProjectiles(screen);
 
             if (pad1.ThumbSticks.Left.X > 0 && !(oldpad1.ThumbSticks.Left.X > 0)) { wizard.Move(wizard.row + 1, wizard.col, screen); wizard.texture = wizard.textureRight; }
