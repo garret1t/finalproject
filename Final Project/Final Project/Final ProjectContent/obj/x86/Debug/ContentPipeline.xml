@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\GrassTile.xnb</Output>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\GrassTile.xnb</Output>
       <Time>2014-12-04T15:01:18.0007217-05:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\RockTile.xnb</Output>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\RockTile.xnb</Output>
       <Time>2014-12-04T15:01:18.0127217-05:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\SandTile.xnb</Output>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\SandTile.xnb</Output>
       <Time>2014-12-04T15:01:18.0177217-05:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WaterTile.xnb</Output>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WaterTile.xnb</Output>
       <Time>2014-12-04T15:04:55.1507217-05:00</Time>
     </Item>
     <Item>
@@ -43,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardDown.xnb</Output>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardDown.xnb</Output>
       <Time>2014-12-05T15:01:28.1037095-05:00</Time>
     </Item>
     <Item>
@@ -52,7 +52,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardLeft.xnb</Output>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardLeft.xnb</Output>
       <Time>2014-12-05T15:01:28.1047095-05:00</Time>
     </Item>
     <Item>
@@ -61,7 +61,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardRight.xnb</Output>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardRight.xnb</Output>
       <Time>2014-12-05T15:01:28.1067095-05:00</Time>
     </Item>
     <Item>
@@ -70,7 +70,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardUp.xnb</Output>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardUp.xnb</Output>
       <Time>2014-12-05T15:01:28.1077095-05:00</Time>
     </Item>
     <Item>
@@ -79,7 +79,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballDown.xnb</Output>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballDown.xnb</Output>
       <Time>2014-12-05T15:13:58.5455645-05:00</Time>
     </Item>
     <Item>
@@ -88,7 +88,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballLeft.xnb</Output>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballLeft.xnb</Output>
       <Time>2014-12-05T15:13:58.5475647-05:00</Time>
     </Item>
     <Item>
@@ -97,7 +97,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballRight.xnb</Output>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballRight.xnb</Output>
       <Time>2014-12-05T15:13:58.5485648-05:00</Time>
     </Item>
     <Item>
@@ -106,7 +106,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballUp.xnb</Output>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballUp.xnb</Output>
       <Time>2014-12-05T15:13:58.5495649-05:00</Time>
     </Item>
     <Item>
@@ -115,7 +115,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\air.xnb</Output>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\air.xnb</Output>
       <Time>2014-12-09T15:01:00.2267828-05:00</Time>
     </Item>
     <Item>
@@ -124,7 +124,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\earth.xnb</Output>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\earth.xnb</Output>
       <Time>2014-12-09T15:01:00.2277828-05:00</Time>
     </Item>
     <Item>
@@ -133,7 +133,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\fire.xnb</Output>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\fire.xnb</Output>
       <Time>2014-12-09T15:01:00.2287828-05:00</Time>
     </Item>
     <Item>
@@ -142,7 +142,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\gui.xnb</Output>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\gui.xnb</Output>
       <Time>2014-12-09T15:07:39.0707828-05:00</Time>
     </Item>
     <Item>
@@ -151,7 +151,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\heart.xnb</Output>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\heart.xnb</Output>
       <Time>2014-12-09T15:01:00.2317828-05:00</Time>
     </Item>
     <Item>
@@ -160,7 +160,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\heartEmpty.xnb</Output>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\heartEmpty.xnb</Output>
       <Time>2014-12-09T15:01:00.2327828-05:00</Time>
     </Item>
     <Item>
@@ -169,7 +169,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\water.xnb</Output>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\water.xnb</Output>
       <Time>2014-12-09T15:01:00.2337828-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
@@ -178,10 +178,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Computer Programming II\Final Project\Final Project\Final ProjectContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Computer Programming II\Final Project\Final Project\Final Project\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Computer Programming II\Final Project\Final Project\Final ProjectContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Computer Programming II\Final Project\Final Project\Final Project\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final ProjectContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final ProjectContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

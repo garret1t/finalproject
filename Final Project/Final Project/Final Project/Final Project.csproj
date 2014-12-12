@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Grid.cs" />
+    <Compile Include="Map.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Projectile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -119,7 +120,11 @@
   <ItemGroup>
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
+    <Content Include="screen0.txt" />
     <Content Include="screen1.txt" />
+    <Content Include="screen2.txt" />
+    <Content Include="screen3.txt" />
+    <Content Include="screen4.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Final ProjectContent\Final ProjectContent.contentproj">

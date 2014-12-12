@@ -20,7 +20,8 @@ namespace Final_Project
         SpriteBatch spriteBatch;
         int[,] tileTypes = new int[9, 9];
         String[] lines = System.IO.File.ReadAllLines("screen1.txt");
-        public Grid gameBoard = new Grid();
+        String[] template = new String[5];
+        public Grid screen = new Grid();
         public Player wizard;
         Texture2D wizardup, wizarddown, wizardleft, wizardright;
         public Texture2D gui, heart, heartEmpty;
@@ -28,7 +29,7 @@ namespace Final_Project
         GamePadState pad1, oldpad1;
         public Texture2D fireballleft, fireballright, fireballup, fireballdown;
         public Texture2D mudballleft, mudballright, mudballup, mudballdown;
-        Spell fireball;
+       
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -45,22 +46,26 @@ namespace Final_Project
         /// </summary>
         protected override void Initialize()
         {
-            fireball = new Spell(Spell.Elements.Fire, wizard, Vector2.Zero, this);
+            
             // TODO: Add your initialization logic here
+            for (int i = 0; i < 5; i++) 
+            {
+                template[i] = "screen" + i;
+            }
+
             for (int i = 0; i < 9; i++)
             {
-                //Console.WriteLine(lines[i]);
-                
-                
-                for (int j = 0; j < 9; j++)
-                {
-
-                    tileTypes[i, j] = Convert.ToInt32(new String(lines[j].ToCharArray()[i], 1));
                     
-                }
+                    for (int j = 0; j < 9; j++)
+                    {
+
+                        tileTypes[i, j] = Convert.ToInt32(new String(lines[j].ToCharArray()[i], 1));
+
+                    }
             }
-            Console.WriteLine(tileTypes[0, 5]);
-            gameBoard.Load(tileTypes, this);
+            
+            
+            screen.Load(tileTypes, this);
             base.Initialize();
         }
 
@@ -113,12 +118,12 @@ namespace Final_Project
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            wizard.UpdateProjectiles(gameBoard);
+            wizard.UpdateProjectiles(screen);
 
-            if (pad1.ThumbSticks.Left.X > 0 && !(oldpad1.ThumbSticks.Left.X > 0)) { wizard.Move(wizard.row + 1, wizard.col, gameBoard); wizard.texture = wizard.textureRight; }
-            if (pad1.ThumbSticks.Left.X < 0 && !(oldpad1.ThumbSticks.Left.X < 0)) { wizard.Move(wizard.row - 1, wizard.col, gameBoard); wizard.texture = wizard.textureLeft; }
-            if (pad1.ThumbSticks.Left.Y > 0 && !(oldpad1.ThumbSticks.Left.Y > 0)) { wizard.Move(wizard.row, wizard.col - 1, gameBoard); wizard.texture = wizard.textureUp; }
-            if (pad1.ThumbSticks.Left.Y < 0 && !(oldpad1.ThumbSticks.Left.Y < 0)) { wizard.Move(wizard.row, wizard.col + 1, gameBoard); wizard.texture = wizard.textureDown; }
+            if (pad1.ThumbSticks.Left.X > 0 && !(oldpad1.ThumbSticks.Left.X > 0)) { wizard.Move(wizard.row + 1, wizard.col, screen); wizard.texture = wizard.textureRight; }
+            if (pad1.ThumbSticks.Left.X < 0 && !(oldpad1.ThumbSticks.Left.X < 0)) { wizard.Move(wizard.row - 1, wizard.col, screen); wizard.texture = wizard.textureLeft; }
+            if (pad1.ThumbSticks.Left.Y > 0 && !(oldpad1.ThumbSticks.Left.Y > 0)) { wizard.Move(wizard.row, wizard.col - 1, screen); wizard.texture = wizard.textureUp; }
+            if (pad1.ThumbSticks.Left.Y < 0 && !(oldpad1.ThumbSticks.Left.Y < 0)) { wizard.Move(wizard.row, wizard.col + 1, screen); wizard.texture = wizard.textureDown; }
 
             if (pad1.ThumbSticks.Right.X > 0 && oldpad1.ThumbSticks.Right.X == 0) { wizard.Shoot(ProjectileType.Fireball, new Vector2(1, 0), fireballright); }
             if (pad1.ThumbSticks.Right.X < 0 && oldpad1.ThumbSticks.Right.X == 0) { wizard.Shoot(ProjectileType.Fireball, new Vector2(-1, 0), fireballleft); }
@@ -138,14 +143,13 @@ namespace Final_Project
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
-            fireball.Draw(spriteBatch);
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);           
             spriteBatch.Draw(gui, new Rectangle(0, 0, 800, 800), Color.White);
             for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 9; j++)
                 {
-                    spriteBatch.Draw(gameBoard.GetTile(i, j).tileTexture, new Rectangle(i * 67 + 100, j * 67 + 200, 67, 67), Color.White);
+                    spriteBatch.Draw(screen.GetTile(i, j).tileTexture, new Rectangle(i * 67 + 100, j * 67 + 200, 67, 67), Color.White);
                 }
             }
             foreach (Projectile p in wizard.projectiles) 
