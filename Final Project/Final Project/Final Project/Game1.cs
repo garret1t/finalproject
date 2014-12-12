@@ -29,11 +29,9 @@ namespace Final_Project
         GamePadState pad1, oldpad1;
         public Texture2D fireballleft, fireballright, fireballup, fireballdown;
         public Texture2D mudballleft, mudballright, mudballup, mudballdown;
-<<<<<<< HEAD
-       
-=======
-//        Spell fireball;
->>>>>>> origin/master
+        Map map = new Map();
+        int mapr = 0;
+        int mapc = 0;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -50,16 +48,14 @@ namespace Final_Project
         /// </summary>
         protected override void Initialize()
         {
-<<<<<<< HEAD
-            
-=======
-            SpellElement.InitializeWeaknessMaps();
-            //fireball = new Spell(Spell.Elements.Fire, wizard, Vector2.Zero, this);
->>>>>>> origin/master
+
+            //SpellElement.InitializeWeaknessMaps();
+
+
             // TODO: Add your initialization logic here
             for (int i = 0; i < 5; i++) 
             {
-                template[i] = "screen" + i;
+                template[i] = "screen" + i + ".txt";
             }
 
             for (int i = 0; i < 9; i++)
@@ -72,9 +68,9 @@ namespace Final_Project
 
                     }
             }
-            
-            
-            screen.Load(tileTypes, this);
+            map.Load(template, this);
+
+            screen = map.map[mapr, mapc];
             base.Initialize();
         }
 
@@ -128,11 +124,81 @@ namespace Final_Project
                 this.Exit();
 
             wizard.UpdateProjectiles(screen);
+            Console.WriteLine(wizard.row + ", " + wizard.col);
+            if (pad1.ThumbSticks.Left.X > 0 && !(oldpad1.ThumbSticks.Left.X > 0)) 
+            {
+                if (wizard.row != 8)
+                {
+                    wizard.Move(wizard.row + 1, wizard.col, screen); wizard.texture = wizard.textureRight;
+                }
+                else 
+                {
+                    screen.grid[8, 4] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile"));
+                    if (mapr < 4)
+                    {
+                        mapr += 1;
+                        screen = map.map[mapr, mapc];
+                        wizard.row = 0;
+                    }
+                    
+                }
 
-            if (pad1.ThumbSticks.Left.X > 0 && !(oldpad1.ThumbSticks.Left.X > 0)) { wizard.Move(wizard.row + 1, wizard.col, screen); wizard.texture = wizard.textureRight; }
-            if (pad1.ThumbSticks.Left.X < 0 && !(oldpad1.ThumbSticks.Left.X < 0)) { wizard.Move(wizard.row - 1, wizard.col, screen); wizard.texture = wizard.textureLeft; }
-            if (pad1.ThumbSticks.Left.Y > 0 && !(oldpad1.ThumbSticks.Left.Y > 0)) { wizard.Move(wizard.row, wizard.col - 1, screen); wizard.texture = wizard.textureUp; }
-            if (pad1.ThumbSticks.Left.Y < 0 && !(oldpad1.ThumbSticks.Left.Y < 0)) { wizard.Move(wizard.row, wizard.col + 1, screen); wizard.texture = wizard.textureDown; }
+            }
+            if (pad1.ThumbSticks.Left.X < 0 && !(oldpad1.ThumbSticks.Left.X < 0)) 
+            {
+                if (wizard.row != 0)
+                {
+                    wizard.Move(wizard.row - 1, wizard.col, screen); wizard.texture = wizard.textureLeft;
+                }
+                else 
+                {
+                    screen.grid[0, 4] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile"));
+                    if (mapr > 0)
+                    {
+                        mapr -= 1;
+                        screen = map.map[mapr, mapc];
+                        wizard.row = 8;
+                    }
+                    
+                }
+            }
+            if (pad1.ThumbSticks.Left.Y > 0 && !(oldpad1.ThumbSticks.Left.Y > 0)) 
+            {
+                if (wizard.col != 0)
+                {
+                    wizard.Move(wizard.row, wizard.col - 1, screen); wizard.texture = wizard.textureUp;
+                }
+                else
+                {
+                    screen.grid[4, 0] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile"));
+                    if (mapc > 0)
+                    {
+                        mapc -= 1;
+                        screen = map.map[mapr, mapc];
+                        wizard.col = 8;
+                    }
+                    
+                }
+            }
+            if (pad1.ThumbSticks.Left.Y < 0 && !(oldpad1.ThumbSticks.Left.Y < 0)) 
+            {
+                if (wizard.col != 8)
+                {
+                    wizard.Move(wizard.row, wizard.col + 1, screen); wizard.texture = wizard.textureDown;
+                }
+                else
+                {
+                    screen.grid[4, 8] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile")); 
+                    if (mapc < 4)
+                    {
+                        mapc += 1;
+                        screen = map.map[mapr, mapc];
+                        wizard.col = 0;
+
+                    }
+                    
+                }
+            }
 
             if (pad1.ThumbSticks.Right.X > 0 && oldpad1.ThumbSticks.Right.X == 0) { wizard.Shoot(ProjectileType.Fireball, new Vector2(1, 0), fireballright); }
             if (pad1.ThumbSticks.Right.X < 0 && oldpad1.ThumbSticks.Right.X == 0) { wizard.Shoot(ProjectileType.Fireball, new Vector2(-1, 0), fireballleft); }
@@ -152,12 +218,12 @@ namespace Final_Project
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             
-<<<<<<< HEAD
+
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);           
-=======
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+
+            
             //fireball.Draw(spriteBatch);
->>>>>>> origin/master
+
             spriteBatch.Draw(gui, new Rectangle(0, 0, 800, 800), Color.White);
             for (int i = 0; i < 9; i++)
             {

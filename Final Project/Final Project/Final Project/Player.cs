@@ -37,6 +37,8 @@ namespace Final_Project
         }
         public void Move(int r, int c, Grid tiles)
         {
+           
+            
             if (Math.Abs(row - r) <= 1 && Math.Abs(col - c) <= 1 && tiles.GetTile(r, c).canWalk) { row = r; col = c; }
         }
         public void Shoot(ProjectileType type, Vector2 vel, Texture2D projtexture) 
@@ -52,7 +54,7 @@ namespace Final_Project
                 
                 p.Location += (p.Velocity *p.Speed);
 
-                if (Vector2.Distance(p.Location, new Vector2(row * 67, col * 67)) > 300 || tiles.GetTile(new Rectangle((int)p.Location.X, (int)p.Location.Y, 1,1)).canWalk != true) { p.Visible = false; }
+                if (Vector2.Distance(p.Location, new Vector2(row * 67, col * 67)) > 300 || tiles.GetTile(new Rectangle((int)p.Location.X, (int)p.Location.Y, 1, 1)).material == Tile.Material.Rock || tiles.GetTile(new Rectangle((int)p.Location.X, (int)p.Location.Y, 1, 1)).material == Tile.Material.Null) { p.Visible = false; }
             }
             for (int i = 0; i < projectiles.Count(); i++) 
             {

@@ -14,7 +14,7 @@ namespace Final_Project
 {
     public class Grid
     {
-        Tile[,] grid = new Tile[9, 9];
+        public Tile[,] grid = new Tile[9, 9];
 
         public void Load(int[,] tiles, Game1 game1)
         {
@@ -58,7 +58,7 @@ namespace Final_Project
         {
             if (rect.X > 0 && rect.Y > 0 && rect.X < 600 && rect.Y < 600)
             {
-                Console.WriteLine(rect.X);
+                
                 return grid[rect.X / 67, rect.Y / 67];
             }
             else
