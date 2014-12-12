@@ -107,7 +107,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events.cs" />
     <Compile Include="Grid.cs" />
+    <Compile Include="LivingEntity.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Projectile.cs" />
@@ -115,7 +117,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Spell.cs" />
+    <Compile Include="SpellComboList.cs" />
+    <Compile Include="SpellElement.cs" />
     <Compile Include="Tile.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

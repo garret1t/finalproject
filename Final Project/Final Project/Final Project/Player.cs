@@ -23,7 +23,16 @@ namespace Final_Project
         public Texture2D textureRight;
         public SpriteBatch spriteBatch;
         public List<Projectile> projectiles = new List<Projectile>();
-        
+        public event RecordStatusEvent OnRecordStatusChanged;
+        SpellComboList currentCombo = new SpellComboList();
+        private bool recordingStatus = false;
+
+        public bool RecordStatus
+        {
+            get { return recordingStatus; }
+            set { recordingStatus = value; OnRecordStatusChanged(value); }
+        }
+
         public Player(int playerRow, int playerColumn, Texture2D tup, Texture2D tdown, Texture2D tleft, Texture2D tright, SpriteBatch game1spriteBatch)
         {
             row = playerRow;
@@ -34,6 +43,7 @@ namespace Final_Project
             textureRight = tright;
             texture = tdown;
             spriteBatch = game1spriteBatch;
+
         }
         public void Move(int r, int c, Grid tiles)
         {
@@ -44,6 +54,27 @@ namespace Final_Project
             Projectile temp = new Projectile(5,new Vector2(row * 67, col * 67), vel, type, projtexture);
             if (projectiles.Count() < 3) { projectiles.Add(temp);  }
         }
+        GamePadState oldState, curState;
+        public void PollInput()
+        {
+            curState = GamePad.GetState(PlayerIndex.One);
+            if (oldState == null) oldState = curState;
+
+            if (curState.Triggers.Left >= 0.75f)
+            {
+                RecordStatus = true;
+            }
+
+            if (RecordStatus && currentCombo.Count < 3)
+            {
+                if      (oldState.Buttons.B == ButtonState.Released && curState.Buttons.B == ButtonState.Pressed) currentCombo.Add(SpellElement.Fire);
+                else if (oldState.Buttons.A == ButtonState.Released && curState.Buttons.A == ButtonState.Pressed) currentCombo.Add(SpellElement.Air);
+                else if (oldState.Buttons.X == ButtonState.Released && curState.Buttons.X == ButtonState.Pressed) currentCombo.Add(SpellElement.Water);
+                else if (oldState.Buttons.Y == ButtonState.Released && curState.Buttons.Y == ButtonState.Pressed) currentCombo.Add(SpellElement.Earth);
+            }
+            oldState = curState;
+        }
+
         public void UpdateProjectiles(Grid tiles) 
         {
             

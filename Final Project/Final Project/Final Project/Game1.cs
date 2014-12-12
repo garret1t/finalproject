@@ -47,6 +47,8 @@ namespace Final_Project
         /// </summary>
         protected override void Initialize()
         {
+            SpellElement.InitializeWeaknessMaps();
+            SpellRegistry.Initialize();
             //fireball = new Spell(Spell.Elements.Fire, wizard, Vector2.Zero, this);
             // TODO: Add your initialization logic here
             for (int i = 0; i < 5; i++) 
