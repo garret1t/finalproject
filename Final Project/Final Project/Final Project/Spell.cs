@@ -34,29 +34,35 @@ namespace Final_Project
     }
 
     #region Abstract Definitions
-    public abstract partial class Spell
+    public class Spell
     {        
-        private SpellElement domtype;
-        private SpellElement[] uniqueCombo;
+        protected SpellElement dominantType;
+        protected SpellElement[] uniqueCombo;
         public SpellElement[] Combination { get { return uniqueCombo; } }
-        public SpellElement DominantType { get { return domtype; } }
+        public SpellElement DominantType { get { return dominantType; } }
     }
-    public abstract class LivingTargetSpell : Spell
+    public class LivingTargetSpell : Spell
     {
-        public abstract void OnHit(LivingEntity entity);
+        public virtual void OnHit(LivingEntity entity) { }
     }
-    public abstract class TileTargetSpell : Spell
+    public class TileTargetSpell : Spell
     {
-        public abstract void OnHit(Tile tile);
+        public virtual void OnHit(Tile tile) { }
     }
     #endregion
 
     #region Spell Definitions
     public class SpellFireball : LivingTargetSpell
     {
+        public SpellFireball()
+        {
+            dominantType = SpellElement.Fire;
+            uniqueCombo = new SpellElement[] { SpellElement.Fire };
+        }
         public override void OnHit(LivingEntity entity)
         {
-            
+            entity.Damage(10, dominantType);
+            base.OnHit(entity);
         }
     }
     public class FailSpell : LivingTargetSpell

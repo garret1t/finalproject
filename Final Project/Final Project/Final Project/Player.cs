@@ -43,7 +43,15 @@ namespace Final_Project
             textureRight = tright;
             texture = tdown;
             spriteBatch = game1spriteBatch;
+            OnRecordStatusChanged += new RecordStatusEvent(Player_OnRecordStatusChanged);
+        }
 
+        void Player_OnRecordStatusChanged(bool on)
+        {
+            if (!on)
+            {
+                
+            }
         }
         public void Move(int r, int c, Grid tiles)
         {
