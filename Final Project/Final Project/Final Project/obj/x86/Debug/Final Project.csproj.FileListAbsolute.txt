@@ -48,3 +48,47 @@ C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final
 C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\obj\x86\Debug\Final Project.exe
 C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\obj\x86\Debug\Final Project.pdb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\obj\x86\Debug\Final Project.csprojResolveAssemblyReference.cache
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\obj\x86\Debug\Final Project.exe
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\obj\x86\Debug\Final Project.pdb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\air.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\WizardUp.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\earth.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\fire.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\FireballDown.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\FireballLeft.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\FireballRight.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\FireballUp.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\GrassTile.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\gui.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\heart.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\heartEmpty.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\RockTile.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\SandTile.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\water.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\WaterTile.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\WizardDown.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\WizardLeft.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\WizardRight.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\air.png
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\WizardUp.png
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\earth.png
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\fire.png
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\FireballDown.png
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\FireballLeft.png
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\FireballRight.png
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\FireballUp.png
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\GrassTile.png
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\gui.png
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\heart.png
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\heartEmpty.png
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\RockTile.png
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\SandTile.png
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\water.png
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\WaterTile.png
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\WizardDown.png
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\WizardLeft.png
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\WizardRight.png
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Final Project.exe
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Final Project.pdb

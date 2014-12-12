@@ -41,107 +41,155 @@
       <Private>False</Private>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Compile Include="GrassTile.png">
-      <Name>GrassTile</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="RockTile.png">
-      <Name>RockTile</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="SandTile.png">
-      <Name>SandTile</Name>
+    <Compile Include="asd\air.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>air</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WaterTile.png">
-      <Name>WaterTile</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="WizardDown.png">
-      <Name>WizardDown</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="WizardLeft.png">
-      <Name>WizardLeft</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="WizardRight.png">
-      <Name>WizardRight</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="WizardUp.png">
+    <Compile Include="asd\WizardUp.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>WizardUp</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FireballDown.png">
+    <Compile Include="asd\earth.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>earth</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="asd\fire.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>fire</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="asd\FireballDown.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>FireballDown</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="FireballLeft.png">
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="asd\FireballLeft.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>FireballLeft</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="FireballRight.png">
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="asd\FireballRight.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>FireballRight</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="FireballUp.png">
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="asd\FireballUp.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>FireballUp</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="air.png">
-      <Name>air</Name>
+    <Compile Include="asd\GrassTile.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>GrassTile</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="earth.png">
-      <Name>earth</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="fire.png">
-      <Name>fire</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gui.png">
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="asd\gui.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>gui</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="heart.png">
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="asd\heart.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>heart</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="heartEmpty.png">
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="asd\heartEmpty.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>heartEmpty</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="water.png">
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="asd\RockTile.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>RockTile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="asd\SandTile.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SandTile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="asd\water.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>water</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="asd\WaterTile.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>WaterTile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="asd\WizardDown.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>WizardDown</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="asd\WizardLeft.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>WizardLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="asd\WizardRight.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>WizardRight</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

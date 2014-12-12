@@ -2,175 +2,175 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>GrassTile.png</Source>
-      <Name>GrassTile</Name>
+      <Source>asd\air.png</Source>
+      <Name>asd\air</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\GrassTile.xnb</Output>
-      <Time>2014-12-04T15:01:18.0007217-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\air.xnb</Output>
+      <Time>2014-12-12T14:21:34.5875331-05:00</Time>
     </Item>
     <Item>
-      <Source>RockTile.png</Source>
-      <Name>RockTile</Name>
+      <Source>asd\WizardUp.png</Source>
+      <Name>asd\WizardUp</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\RockTile.xnb</Output>
-      <Time>2014-12-04T15:01:18.0127217-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\WizardUp.xnb</Output>
+      <Time>2014-12-12T14:21:34.5885331-05:00</Time>
     </Item>
     <Item>
-      <Source>SandTile.png</Source>
-      <Name>SandTile</Name>
+      <Source>asd\earth.png</Source>
+      <Name>asd\earth</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\SandTile.xnb</Output>
-      <Time>2014-12-04T15:01:18.0177217-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\earth.xnb</Output>
+      <Time>2014-12-12T14:21:34.5895331-05:00</Time>
     </Item>
     <Item>
-      <Source>WaterTile.png</Source>
-      <Name>WaterTile</Name>
+      <Source>asd\fire.png</Source>
+      <Name>asd\fire</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WaterTile.xnb</Output>
-      <Time>2014-12-04T15:04:55.1507217-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\fire.xnb</Output>
+      <Time>2014-12-12T14:21:34.5905331-05:00</Time>
     </Item>
     <Item>
-      <Source>WizardDown.png</Source>
-      <Name>WizardDown</Name>
+      <Source>asd\FireballDown.png</Source>
+      <Name>asd\FireballDown</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardDown.xnb</Output>
-      <Time>2014-12-05T15:01:28.1037095-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\FireballDown.xnb</Output>
+      <Time>2014-12-12T14:21:34.5915331-05:00</Time>
     </Item>
     <Item>
-      <Source>WizardLeft.png</Source>
-      <Name>WizardLeft</Name>
+      <Source>asd\FireballLeft.png</Source>
+      <Name>asd\FireballLeft</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardLeft.xnb</Output>
-      <Time>2014-12-05T15:01:28.1047095-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\FireballLeft.xnb</Output>
+      <Time>2014-12-12T14:21:34.5925331-05:00</Time>
     </Item>
     <Item>
-      <Source>WizardRight.png</Source>
-      <Name>WizardRight</Name>
+      <Source>asd\FireballRight.png</Source>
+      <Name>asd\FireballRight</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardRight.xnb</Output>
-      <Time>2014-12-05T15:01:28.1067095-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\FireballRight.xnb</Output>
+      <Time>2014-12-12T14:21:34.5935331-05:00</Time>
     </Item>
     <Item>
-      <Source>WizardUp.png</Source>
-      <Name>WizardUp</Name>
+      <Source>asd\FireballUp.png</Source>
+      <Name>asd\FireballUp</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardUp.xnb</Output>
-      <Time>2014-12-05T15:01:28.1077095-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\FireballUp.xnb</Output>
+      <Time>2014-12-12T14:21:34.5945331-05:00</Time>
     </Item>
     <Item>
-      <Source>FireballDown.png</Source>
-      <Name>FireballDown</Name>
+      <Source>asd\GrassTile.png</Source>
+      <Name>asd\GrassTile</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballDown.xnb</Output>
-      <Time>2014-12-05T15:13:58.5455645-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\GrassTile.xnb</Output>
+      <Time>2014-12-12T14:21:34.5955331-05:00</Time>
     </Item>
     <Item>
-      <Source>FireballLeft.png</Source>
-      <Name>FireballLeft</Name>
+      <Source>asd\gui.png</Source>
+      <Name>asd\gui</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballLeft.xnb</Output>
-      <Time>2014-12-05T15:13:58.5475647-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\gui.xnb</Output>
+      <Time>2014-12-12T14:21:34.5965331-05:00</Time>
     </Item>
     <Item>
-      <Source>FireballRight.png</Source>
-      <Name>FireballRight</Name>
+      <Source>asd\heart.png</Source>
+      <Name>asd\heart</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballRight.xnb</Output>
-      <Time>2014-12-05T15:13:58.5485648-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\heart.xnb</Output>
+      <Time>2014-12-12T14:21:34.5975331-05:00</Time>
     </Item>
     <Item>
-      <Source>FireballUp.png</Source>
-      <Name>FireballUp</Name>
+      <Source>asd\heartEmpty.png</Source>
+      <Name>asd\heartEmpty</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballUp.xnb</Output>
-      <Time>2014-12-05T15:13:58.5495649-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\heartEmpty.xnb</Output>
+      <Time>2014-12-12T14:21:34.5985331-05:00</Time>
     </Item>
     <Item>
-      <Source>air.png</Source>
-      <Name>air</Name>
+      <Source>asd\RockTile.png</Source>
+      <Name>asd\RockTile</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\air.xnb</Output>
-      <Time>2014-12-09T15:01:00.2267828-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\RockTile.xnb</Output>
+      <Time>2014-12-12T14:21:34.5995331-05:00</Time>
     </Item>
     <Item>
-      <Source>earth.png</Source>
-      <Name>earth</Name>
+      <Source>asd\SandTile.png</Source>
+      <Name>asd\SandTile</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\earth.xnb</Output>
-      <Time>2014-12-09T15:01:00.2277828-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\SandTile.xnb</Output>
+      <Time>2014-12-12T14:21:34.6005331-05:00</Time>
     </Item>
     <Item>
-      <Source>fire.png</Source>
-      <Name>fire</Name>
+      <Source>asd\water.png</Source>
+      <Name>asd\water</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\fire.xnb</Output>
-      <Time>2014-12-09T15:01:00.2287828-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\water.xnb</Output>
+      <Time>2014-12-12T14:21:34.6015331-05:00</Time>
     </Item>
     <Item>
-      <Source>gui.png</Source>
-      <Name>gui</Name>
+      <Source>asd\WaterTile.png</Source>
+      <Name>asd\WaterTile</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\gui.xnb</Output>
-      <Time>2014-12-09T15:07:39.0707828-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\WaterTile.xnb</Output>
+      <Time>2014-12-12T14:21:34.6015331-05:00</Time>
     </Item>
     <Item>
-      <Source>heart.png</Source>
-      <Name>heart</Name>
+      <Source>asd\WizardDown.png</Source>
+      <Name>asd\WizardDown</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\heart.xnb</Output>
-      <Time>2014-12-09T15:01:00.2317828-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\WizardDown.xnb</Output>
+      <Time>2014-12-12T14:21:34.6025331-05:00</Time>
     </Item>
     <Item>
-      <Source>heartEmpty.png</Source>
-      <Name>heartEmpty</Name>
+      <Source>asd\WizardLeft.png</Source>
+      <Name>asd\WizardLeft</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\heartEmpty.xnb</Output>
-      <Time>2014-12-09T15:01:00.2327828-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\WizardLeft.xnb</Output>
+      <Time>2014-12-12T14:21:34.6035331-05:00</Time>
     </Item>
     <Item>
-      <Source>water.png</Source>
-      <Name>water</Name>
+      <Source>asd\WizardRight.png</Source>
+      <Name>asd\WizardRight</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\water.xnb</Output>
-      <Time>2014-12-09T15:01:00.2337828-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\asd\WizardRight.xnb</Output>
+      <Time>2014-12-12T14:21:34.6045331-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -178,10 +178,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final ProjectContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final ProjectContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final ProjectContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final ProjectContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -210,7 +210,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-09-16T09:42:13.1108047-04:00</Value>
+        <Value>2013-09-16T09:42:24.2952053-04:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

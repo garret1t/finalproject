@@ -29,11 +29,8 @@ namespace Final_Project
         GamePadState pad1, oldpad1;
         public Texture2D fireballleft, fireballright, fireballup, fireballdown;
         public Texture2D mudballleft, mudballright, mudballup, mudballdown;
-<<<<<<< HEAD
        
-=======
 //        Spell fireball;
->>>>>>> origin/master
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -50,12 +47,7 @@ namespace Final_Project
         /// </summary>
         protected override void Initialize()
         {
-<<<<<<< HEAD
-            
-=======
-            SpellElement.InitializeWeaknessMaps();
             //fireball = new Spell(Spell.Elements.Fire, wizard, Vector2.Zero, this);
->>>>>>> origin/master
             // TODO: Add your initialization logic here
             for (int i = 0; i < 5; i++) 
             {
@@ -150,14 +142,9 @@ namespace Final_Project
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-            
-<<<<<<< HEAD
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);           
-=======
+            GraphicsDevice.Clear(Color.CornflowerBlue);           
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
             //fireball.Draw(spriteBatch);
->>>>>>> origin/master
             spriteBatch.Draw(gui, new Rectangle(0, 0, 800, 800), Color.White);
             for (int i = 0; i < 9; i++)
             {
