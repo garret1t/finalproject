@@ -61,16 +61,12 @@ namespace Final_Project
 
             
             map.Load(template, this);
-           
-            for(int i= 0; i<5; i++)
+            foreach (Grid g in map.map) 
             {
-                for(int j= 0; j<5; j++)
-                {
-                if (i == 0) { map.map[i,j].grid[0, 4] = new Tile(Tile.Material.Rock,false,false, Content.Load<Texture2D>("RockTile"));}
-                if (i == 4) { map.map[i,j].grid[8, 4] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile")); }
-                if (j == 0) { map.map[i,j].grid[4, 0] = new Tile(Tile.Material.Rock,false,false, Content.Load<Texture2D>("RockTile"));}
-                if (j == 4) { map.map[i,j].grid[4, 8] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile")); }
-                }
+                if (mapr == 0) { g.grid[0, 4] = new Tile(Tile.Material.Rock,false,false, Content.Load<Texture2D>("RockTile"));}
+                if (mapr == 4) { g.grid[8, 4] = new Tile(Tile.Material.Rock,false,false, Content.Load<Texture2D>("RockTile"));}
+                if (mapc == 0) { g.grid[4, 0] = new Tile(Tile.Material.Rock,false,false, Content.Load<Texture2D>("RockTile"));}
+                if (mapc == 4) { g.grid[4, 8] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile")); }
             }
             screen = map.map[mapr, mapc];
             base.Initialize();
@@ -132,7 +128,7 @@ namespace Final_Project
                 this.Exit();
 
             wizard.UpdateProjectiles(screen);
-            map.map[mapr, mapc].visible = true;
+            
             
             if (pad1.ThumbSticks.Left.X > 0 && !(oldpad1.ThumbSticks.Left.X > 0)) 
             {
@@ -239,7 +235,6 @@ namespace Final_Project
             int vertOffsets = 0;
             int horzOffset = 0;
             int dim = 4;
-            spriteBatch.Draw(wizarddown, new Rectangle(mapr * dim, mapc * dim, dim*2, dim*2), Color.White);
             foreach (Grid g in map.map)
             {
                 if (renders % 5 == 0 && renders != 0)
@@ -251,8 +246,7 @@ namespace Final_Project
                 {
                     for (int j = 0; j < 9; j++)
                     {
-                        if (g.visible == true)
-                        { spriteBatch.Draw(g.GetTile(i, j).tileTexture, new Rectangle(i * dim + 5 + (horzOffset * dim * 9), j * dim + 5 + (vertOffsets * dim * 9), dim, dim), Color.White); }
+                        spriteBatch.Draw(g.GetTile(i, j).tileTexture, new Rectangle(i * dim + 5 + (horzOffset * dim * 9), j * dim + 5 + (vertOffsets * dim * 9), dim, dim), Color.White);
                     }
                 }
                 vertOffsets++;
