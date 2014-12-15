@@ -15,7 +15,7 @@ namespace Final_Project
     public class Grid
     {
         public Tile[,] grid = new Tile[9, 9];
-
+        public bool visible;
         public void Load(int[,] tiles, Game1 game1)
         {
             for (int i = 0; i < 9; i++)
