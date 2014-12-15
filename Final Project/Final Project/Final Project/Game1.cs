@@ -29,6 +29,7 @@ namespace Final_Project
         GamePadState pad1, oldpad1;
         public Texture2D fireballleft, fireballright, fireballup, fireballdown;
         public Texture2D mudballleft, mudballright, mudballup, mudballdown;
+        public Dictionary<string, Texture2D> TextureDictionary = new Dictionary<string, Texture2D>();
         Map map = new Map();
         int mapr = 0;
         int mapc = 0;
@@ -99,6 +100,12 @@ namespace Final_Project
             heart = Content.Load<Texture2D>("heart");
             heartEmpty = Content.Load<Texture2D>("heartEmpty");
             wizard = new Player(4, 4, wizardup, wizarddown, wizardleft, wizardright, spriteBatch);
+
+            TextureDictionary.Add("wizard.down", wizarddown);
+            TextureDictionary.Add("wizard.up", wizardup);
+            TextureDictionary.Add("wizard.left", wizardleft);
+            TextureDictionary.Add("wizard.right", wizardright);
+
             // TODO: use this.Content to load your game content here
         }
 
