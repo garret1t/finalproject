@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Final_Project
 {
+    #region Spell Registry
     public static class SpellRegistry
     {
         private static List<Spell> registeredSpells;
@@ -32,6 +33,7 @@ namespace Final_Project
             return FailSpell;
         }
     }
+    #endregion
 
     #region Abstract Definitions
     public class Spell
