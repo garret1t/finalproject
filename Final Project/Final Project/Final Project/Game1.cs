@@ -124,9 +124,7 @@ namespace Final_Project
                 this.Exit();
 
             wizard.UpdateProjectiles(screen);
-            Console.WriteLine(wizard.row + ", " + wizard.col);
-
-
+            
             if (mapc == 4) { screen.grid[4, 8] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile")); }
             if (mapc == 0) { screen.grid[4, 0] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile")); }
             if (mapr == 0) { screen.grid[0, 4] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile")); }
@@ -231,6 +229,41 @@ namespace Final_Project
             //fireball.Draw(spriteBatch);
 
             spriteBatch.Draw(gui, new Rectangle(0, 0, 800, 800), Color.White);
+            /*for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    for (int k = 0; k < 9; k++)
+                    {
+                        for (int l = 0; l < 9; l++)
+                        {
+                            spriteBatch.Draw(map.map[i, j].GetTile(k, l).tileTexture, new Rectangle(k + 50 + (i * 20), l + 5 + (j * 20), 10, 10), Color.White);
+
+                        }
+                    }
+                }
+            }*/
+            int renders = 0;
+            int vertOffsets = 0;
+            int horzOffset = 0;
+            int dim = 5;
+            foreach (Grid g in map.map)
+            {
+                if (renders % 5 == 0 && renders != 0)
+                {
+                    horzOffset++;
+                    vertOffsets = 0;
+                }
+                for (int i = 0; i < 9; i++)
+                {
+                    for (int j = 0; j < 9; j++)
+                    {
+                        spriteBatch.Draw(g.GetTile(i, j).tileTexture, new Rectangle(i * dim + 5 + (horzOffset * dim * 9), j * dim + 5 + (vertOffsets * dim * 9), dim, dim), Color.White);
+                    }
+                }
+                vertOffsets++;
+                renders++;
+            }
             for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 9; j++)
