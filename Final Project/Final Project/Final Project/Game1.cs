@@ -125,6 +125,12 @@ namespace Final_Project
 
             wizard.UpdateProjectiles(screen);
             Console.WriteLine(wizard.row + ", " + wizard.col);
+
+
+            if (mapc == 4) { screen.grid[4, 8] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile")); }
+            if (mapc == 0) { screen.grid[4, 0] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile")); }
+            if (mapr == 0) { screen.grid[0, 4] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile")); }
+            if (mapr == 4) { screen.grid[8, 4] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile")); }
             if (pad1.ThumbSticks.Left.X > 0 && !(oldpad1.ThumbSticks.Left.X > 0)) 
             {
                 if (wizard.row != 8)
@@ -133,7 +139,7 @@ namespace Final_Project
                 }
                 else 
                 {
-                    screen.grid[8, 4] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile"));
+                    
                     if (mapr < 4)
                     {
                         mapr += 1;
@@ -152,7 +158,7 @@ namespace Final_Project
                 }
                 else 
                 {
-                    screen.grid[0, 4] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile"));
+                    
                     if (mapr > 0)
                     {
                         mapr -= 1;
@@ -170,7 +176,7 @@ namespace Final_Project
                 }
                 else
                 {
-                    screen.grid[4, 0] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile"));
+                    
                     if (mapc > 0)
                     {
                         mapc -= 1;
@@ -188,7 +194,7 @@ namespace Final_Project
                 }
                 else
                 {
-                    screen.grid[4, 8] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile")); 
+                    
                     if (mapc < 4)
                     {
                         mapc += 1;
