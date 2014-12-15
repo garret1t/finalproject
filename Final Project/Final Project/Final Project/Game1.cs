@@ -52,25 +52,22 @@ namespace Final_Project
 
             //SpellElement.InitializeWeaknessMaps();
 
-
+            
             // TODO: Add your initialization logic here
             for (int i = 0; i < 5; i++) 
             {
                 template[i] = "screen" + i + ".txt";
             }
 
-            for (int i = 0; i < 9; i++)
-            {
-                    
-                    for (int j = 0; j < 9; j++)
-                    {
-
-                        tileTypes[i, j] = Convert.ToInt32(new String(lines[j].ToCharArray()[i], 1));
-
-                    }
-            }
+            
             map.Load(template, this);
-
+            foreach (Grid g in map.map) 
+            {
+                if (mapr == 0) { g.grid[0, 4] = new Tile(Tile.Material.Rock,false,false, Content.Load<Texture2D>("RockTile"));}
+                if (mapr == 4) { g.grid[8, 4] = new Tile(Tile.Material.Rock,false,false, Content.Load<Texture2D>("RockTile"));}
+                if (mapc == 0) { g.grid[4, 0] = new Tile(Tile.Material.Rock,false,false, Content.Load<Texture2D>("RockTile"));}
+                if (mapc == 4) { g.grid[4, 8] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile")); }
+            }
             screen = map.map[mapr, mapc];
             base.Initialize();
         }
@@ -132,10 +129,7 @@ namespace Final_Project
 
             wizard.UpdateProjectiles(screen);
             
-            if (mapc == 4) { screen.grid[4, 8] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile")); }
-            if (mapc == 0) { screen.grid[4, 0] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile")); }
-            if (mapr == 0) { screen.grid[0, 4] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile")); }
-            if (mapr == 4) { screen.grid[8, 4] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile")); }
+            
             if (pad1.ThumbSticks.Left.X > 0 && !(oldpad1.ThumbSticks.Left.X > 0)) 
             {
                 if (wizard.row != 8)
@@ -233,27 +227,14 @@ namespace Final_Project
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);           
 
             
-            //fireball.Draw(spriteBatch);
+            
 
             spriteBatch.Draw(gui, new Rectangle(0, 0, 800, 800), Color.White);
-            /*for (int i = 0; i < 5; i++)
-            {
-                for (int j = 0; j < 5; j++)
-                {
-                    for (int k = 0; k < 9; k++)
-                    {
-                        for (int l = 0; l < 9; l++)
-                        {
-                            spriteBatch.Draw(map.map[i, j].GetTile(k, l).tileTexture, new Rectangle(k + 50 + (i * 20), l + 5 + (j * 20), 10, 10), Color.White);
-
-                        }
-                    }
-                }
-            }*/
+            
             int renders = 0;
             int vertOffsets = 0;
             int horzOffset = 0;
-            int dim = 5;
+            int dim = 4;
             foreach (Grid g in map.map)
             {
                 if (renders % 5 == 0 && renders != 0)
