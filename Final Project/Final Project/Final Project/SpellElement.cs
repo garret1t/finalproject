@@ -17,10 +17,11 @@ namespace Final_Project
 
         #region Element Definitions
 
-        public static readonly SpellElement Fire = new SpellElement(0);
-        public static readonly SpellElement Air = new SpellElement(1);
-        public static readonly SpellElement Water = new SpellElement(2);
-        public static readonly SpellElement Earth = new SpellElement(3);
+        public static readonly SpellElement Fire = new SpellElement(0, "Fire");
+        public static readonly SpellElement Air = new SpellElement(1, "Air");
+        public static readonly SpellElement Water = new SpellElement(2, "Water");
+        public static readonly SpellElement Earth = new SpellElement(3, "Earth");
+        public static readonly SpellElement None = new SpellElement(4, "None");
 
         #endregion
 
@@ -40,13 +41,19 @@ namespace Final_Project
         #region SpellElement Class
 
         private int id;
-        public SpellElement(int id)
+        private string name;
+        public SpellElement(int id, string name)
         {
             this.id = id;
+            this.name = name;
         }
         public int ElementId
         {
             get { return id; }
+        }
+        public string Name
+        {
+            get { return name; }
         }
         public bool IsWeakTo(SpellElement target)
         {

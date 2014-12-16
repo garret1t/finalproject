@@ -30,7 +30,12 @@ namespace Final_Project
         public bool RecordStatus
         {
             get { return recordingStatus; }
-            set { recordingStatus = value; OnRecordStatusChanged(value); }
+            set 
+            {
+                bool evnt = recordingStatus != value;                
+                recordingStatus = value;
+                if (evnt) OnRecordStatusChanged(value);
+            }
         }
 
         public Player(int playerRow, int playerColumn, Texture2D tup, Texture2D tdown, Texture2D tleft, Texture2D tright, SpriteBatch game1spriteBatch)
@@ -44,14 +49,24 @@ namespace Final_Project
             texture = tdown;
             spriteBatch = game1spriteBatch;
             OnRecordStatusChanged += new RecordStatusEvent(Player_OnRecordStatusChanged);
+            currentCombo.OnSpellAdded += new SpellComboList.SpellAdded(currentCombo_OnSpellAdded);
+        }
+
+        void currentCombo_OnSpellAdded(SpellElement type)
+        {
+            Console.WriteLine("Element: " + type.Name);
+            Game1.Instance.Animations.Add(new Animations.SpellFlash(type));
         }
 
         void Player_OnRecordStatusChanged(bool on)
         {
+            Console.WriteLine("Record Combo: " + (on ? "on" : "off"));
             if (!on)
             {
-                
-            }
+                Spell c = currentCombo.Complete();
+                Console.WriteLine(c.Name);
+                currentCombo.Clear();
+            }            
         }
         public void Move(int r, int c, Grid tiles)
         {
@@ -72,6 +87,7 @@ namespace Final_Project
             {
                 RecordStatus = true;
             }
+            else { RecordStatus = false; }
 
             if (RecordStatus && currentCombo.Count < 3)
             {
@@ -101,6 +117,10 @@ namespace Final_Project
                     i--;
                 }
             }
+        }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(texture, new Rectangle(row * 67 + 100, col * 67 + 200, 67, 67), Color.White);
         }
     }
 }

@@ -9,13 +9,13 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+using Final_Project.Animations;
+
 namespace Final_Project
 {
-    /// <summary>
-    /// This is the main type for your game
-    /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+        public static Game1 Instance;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         int[,] tileTypes = new int[9, 9];
@@ -30,27 +30,24 @@ namespace Final_Project
         public Texture2D fireballleft, fireballright, fireballup, fireballdown;
         public Texture2D mudballleft, mudballright, mudballup, mudballdown;
         public Dictionary<string, Texture2D> TextureDictionary = new Dictionary<string, Texture2D>();
+        public List<PrefabAnimation> Animations = new List<PrefabAnimation>();
         Map map = new Map();
         int mapr = 0;
         int mapc = 0;
         public Game1()
         {
+            Game1.Instance = this;
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferHeight = 800;
             graphics.PreferredBackBufferWidth = 800;
             Content.RootDirectory = "Content";
         }
 
-        /// <summary>
-        /// Allows the game to perform any initialization it needs to before starting to run.
-        /// This is where it can query for any required services and load any non-graphic
-        /// related content.  Calling base.Initialize will enumerate through any components
-        /// and initialize them as well.
-        /// </summary>
         protected override void Initialize()
         {
 
-            //SpellElement.InitializeWeaknessMaps();
+            SpellElement.InitializeWeaknessMaps();
+            SpellRegistry.Initialize();
 
             
             // TODO: Add your initialization logic here
@@ -138,10 +135,6 @@ namespace Final_Project
             base.Initialize();
         }
 
-        /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
-        /// </summary>
         protected override void LoadContent()
         {
             
@@ -169,33 +162,26 @@ namespace Final_Project
             TextureDictionary.Add("wizard.left", wizardleft);
             TextureDictionary.Add("wizard.right", wizardright);
 
+            TextureDictionary.Add("symbols.fire", Content.Load<Texture2D>("Symbols/fire"));
+            TextureDictionary.Add("symbols.water", Content.Load<Texture2D>("Symbols/water"));
+
             // TODO: use this.Content to load your game content here
         }
 
-        /// <summary>
-        /// UnloadContent will be called once per game and is the place to unload
-        /// all content.
-        /// </summary>
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
         }
 
-        /// <summary>
-        /// Allows the game to run logic such as updating the world,
-        /// checking for collisions, gathering input, and playing audio.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
             pad1 = GamePad.GetState(PlayerIndex.One);
-            // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
             wizard.UpdateProjectiles(screen);
+            wizard.PollInput();
             map.map[mapr, mapc].visible = true;
-            
+            #region Input > Move
             if (pad1.ThumbSticks.Left.X > 0 && !(oldpad1.ThumbSticks.Left.X > 0)) 
             {
                 if (wizard.row != 8)
@@ -270,30 +256,25 @@ namespace Final_Project
                     
                 }
             }
-
+            #endregion
+            #region FireBall
             if (pad1.ThumbSticks.Right.X > 0 && oldpad1.ThumbSticks.Right.X == 0) { wizard.Shoot(ProjectileType.Fireball, new Vector2(1, 0), fireballright); }
             if (pad1.ThumbSticks.Right.X < 0 && oldpad1.ThumbSticks.Right.X == 0) { wizard.Shoot(ProjectileType.Fireball, new Vector2(-1, 0), fireballleft); }
             if (pad1.ThumbSticks.Right.Y > 0 && oldpad1.ThumbSticks.Right.Y == 0) { wizard.Shoot(ProjectileType.Fireball, new Vector2(0, -1), fireballup); }
             if (pad1.ThumbSticks.Right.Y < 0 && oldpad1.ThumbSticks.Right.Y == 0) { wizard.Shoot(ProjectileType.Fireball, new Vector2(0, 1), fireballdown); }
-            
-            // TODO: Add your update logic here
+            #endregion
+            for (int i = 0; i < Animations.Count; i++) if (Animations[i].NeedsRemove) Animations.RemoveAt(i);
+            foreach (PrefabAnimation pa in Animations) pa.Update(gameTime);
             oldpad1 = pad1;
             base.Update(gameTime);
         }
 
-        /// <summary>
-        /// This is called when the game should draw itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             
 
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);           
-
-            
-            
 
             spriteBatch.Draw(gui, new Rectangle(0, 0, 800, 800), Color.White);
             
@@ -332,11 +313,9 @@ namespace Final_Project
             {
                 p.Draw(spriteBatch,this);
             }
-            spriteBatch.Draw(wizard.texture, new Rectangle(wizard.row * 67 + 100, wizard.col * 67 + 200, 67, 67), Color.White);
-            
+            wizard.Draw(spriteBatch);
+            foreach (PrefabAnimation pa in Animations) pa.Draw(spriteBatch);
             spriteBatch.End();
-            // TODO: Add your drawing code here
-
             base.Draw(gameTime);
         }
     }
