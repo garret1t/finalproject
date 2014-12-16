@@ -66,10 +66,72 @@ namespace Final_Project
             {
                 for(int j= 0; j<5; j++)
                 {
-                if (i == 0) { map.map[i,j].grid[0, 4] = new Tile(Tile.Material.Rock,false,false, Content.Load<Texture2D>("RockTile"));}
-                if (i == 4) { map.map[i,j].grid[8, 4] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile")); }
-                if (j == 0) { map.map[i,j].grid[4, 0] = new Tile(Tile.Material.Rock,false,false, Content.Load<Texture2D>("RockTile"));}
-                if (j == 4) { map.map[i,j].grid[4, 8] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile")); }
+                if (i == 0) 
+                {
+                    if (map.map[i, j].grid[0, 4].material == Tile.Material.Grass)
+                    { 
+                        map.map[i, j].grid[0, 4] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile")); 
+                    }
+                    if (map.map[i, j].grid[0, 4].material == Tile.Material.Sand)
+                    {
+                        if (map.map[i, j].grid[1, 3].material == Tile.Material.Sand)
+                        { map.map[i, j].grid[0, 4] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("SandRockTile")); }
+                        if (map.map[i, j].grid[1, 3].material == Tile.Material.Water)
+                        { map.map[i, j].grid[0, 4] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("WaterRockTile")); }
+                    }
+                    if (map.map[i, j].grid[0, 4].material == Tile.Material.Water)
+                    {
+                        map.map[i, j].grid[0, 4] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("WaterRockTile"));
+                    }
+                }
+                if (i == 4) 
+                { 
+                   
+                    if (map.map[i, j].grid[8, 4].material == Tile.Material.Grass)
+                    {
+                        map.map[i, j].grid[8, 4] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile"));
+                    }
+                    if (map.map[i, j].grid[8, 4].material == Tile.Material.Sand)
+                    {
+                        map.map[i, j].grid[8, 4] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("SandRockTile"));
+                    }
+                    if (map.map[i, j].grid[8, 4].material == Tile.Material.Water)
+                    {
+                        map.map[i, j].grid[8, 4] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("WaterRockTile"));
+                    }
+                }
+                if (j == 0) 
+                { 
+                    
+                    if (map.map[i, j].grid[4, 0].material == Tile.Material.Grass)
+                    {
+                        map.map[i, j].grid[4, 0] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile"));
+                    }
+                    if (map.map[i, j].grid[4, 0].material == Tile.Material.Sand)
+                    {
+                        map.map[i, j].grid[4, 0] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("SandRockTile"));
+                    }
+                    if (map.map[i, j].grid[4, 0].material == Tile.Material.Water)
+                    {
+                        map.map[i, j].grid[4, 0] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("WaterRockTile"));
+                    }
+                }
+                if (j == 4) 
+                { 
+                    
+                    if (map.map[i, j].grid[4, 8].material == Tile.Material.Grass)
+                    {
+                        map.map[i, j].grid[4, 8] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("RockTile"));
+                    }
+                    if (map.map[i, j].grid[4, 8].material == Tile.Material.Sand)
+                    {
+                        map.map[i, j].grid[4, 8] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("SandRockTile"));
+                    }
+                    if (map.map[i, j].grid[4, 8].material == Tile.Material.Water)
+                    {
+                        map.map[i, j].grid[4, 8] = new Tile(Tile.Material.Rock, false, false, Content.Load<Texture2D>("WaterRockTile"));
+                    }
+                }
                 }
             }
             screen = map.map[mapr, mapc];
@@ -239,7 +301,7 @@ namespace Final_Project
             int vertOffsets = 0;
             int horzOffset = 0;
             int dim = 4;
-            spriteBatch.Draw(wizarddown, new Rectangle(mapr * dim, mapc * dim, dim*2, dim*2), Color.White);
+            
             foreach (Grid g in map.map)
             {
                 if (renders % 5 == 0 && renders != 0)
@@ -258,6 +320,7 @@ namespace Final_Project
                 vertOffsets++;
                 renders++;
             }
+            spriteBatch.Draw(this.Content.Load<Texture2D>("playerMarker"), new Rectangle((mapr * dim *9) + 1 + (dim *9 / 2), (mapc * dim * 9) + 1 + (dim *9 / 2), dim *2, dim * 2), Color.White);
             for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 9; j++)

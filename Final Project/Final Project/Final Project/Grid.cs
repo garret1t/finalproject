@@ -47,6 +47,18 @@ namespace Final_Project
                         grid[i, j].tileTexture = game1.Content.Load<Texture2D>("WaterTile");
                         grid[i, j].canWalk = false;
                     }
+                    if (tiles[i, j] == 4)
+                    {
+                        grid[i, j].material = Tile.Material.SandRock;
+                        grid[i, j].tileTexture = game1.Content.Load<Texture2D>("SandRockTile");
+                        grid[i, j].canWalk = false;
+                    }
+                    if (tiles[i, j] == 5)
+                    {
+                        grid[i, j].material = Tile.Material.WaterRock;
+                        grid[i, j].tileTexture = game1.Content.Load<Texture2D>("WaterRockTile");
+                        grid[i, j].canWalk = false;
+                    }
                 }
             }
         }

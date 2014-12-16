@@ -14,7 +14,7 @@ namespace Final_Project
 {
     public class Tile
     {
-        public enum Material { Water, Sand, Rock, Grass, Null }
+        public enum Material { Water, Sand, Rock, SandRock, WaterRock, Grass, Null }
         public Material material;
         public bool canWalk;
         public bool causesDamage;

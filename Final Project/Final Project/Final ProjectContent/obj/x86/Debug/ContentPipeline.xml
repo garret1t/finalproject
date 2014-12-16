@@ -172,6 +172,33 @@
       <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\water.xnb</Output>
       <Time>2014-12-09T15:01:00.2337828-05:00</Time>
     </Item>
+    <Item>
+      <Source>playerMarker.png</Source>
+      <Name>playerMarker</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\playerMarker.xnb</Output>
+      <Time>2014-12-16T08:45:12.8631975-05:00</Time>
+    </Item>
+    <Item>
+      <Source>SandRockTile.png</Source>
+      <Name>SandRockTile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\SandRockTile.xnb</Output>
+      <Time>2014-12-16T09:08:52.2551975-05:00</Time>
+    </Item>
+    <Item>
+      <Source>WaterRockTile.png</Source>
+      <Name>WaterRockTile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WaterRockTile.xnb</Output>
+      <Time>2014-12-16T09:08:52.2561975-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
