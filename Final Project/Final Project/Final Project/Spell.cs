@@ -40,8 +40,10 @@ namespace Final_Project
     {        
         protected SpellElement dominantType;
         protected SpellElement[] uniqueCombo;
+        protected string name;
         public SpellElement[] Combination { get { return uniqueCombo; } }
         public SpellElement DominantType { get { return dominantType; } }
+        public string Name { get { return name; } }
     }
     public class LivingTargetSpell : Spell
     {
@@ -58,6 +60,7 @@ namespace Final_Project
     {
         public SpellFireball()
         {
+            name = "Fireball";
             dominantType = SpellElement.Fire;
             uniqueCombo = new SpellElement[] { SpellElement.Fire };
         }
@@ -69,8 +72,13 @@ namespace Final_Project
     }
     public class FailSpell : LivingTargetSpell
     {
+        public FailSpell()
+        {
+            name = "Failure";
+            dominantType = SpellElement.None;
+        }
         public override void OnHit(LivingEntity entity)
-        {            
+        {
         }
     }
     #endregion
