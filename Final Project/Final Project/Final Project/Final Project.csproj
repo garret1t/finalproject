@@ -107,6 +107,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animations\PrefabAnimation.cs" />
+    <Compile Include="Animations\SpellFlash.cs" />
     <Compile Include="Events.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="LivingEntity.cs" />
