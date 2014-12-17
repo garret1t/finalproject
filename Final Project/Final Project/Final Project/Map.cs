@@ -20,7 +20,7 @@ namespace Final_Project
                 
                 for (int j = 0; j < 5; j++)
                 {
-                    lines = System.IO.File.ReadAllLines(templates[rand.Next(0, 4)]);
+                    lines = System.IO.File.ReadAllLines(templates[rand.Next(0, 5)]);
                     for (int k = 0; k < 9; k++)
                     {
                         for (int l = 0; l < 9; l++)
