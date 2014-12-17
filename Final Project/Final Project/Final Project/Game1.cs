@@ -186,6 +186,8 @@ namespace Final_Project
 
             TextureDictionary.Add("symbols.fire", Content.Load<Texture2D>("Symbols/fire"));
             TextureDictionary.Add("symbols.water", Content.Load<Texture2D>("Symbols/water"));
+            TextureDictionary.Add("symbols.earth", Content.Load<Texture2D>("Symbols/earth"));
+            TextureDictionary.Add("symbols.air", Content.Load<Texture2D>("Symbols/air"));
 
             // TODO: use this.Content to load your game content here
         }
