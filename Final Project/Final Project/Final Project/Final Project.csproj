@@ -127,6 +127,7 @@
   <ItemGroup>
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
+    <Content Include="OldCode.txt" />
     <Content Include="screen0.txt" />
     <Content Include="screen1.txt" />
     <Content Include="screen2.txt" />

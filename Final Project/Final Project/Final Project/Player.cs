@@ -15,8 +15,8 @@ namespace Final_Project
     public class Player
     {
         // Need floats for positioning not ints.
-        public int Row { get { return (int)((PositionV.X+67/2) / 67); } set { PositionV.X = value * 67; } }
-        public int Col { get { return (int)((PositionV.Y + 67 / 2) / 67); } set { PositionV.Y = value * 67; } }
+        public int GridX { get { return (int)((PositionV.X+67/2) / 67); } set { PositionV.X = value * 67; } }
+        public int GridY { get { return (int)((PositionV.Y + 67 / 2) / 67); } set { PositionV.Y = value * 67; } }
         float speed = 3;
         public Vector2 PositionV = new Vector2();
         public Rectangle Position;
@@ -43,13 +43,14 @@ namespace Final_Project
         }
         public int GetGridPosFromFloat(float val)
         {
-            return (int)((val+67/2) / 67);
+            return (int)((val+(Math.Sign(val))*(67/2)) / 67);
         }
+        Texture2D blank;
         public Player(int playerRow, int playerColumn, Texture2D tup, Texture2D tdown, Texture2D tleft, Texture2D tright, SpriteBatch game1spriteBatch)
         {
             Position = new Rectangle();
-            Row = playerRow;
-            Col = playerColumn;
+            GridX = playerRow;
+            GridY = playerColumn;
             textureUp = tup;
             textureDown = tdown;
             textureLeft = tleft;
@@ -58,6 +59,8 @@ namespace Final_Project
             spriteBatch = game1spriteBatch;
             OnRecordStatusChanged += new RecordStatusEvent(Player_OnRecordStatusChanged);
             currentCombo.OnSpellAdded += new SpellComboList.SpellAdded(currentCombo_OnSpellAdded);
+            blank = new Texture2D(Game1.Instance.GraphicsDevice, 1, 1);
+            blank.SetData(new Color[] { Color.White });
         }
 
         void currentCombo_OnSpellAdded(SpellElement type)
@@ -78,7 +81,7 @@ namespace Final_Project
         }
         public void MoveOld(int r, int c, Grid tiles)
         {
-            if (Math.Abs(Row - r) <= 1 && Math.Abs(Col - c) <= 1 && tiles.GetTile(r, c).canWalk) { Row = r; Col = c; }
+            if (Math.Abs(GridX - r) <= 1 && Math.Abs(GridY - c) <= 1 && tiles.GetTile(r, c).canWalk) { GridX = r; GridY = c; }
         }
         public void Move(float x, float y, Grid tiles)
         {
@@ -86,11 +89,40 @@ namespace Final_Project
             float yi = PositionV.Y - y;
             int xr = GetGridPosFromFloat(xi);
             int yr = GetGridPosFromFloat(yi);
-            if (tiles.GetTile(xr, Col).canWalk)
+            if (xr > 8 && Game1.Instance.mapr < 4)
+            {
+                Game1.Instance.mapr++;
+                Game1.Instance.screen = Game1.Instance.map.map[Game1.Instance.mapr, Game1.Instance.mapc];                
+                GridX = 0;
+                return;
+            }
+            if (xr < 0 && Game1.Instance.mapr > 0)
+            {
+                Game1.Instance.mapr--;
+                Game1.Instance.screen = Game1.Instance.map.map[Game1.Instance.mapr, Game1.Instance.mapc];
+                GridX = 8;
+                return;
+            }
+            if (yr > 8 && Game1.Instance.mapc < 4)
+            {
+                Game1.Instance.mapc++;
+                Game1.Instance.screen = Game1.Instance.map.map[Game1.Instance.mapr, Game1.Instance.mapc];
+                GridY = 0;
+                return;
+            }
+            if (yr < 0 && Game1.Instance.mapc > 0)
+            {
+                Game1.Instance.mapc--;
+                Game1.Instance.screen = Game1.Instance.map.map[Game1.Instance.mapr, Game1.Instance.mapc];
+                GridY = 8;
+                return;
+            }
+
+            if (tiles.GetTile(xr, GridY).canWalk)
             {
                 PositionV.X += x;                
             }
-            if (tiles.GetTile(yr, Row).canWalk)
+            if (tiles.GetTile(GridX, yr).canWalk)
             {
                 PositionV.Y -= y;
             }
@@ -102,7 +134,7 @@ namespace Final_Project
         }
         public void Shoot(ProjectileType type, Vector2 vel, Texture2D projtexture) 
         {
-            Projectile temp = new Projectile(5,new Vector2(Row * 67, Col * 67), vel, type, projtexture);
+            Projectile temp = new Projectile(5,new Vector2(GridX * 67, GridY * 67), vel, type, projtexture);
             if (projectiles.Count() < 3) { projectiles.Add(temp);  }
         }
         GamePadState oldState, curState;
@@ -111,12 +143,14 @@ namespace Final_Project
             curState = GamePad.GetState(PlayerIndex.One);
             if (oldState == null) oldState = curState;
 
+            if (Keyboard.GetState().IsKeyDown(Keys.F1)) Console.WriteLine("Row: " + GridX + "; Col: " + GridY);
+            if (curState.IsButtonDown(Buttons.Start)) { Game1.Instance.screen = Game1.Instance.map.map[0, 0]; GridX = 2; GridY = 2; Game1.Instance.mapr = 0; Game1.Instance.mapc = 0; }
 
-            if (!Game1.Instance.screen.GetTile(Row, Col).canWalk)
+            /*if (!Game1.Instance.screen.GetTile(Row, Col).canWalk)
             {
                 Row--;
                 Col--;
-            }
+            }/*/
 
             if (curState.Triggers.Left >= 0.75f)
             {
@@ -131,89 +165,12 @@ namespace Final_Project
                 else if (oldState.Buttons.X == ButtonState.Released && curState.Buttons.X == ButtonState.Pressed) currentCombo.Add(SpellElement.Water);
                 else if (oldState.Buttons.Y == ButtonState.Released && curState.Buttons.Y == ButtonState.Pressed) currentCombo.Add(SpellElement.Earth);
             }
-
-            #region Input > Move Old
-            /*
-            if (curState.ThumbSticks.Left.X > 0 && !(oldState.ThumbSticks.Left.X > 0))
-            {
-                if (row != 8)
-                {
-                    Move(row + 1, col, Game1.Instance.screen); texture = textureRight;
-                }
-                else
-                {
-
-                    if (Game1.Instance.mapr < 4)
-                    {
-                        Game1.Instance.mapr += 1;
-                        Game1.Instance.screen = Game1.Instance.map.map[Game1.Instance.mapr, Game1.Instance.mapc];
-                        row = 0;
-                    }
-
-                }
-
-            }
-            if (curState.ThumbSticks.Left.X < 0 && !(oldState.ThumbSticks.Left.X < 0))
-            {
-                if (row != 0)
-                {
-                    Move(row - 1, col, Game1.Instance.screen); texture = textureLeft;
-                }
-                else
-                {
-
-                    if (Game1.Instance.mapr > 0)
-                    {
-                        Game1.Instance.mapr -= 1;
-                        Game1.Instance.screen = Game1.Instance.map.map[Game1.Instance.mapr, Game1.Instance.mapc];
-                        row = 8;
-                    }
-
-                }
-            }
-            if (curState.ThumbSticks.Left.Y > 0 && !(oldState.ThumbSticks.Left.Y > 0))
-            {
-                if (col != 0)
-                {
-                    Move(row, col - 1, Game1.Instance.screen); texture = textureUp;
-                }
-                else
-                {
-
-                    if (Game1.Instance.mapc > 0)
-                    {
-                        Game1.Instance.mapc -= 1;
-                        Game1.Instance.screen = Game1.Instance.map.map[Game1.Instance.mapr, Game1.Instance.mapc];
-                        col = 8;
-                    }
-
-                }
-            }
-            if (curState.ThumbSticks.Left.Y < 0 && !(oldState.ThumbSticks.Left.Y < 0))
-            {
-                if (col != 8)
-                {
-                    Move(row, col + 1, Game1.Instance.screen); texture = textureDown;
-                }
-                else
-                {
-
-                    if (Game1.Instance.mapc < 4)
-                    {
-                        Game1.Instance.mapc += 1;
-                        Game1.Instance.screen = Game1.Instance.map.map[Game1.Instance.mapr, Game1.Instance.mapc];
-                        col = 0;
-
-                    }
-
-                }
-            }*/
-            #endregion
+            
             #region Input > Move
             float x = curState.ThumbSticks.Left.X * speed;
             float y = curState.ThumbSticks.Left.Y * speed;
             Move(x, y, Game1.Instance.screen);
-            Console.WriteLine("X: " + x + "; Y: " + y);
+            //Console.WriteLine("X: " + x + "; Y: " + y);
             #endregion
 
             oldState = curState;
@@ -228,7 +185,7 @@ namespace Final_Project
                 
                 p.Location += (p.Velocity *p.Speed);
 
-                if (Vector2.Distance(p.Location, new Vector2(Row * 67, Col * 67)) > 300 || tiles.GetTile(new Rectangle((int)p.Location.X, (int)p.Location.Y, 1,1)).canWalk != true) { p.Visible = false; }
+                if (Vector2.Distance(p.Location, new Vector2(GridX * 67, GridY * 67)) > 300 || tiles.GetTile(new Rectangle((int)p.Location.X, (int)p.Location.Y, 1,1)).canWalk != true) { p.Visible = false; }
             }
             for (int i = 0; i < projectiles.Count(); i++) 
             {
@@ -244,7 +201,9 @@ namespace Final_Project
             int leftMargin = 100;
             int topMargin = 200;
             //spriteBatch.Draw(texture, new Rectangle(row * 67 + 100, col * 67 + 200, 67, 67), Color.White);
+            //spriteBatch.Draw(blank, new Rectangle(Row * 67 + leftMargin, Col * 67 + topMargin, 67, 67), Color.Red);
             spriteBatch.Draw(texture, new Rectangle((int)PositionV.X + leftMargin, (int)PositionV.Y + topMargin, 67, 67), Color.White);
+            
         }
     }
 }
