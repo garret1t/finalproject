@@ -263,7 +263,7 @@ namespace Final_Project
             {
                 for (int j = 0; j < 9; j++)
                 {
-                    spriteBatch.Draw(screen.GetTile(i, j).tileTexture, new Rectangle(i * 67 + 100, j * 67 + 200, 67, 67), r);
+                    spriteBatch.Draw(screen.GetTile(i, j).tileTexture, new Rectangle(i * 67 + 100, j * 67 + 200, 67, 67), Color.White);
                 }
             }
             foreach (Projectile p in wizard.projectiles) 
