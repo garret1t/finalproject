@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Final_Project
 {
-    class Map
+    public class Map
     {
         public Grid[,] map = new Grid[5, 5];
         String[] lines = new String[9];

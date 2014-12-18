@@ -31,9 +31,9 @@ namespace Final_Project
         public Texture2D mudballleft, mudballright, mudballup, mudballdown;
         public Dictionary<string, Texture2D> TextureDictionary = new Dictionary<string, Texture2D>();
         public List<PrefabAnimation> Animations = new List<PrefabAnimation>();
-        Map map = new Map();
-        int mapr = 0;
-        int mapc = 0;
+        public Map map = new Map();
+        public int mapr = 0;
+        public int mapc = 0;
         public Game1()
         {
             Game1.Instance = this;
@@ -213,82 +213,7 @@ namespace Final_Project
             wizard.UpdateProjectiles(screen);
             wizard.PollInput();
             map.map[mapr, mapc].visible = true;
-            #region Input > Move
-            if (pad1.ThumbSticks.Left.X > 0 && !(oldpad1.ThumbSticks.Left.X > 0)) 
-            {
-                if (wizard.row != 8)
-                {
-                    wizard.Move(wizard.row + 1, wizard.col, screen); wizard.texture = wizard.textureRight;
-                }
-                else 
-                {
-                    
-                    if (mapr < 4)
-                    {
-                        mapr += 1;
-                        screen = map.map[mapr, mapc];
-                        wizard.row = 0;
-                    }
-                    
-                }
-
-            }
-            if (pad1.ThumbSticks.Left.X < 0 && !(oldpad1.ThumbSticks.Left.X < 0)) 
-            {
-                if (wizard.row != 0)
-                {
-                    wizard.Move(wizard.row - 1, wizard.col, screen); wizard.texture = wizard.textureLeft;
-                }
-                else 
-                {
-                    
-                    if (mapr > 0)
-                    {
-                        mapr -= 1;
-                        screen = map.map[mapr, mapc];
-                        wizard.row = 8;
-                    }
-                    
-                }
-            }
-            if (pad1.ThumbSticks.Left.Y > 0 && !(oldpad1.ThumbSticks.Left.Y > 0)) 
-            {
-                if (wizard.col != 0)
-                {
-                    wizard.Move(wizard.row, wizard.col - 1, screen); wizard.texture = wizard.textureUp;
-                }
-                else
-                {
-                    
-                    if (mapc > 0)
-                    {
-                        mapc -= 1;
-                        screen = map.map[mapr, mapc];
-                        wizard.col = 8;
-                    }
-                    
-                }
-            }
-            if (pad1.ThumbSticks.Left.Y < 0 && !(oldpad1.ThumbSticks.Left.Y < 0)) 
-            {
-                if (wizard.col != 8)
-                {
-                    wizard.Move(wizard.row, wizard.col + 1, screen); wizard.texture = wizard.textureDown;
-                }
-                else
-                {
-                    
-                    if (mapc < 4)
-                    {
-                        mapc += 1;
-                        screen = map.map[mapr, mapc];
-                        wizard.col = 0;
-
-                    }
-                    
-                }
-            }
-            #endregion
+           
             #region FireBall
             if (pad1.ThumbSticks.Right.X > 0 && oldpad1.ThumbSticks.Right.X == 0) { wizard.Shoot(ProjectileType.Fireball, new Vector2(1, 0), fireballright); }
             if (pad1.ThumbSticks.Right.X < 0 && oldpad1.ThumbSticks.Right.X == 0) { wizard.Shoot(ProjectileType.Fireball, new Vector2(-1, 0), fireballleft); }

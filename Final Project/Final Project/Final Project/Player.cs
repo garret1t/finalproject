@@ -96,7 +96,86 @@ namespace Final_Project
                 else if (oldState.Buttons.X == ButtonState.Released && curState.Buttons.X == ButtonState.Pressed) currentCombo.Add(SpellElement.Water);
                 else if (oldState.Buttons.Y == ButtonState.Released && curState.Buttons.Y == ButtonState.Pressed) currentCombo.Add(SpellElement.Earth);
             }
+
+            #region Input > Move
+            if (curState.ThumbSticks.Left.X > 0 && !(oldState.ThumbSticks.Left.X > 0))
+            {
+                if (row != 8)
+                {
+                    Move(row + 1, col, Game1.Instance.screen); texture = textureRight;
+                }
+                else
+                {
+
+                    if (Game1.Instance.mapr < 4)
+                    {
+                        Game1.Instance.mapr += 1;
+                        Game1.Instance.screen = Game1.Instance.map.map[Game1.Instance.mapr, Game1.Instance.mapc];
+                        row = 0;
+                    }
+
+                }
+
+            }
+            if (curState.ThumbSticks.Left.X < 0 && !(oldState.ThumbSticks.Left.X < 0))
+            {
+                if (row != 0)
+                {
+                    Move(row - 1, col, Game1.Instance.screen); texture = textureLeft;
+                }
+                else
+                {
+
+                    if (Game1.Instance.mapr > 0)
+                    {
+                        Game1.Instance.mapr -= 1;
+                        Game1.Instance.screen = Game1.Instance.map.map[Game1.Instance.mapr, Game1.Instance.mapc];
+                        row = 8;
+                    }
+
+                }
+            }
+            if (curState.ThumbSticks.Left.Y > 0 && !(oldState.ThumbSticks.Left.Y > 0))
+            {
+                if (col != 0)
+                {
+                    Move(row, col - 1, Game1.Instance.screen); texture = textureUp;
+                }
+                else
+                {
+
+                    if (Game1.Instance.mapc > 0)
+                    {
+                        Game1.Instance.mapc -= 1;
+                        Game1.Instance.screen = Game1.Instance.map.map[Game1.Instance.mapr, Game1.Instance.mapc];
+                        col = 8;
+                    }
+
+                }
+            }
+            if (curState.ThumbSticks.Left.Y < 0 && !(oldState.ThumbSticks.Left.Y < 0))
+            {
+                if (col != 8)
+                {
+                    Move(row, col + 1, Game1.Instance.screen); texture = textureDown;
+                }
+                else
+                {
+
+                    if (Game1.Instance.mapc < 4)
+                    {
+                        Game1.Instance.mapc += 1;
+                        Game1.Instance.screen = Game1.Instance.map.map[Game1.Instance.mapr, Game1.Instance.mapc];
+                        col = 0;
+
+                    }
+
+                }
+            }
+            #endregion
+
             oldState = curState;
+            
         }
 
         public void UpdateProjectiles(Grid tiles) 
