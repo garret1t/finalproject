@@ -14,8 +14,12 @@ namespace Final_Project
 {
     public class Player
     {
-        public int row;
-        public int col;
+        // Need floats for positioning not ints.
+        public int Row { get { return (int)((PositionV.X+67/2) / 67); } set { PositionV.X = value * 67; } }
+        public int Col { get { return (int)((PositionV.Y + 67 / 2) / 67); } set { PositionV.Y = value * 67; } }
+        float speed = 3;
+        public Vector2 PositionV = new Vector2();
+        public Rectangle Position;
         public Texture2D texture;
         public Texture2D textureUp;
         public Texture2D textureDown;
@@ -37,11 +41,15 @@ namespace Final_Project
                 if (evnt) OnRecordStatusChanged(value);
             }
         }
-
+        public int GetGridPosFromFloat(float val)
+        {
+            return (int)((val+67/2) / 67);
+        }
         public Player(int playerRow, int playerColumn, Texture2D tup, Texture2D tdown, Texture2D tleft, Texture2D tright, SpriteBatch game1spriteBatch)
         {
-            row = playerRow;
-            col = playerColumn;
+            Position = new Rectangle();
+            Row = playerRow;
+            Col = playerColumn;
             textureUp = tup;
             textureDown = tdown;
             textureLeft = tleft;
@@ -68,13 +76,33 @@ namespace Final_Project
                 currentCombo.Clear();
             }            
         }
-        public void Move(int r, int c, Grid tiles)
+        public void MoveOld(int r, int c, Grid tiles)
         {
-            if (Math.Abs(row - r) <= 1 && Math.Abs(col - c) <= 1 && tiles.GetTile(r, c).canWalk) { row = r; col = c; }
+            if (Math.Abs(Row - r) <= 1 && Math.Abs(Col - c) <= 1 && tiles.GetTile(r, c).canWalk) { Row = r; Col = c; }
+        }
+        public void Move(float x, float y, Grid tiles)
+        {
+            float xi = PositionV.X + x;
+            float yi = PositionV.Y - y;
+            int xr = GetGridPosFromFloat(xi);
+            int yr = GetGridPosFromFloat(yi);
+            if (tiles.GetTile(xr, Col).canWalk)
+            {
+                PositionV.X += x;                
+            }
+            if (tiles.GetTile(yr, Row).canWalk)
+            {
+                PositionV.Y -= y;
+            }
+
+            if (x != 0 && x > 0) texture = textureRight;
+            if (x != 0 && x < 0) texture = textureLeft;
+            if (y != 0 && y > 0) texture = textureUp;
+            if (y != 0 && y < 0) texture = textureDown;
         }
         public void Shoot(ProjectileType type, Vector2 vel, Texture2D projtexture) 
         {
-            Projectile temp = new Projectile(5,new Vector2(row * 67, col * 67), vel, type, projtexture);
+            Projectile temp = new Projectile(5,new Vector2(Row * 67, Col * 67), vel, type, projtexture);
             if (projectiles.Count() < 3) { projectiles.Add(temp);  }
         }
         GamePadState oldState, curState;
@@ -82,6 +110,13 @@ namespace Final_Project
         {
             curState = GamePad.GetState(PlayerIndex.One);
             if (oldState == null) oldState = curState;
+
+
+            if (!Game1.Instance.screen.GetTile(Row, Col).canWalk)
+            {
+                Row--;
+                Col--;
+            }
 
             if (curState.Triggers.Left >= 0.75f)
             {
@@ -97,7 +132,8 @@ namespace Final_Project
                 else if (oldState.Buttons.Y == ButtonState.Released && curState.Buttons.Y == ButtonState.Pressed) currentCombo.Add(SpellElement.Earth);
             }
 
-            #region Input > Move
+            #region Input > Move Old
+            /*
             if (curState.ThumbSticks.Left.X > 0 && !(oldState.ThumbSticks.Left.X > 0))
             {
                 if (row != 8)
@@ -171,7 +207,13 @@ namespace Final_Project
                     }
 
                 }
-            }
+            }*/
+            #endregion
+            #region Input > Move
+            float x = curState.ThumbSticks.Left.X * speed;
+            float y = curState.ThumbSticks.Left.Y * speed;
+            Move(x, y, Game1.Instance.screen);
+            Console.WriteLine("X: " + x + "; Y: " + y);
             #endregion
 
             oldState = curState;
@@ -186,7 +228,7 @@ namespace Final_Project
                 
                 p.Location += (p.Velocity *p.Speed);
 
-                if (Vector2.Distance(p.Location, new Vector2(row * 67, col * 67)) > 300 || tiles.GetTile(new Rectangle((int)p.Location.X, (int)p.Location.Y, 1,1)).canWalk != true) { p.Visible = false; }
+                if (Vector2.Distance(p.Location, new Vector2(Row * 67, Col * 67)) > 300 || tiles.GetTile(new Rectangle((int)p.Location.X, (int)p.Location.Y, 1,1)).canWalk != true) { p.Visible = false; }
             }
             for (int i = 0; i < projectiles.Count(); i++) 
             {
@@ -199,7 +241,10 @@ namespace Final_Project
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, new Rectangle(row * 67 + 100, col * 67 + 200, 67, 67), Color.White);
+            int leftMargin = 100;
+            int topMargin = 200;
+            //spriteBatch.Draw(texture, new Rectangle(row * 67 + 100, col * 67 + 200, 67, 67), Color.White);
+            spriteBatch.Draw(texture, new Rectangle((int)PositionV.X + leftMargin, (int)PositionV.Y + topMargin, 67, 67), Color.White);
         }
     }
 }
