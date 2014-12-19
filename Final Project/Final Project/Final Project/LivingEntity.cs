@@ -8,7 +8,7 @@ namespace Final_Project
     public class LivingEntity
     {
         
-        public void Damage(int power, SpellElement type)
+        public virtual void Damage(int power, SpellElement type)
         {
 
         }

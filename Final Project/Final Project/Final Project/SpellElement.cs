@@ -21,7 +21,8 @@ namespace Final_Project
         public static readonly SpellElement Air = new SpellElement(1, "Air");
         public static readonly SpellElement Water = new SpellElement(2, "Water");
         public static readonly SpellElement Earth = new SpellElement(3, "Earth");
-        public static readonly SpellElement None = new SpellElement(4, "None");
+        public static readonly SpellElement Light = new SpellElement(4, "Light");
+        public static readonly SpellElement None = new SpellElement(5, "None");
 
         #endregion
 

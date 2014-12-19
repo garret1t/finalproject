@@ -160,10 +160,11 @@ namespace Final_Project
 
             if (RecordStatus && currentCombo.Count < 3)
             {
-                if      (oldState.Buttons.B == ButtonState.Released && curState.Buttons.B == ButtonState.Pressed) currentCombo.Add(SpellElement.Fire);
+                if (oldState.Buttons.B == ButtonState.Released && curState.Buttons.B == ButtonState.Pressed) currentCombo.Add(SpellElement.Fire);
                 else if (oldState.Buttons.A == ButtonState.Released && curState.Buttons.A == ButtonState.Pressed) currentCombo.Add(SpellElement.Air);
                 else if (oldState.Buttons.X == ButtonState.Released && curState.Buttons.X == ButtonState.Pressed) currentCombo.Add(SpellElement.Water);
                 else if (oldState.Buttons.Y == ButtonState.Released && curState.Buttons.Y == ButtonState.Pressed) currentCombo.Add(SpellElement.Earth);
+                else if (oldState.Buttons.RightShoulder == ButtonState.Released && curState.Buttons.RightShoulder == ButtonState.Pressed) currentCombo.Add(SpellElement.Light);
             }
             
             #region Input > Move

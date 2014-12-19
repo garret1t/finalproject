@@ -29,6 +29,7 @@ namespace Final_Project
         GamePadState pad1, oldpad1;
         public Texture2D fireballleft, fireballright, fireballup, fireballdown;
         public Texture2D mudballleft, mudballright, mudballup, mudballdown;
+        Texture2D tilesel;
         public Dictionary<string, Texture2D> TextureDictionary = new Dictionary<string, Texture2D>();
         public List<PrefabAnimation> Animations = new List<PrefabAnimation>();
         public Map map = new Map();
@@ -37,6 +38,7 @@ namespace Final_Project
         public Game1()
         {
             Game1.Instance = this;
+            IsMouseVisible = true;
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferHeight = 800;
             graphics.PreferredBackBufferWidth = 800;
@@ -196,7 +198,9 @@ namespace Final_Project
             TextureDictionary.Add("symbols.water", Content.Load<Texture2D>("Symbols/water"));
             TextureDictionary.Add("symbols.earth", Content.Load<Texture2D>("Symbols/earth"));
             TextureDictionary.Add("symbols.air", Content.Load<Texture2D>("Symbols/air"));
+            TextureDictionary.Add("symbols.light", Content.Load<Texture2D>("Symbols/light"));
 
+            tilesel = Content.Load<Texture2D>("TileSelector");
             // TODO: use this.Content to load your game content here
         }
 
@@ -263,7 +267,9 @@ namespace Final_Project
             {
                 for (int j = 0; j < 9; j++)
                 {
+                    
                     spriteBatch.Draw(screen.GetTile(i, j).tileTexture, new Rectangle(i * 67 + 100, j * 67 + 200, 67, 67), Color.White);
+                    if (((Mouse.GetState().X - 100) / 67) == i && ((Mouse.GetState().Y - 200) / 67) == j) spriteBatch.Draw(tilesel, new Rectangle(i * 67 + 100, j * 67 + 200, 67, 67), Color.White);
                 }
             }
             foreach (Projectile p in wizard.projectiles) 
