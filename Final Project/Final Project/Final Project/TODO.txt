@@ -1,0 +1,5 @@
+﻿Enemies
+Sound
+At least some functional spells
+
+Just gotta finish the project
