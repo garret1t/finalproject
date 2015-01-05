@@ -30,11 +30,13 @@ namespace Final_Project
         public Texture2D fireballleft, fireballright, fireballup, fireballdown;
         public Texture2D mudballleft, mudballright, mudballup, mudballdown;
         Texture2D tilesel;
+        Texture2D enemy1;
         public Dictionary<string, Texture2D> TextureDictionary = new Dictionary<string, Texture2D>();
         public List<PrefabAnimation> Animations = new List<PrefabAnimation>();
         public Map map = new Map();
         public int mapr = 0;
         public int mapc = 0;
+        List<Enemy> enemies = new List<Enemy>();
         public Game1()
         {
             Game1.Instance = this;
@@ -50,15 +52,16 @@ namespace Final_Project
 
             SpellElement.InitializeWeaknessMaps();
             SpellRegistry.Initialize();
-
+            
             
             // TODO: Add your initialization logic here
             for (int i = 0; i < 5; i++) 
             {
                 template[i] = "screen" + i + ".txt";
             }
-
             
+
+                
             map.Load(template, this);
            
             for(int i= 0; i<5; i++)
@@ -187,6 +190,14 @@ namespace Final_Project
             gui = Content.Load<Texture2D>("gui");
             heart = Content.Load<Texture2D>("heart");
             heartEmpty = Content.Load<Texture2D>("heartEmpty");
+            enemy1 = Content.Load<Texture2D>("enemy1");
+
+            for (int i = 0; i < 4; i++)
+            {
+                enemies.Add(new Enemy(10, 3, 3, 3, new Rectangle(i * 67 *2 + 100 + 67, i * 67*2 + 200 + 67, 67, 67), 0, enemy1, this));
+
+            }
+
             wizard = new Player(4, 4, wizardup, wizarddown, wizardleft, wizardright, spriteBatch);
 
             TextureDictionary.Add("wizard.down", wizarddown);
@@ -226,6 +237,7 @@ namespace Final_Project
             #endregion
             for (int i = 0; i < Animations.Count; i++) if (Animations[i].NeedsRemove) Animations.RemoveAt(i);
             foreach (PrefabAnimation pa in Animations) pa.Update(gameTime);
+            foreach (Enemy e in enemies) e.Update(gameTime);
             oldpad1 = pad1;
             base.Update(gameTime);
         }
@@ -274,7 +286,11 @@ namespace Final_Project
             }
             foreach (Projectile p in wizard.projectiles) 
             {
-                p.Draw(spriteBatch,this);
+                p.Draw(spriteBatch);
+            }
+            foreach (Enemy e in enemies) 
+            {
+                e.Draw(spriteBatch);
             }
             wizard.Draw(spriteBatch);
             foreach (PrefabAnimation pa in Animations) pa.Draw(spriteBatch);
