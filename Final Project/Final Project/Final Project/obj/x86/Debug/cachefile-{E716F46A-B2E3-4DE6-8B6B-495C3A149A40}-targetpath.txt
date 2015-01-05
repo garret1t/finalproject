@@ -20,3 +20,9 @@ Content\water.xnb
 Content\playerMarker.xnb
 Content\SandRockTile.xnb
 Content\WaterRockTile.xnb
+Content\Symbols\fire.xnb
+Content\Symbols\water.xnb
+Content\Symbols\earth.xnb
+Content\Symbols\air.xnb
+Content\TileSelector.xnb
+Content\Symbols\light.xnb
