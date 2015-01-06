@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Final_Project
 {
-    public class LivingEntity : ISpellTargetable, ISpellCaster
+    public class LivingEntity : DrawableGameComponent, ISpellTargetable, ISpellCaster
     {
         private int health;
         private bool dead;
@@ -14,11 +15,63 @@ namespace Final_Project
         protected Vector2 posv = new Vector2();
 
         public Vector2 PositionV { get { return posv; } set { posv = value; } }
+        public LivingEntity(Game associatedGame) : base(associatedGame) { }
+
+        int hitpoints;
+        int attack;
+        int speed;
+        int range;
+        Rectangle position;
+        float rotation;
+        Texture2D texture;
+        bool alive;
+
+        public int Hitpoints
+        {
+            get { return hitpoints; }
+            set { hitpoints = value; }
+        }
+        public int Attack
+        {
+            get { return attack; }
+            set { attack = value; }
+        }
+        public int Speed
+        {
+            get { return speed; }
+            set { speed = value; }
+        }
+        public int Range
+        {
+            get { return range; }
+            set { range = value; }
+        }
+        public Rectangle Position
+        {
+            get { return position; }
+            set { position = value; }
+        }
+        public float Rotation
+        {
+            get { return rotation; }
+            set { rotation = value; }
+        }
+        public Texture2D Texture
+        {
+            get { return texture; }
+            set { texture = value; }
+        }
+        public bool Alive
+        {
+            get { return alive; }
+            set { alive = value; }
+        }
 
         public int Health
         {
             get { return Health; }
-            set {
+            set
+            {
                 if (Dead) { return; }
                 if (health - value <= 0)
                 {
@@ -78,6 +131,12 @@ namespace Final_Project
                 LivingTargetSpell ltp = (LivingTargetSpell)spell;
                 ltp.OnHit(this);
             }
+        }
+
+        public virtual void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(texture, position, null, Color.White, rotation, Vector2.Zero, SpriteEffects.None, 0);
+
         }
     }
 }

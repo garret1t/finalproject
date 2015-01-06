@@ -55,7 +55,7 @@ namespace Final_Project
             texture = text;
         }
         
-        public void Draw(SpriteBatch spriteBatch, Game1 game1) 
+        public void Draw(SpriteBatch spriteBatch) 
         {
 
                      
