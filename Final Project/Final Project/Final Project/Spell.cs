@@ -19,6 +19,7 @@ namespace Final_Project
 
             SpellFireball fireball = new SpellFireball();
 
+
             registeredSpells.Add(fireball);
         }
 

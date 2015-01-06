@@ -49,6 +49,9 @@ namespace Final_Project
     {
         Vector2 endp;
         ISpellCaster caster;
+
+        Color spellColor = Color.White;
+
         public LivingTargetProjectile(ISpellCaster entity, Vector2 endpoint, LivingTargetSpell spell)
             : base(spell)
         {
@@ -58,6 +61,29 @@ namespace Final_Project
             Vector2 en = new Vector2(entity.PositionV.X + 100, entity.PositionV.Y + 200);
             Console.WriteLine("end: " + endpoint + "; start: " + entity.PositionV);
             direction = Vector2.Normalize(endpoint - en);
+
+            for (int i = 0; i < Spell.Combination.Length; i++)
+            {
+                if (Spell.DominantType == SpellElement.Fire)
+                {
+                    spellColor.G -= 85;
+                    spellColor.B -= 85;
+                }
+                if (Spell.DominantType == SpellElement.Air)
+                {
+                    spellColor.R -= 85;
+                    spellColor.B -= 85;
+                }
+                if (Spell.DominantType == SpellElement.Water)
+                {
+                    spellColor.G -= 85;
+                    spellColor.R -= 85;
+                }
+                if (Spell.DominantType == SpellElement.Earth)
+                {
+                    spellColor.B -= 85;                    
+                }
+            }
         }
 
         public override void Update()
@@ -71,7 +97,7 @@ namespace Final_Project
             Vector2 drawCoord = new Vector2(position.X + 100, position.Y + 200);
             float rotation = (float)(Math.Atan2(direction.Y, direction.X));
             //float rotation = 0f;
-            spriteBatch.Draw(Game1.Instance.TextureDictionary["projectile"], drawCoord, null, Color.White, rotation, new Vector2(32,16), 1f, SpriteEffects.None, 0.8f);
+            spriteBatch.Draw(Game1.Instance.TextureDictionary["projectile"], drawCoord, null, spellColor, rotation, new Vector2(32,16), 1f, SpriteEffects.None, 0.8f);
             base.Draw(spriteBatch);
         }
     }

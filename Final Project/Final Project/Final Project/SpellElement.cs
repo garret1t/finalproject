@@ -65,6 +65,16 @@ namespace Final_Project
             return target.ElementId == ElementId;
         }
 
+        public static bool operator ==(SpellElement one, SpellElement binary)
+        {
+            return (one.ElementId == binary.ElementId);
+        }
+
+        public static bool operator !=(SpellElement one, SpellElement binary)
+        {
+            return (one.ElementId != binary.ElementId);
+        }
+
         #endregion
     }
 }

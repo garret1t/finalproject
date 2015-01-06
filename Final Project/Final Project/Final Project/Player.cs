@@ -80,7 +80,7 @@ namespace Final_Project
 
                 Console.WriteLine(c.Name);
 
-                if (c is LivingTargetSpell)
+                if (c is LivingTargetSpell && !(c is FailSpell))
                 {
                     current = c;
                     Game1.Instance.showingOmniSelector = true;
@@ -93,6 +93,7 @@ namespace Final_Project
         {
             LivingTargetSpell ltp = (LivingTargetSpell)current;
             Game1.Instance.ActiveProjectiles.Add(new LivingTargetProjectile(this, vec, ltp));
+            Game1.Instance.showingOmniSelector = false;
         }
 
         public void MoveOld(int r, int c, Grid tiles)

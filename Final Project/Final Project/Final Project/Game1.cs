@@ -49,6 +49,8 @@ namespace Final_Project
 
         public bool showingTileSelector = false;
         public bool showingOmniSelector = false;
+        float selectionSensitivity = 10f;
+
         List<Enemy> enemies = new List<Enemy>();
         Vector2 omniSelVector = new Vector2();
 
@@ -238,13 +240,27 @@ namespace Final_Project
         {
         }
 
+        bool mouseActive = false;
+        MouseState oldmouse, mouse;
+
         protected override void Update(GameTime gameTime)
         {
             pad1 = GamePad.GetState(PlayerIndex.One);
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
+            mouse = Mouse.GetState();
+            if (oldmouse == null) oldmouse = mouse;
 
-            omniSelVector = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
+            if (mouse.X != oldmouse.X || mouse.Y != oldmouse.Y) mouseActive = true;
+            else mouseActive = false;
+
+            if (mouseActive)
+            {
+                omniSelVector = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
+            }
+
+            omniSelVector.X += pad1.ThumbSticks.Right.X * selectionSensitivity;
+            omniSelVector.Y -= pad1.ThumbSticks.Right.Y * selectionSensitivity;
 
             wizard.UpdateProjectiles(screen);
             wizard.PollInput();
@@ -253,6 +269,11 @@ namespace Final_Project
             if (pad1.Buttons.RightShoulder == ButtonState.Pressed && oldpad1.Buttons.RightShoulder == ButtonState.Released)
             {
                 if (showingOmniSelector) OmniSelectionMade((omniSelVector));
+            }
+
+            if (!showingOmniSelector)
+            {
+                omniSelVector = new Vector2(wizard.PositionV.X+137,wizard.PositionV.Y+237);
             }
            
             #region FireBall
@@ -270,6 +291,7 @@ namespace Final_Project
             Window.Title = "X: " + wizard.PositionV.X + ";  Y: " + wizard.PositionV.Y;
             foreach (Enemy e in enemies) e.Update(gameTime, wizard.PositionV);
             oldpad1 = pad1;
+            oldmouse = mouse;
             base.Update(gameTime);
         }
 
@@ -318,7 +340,7 @@ namespace Final_Project
             }
 
             if (showingOmniSelector)
-                spriteBatch.Draw(omnisel, new Rectangle(Mouse.GetState().X - 33, Mouse.GetState().Y - 33, 67, 67), Color.White);
+                spriteBatch.Draw(omnisel, new Rectangle((int)omniSelVector.X - 33, (int)omniSelVector.Y - 33, 67, 67), Color.White);
             foreach (SpellProjectile sp in ActiveProjectiles) sp.Draw(spriteBatch);
             foreach (Projectile p in wizard.projectiles) 
             {
