@@ -109,6 +109,7 @@
   <ItemGroup>
     <Compile Include="Animations\PrefabAnimation.cs" />
     <Compile Include="Animations\SpellFlash.cs" />
+    <Compile Include="Enemy.cs" />
     <Compile Include="Events.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="ISpellCaster.cs" />

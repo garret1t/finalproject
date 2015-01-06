@@ -33,3 +33,4 @@ C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final
 C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Symbols\light.xnb
 C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\OmniSelector.xnb
 C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Projectile.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\enemy1.xnb

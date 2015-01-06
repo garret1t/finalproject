@@ -214,7 +214,7 @@ namespace Final_Project
 
             }
 
-            wizard = new Player(4, 4, wizardup, wizarddown, wizardleft, wizardright, spriteBatch);
+            wizard = new Player(4, 4, wizardup, wizarddown, wizardleft, wizardright, spriteBatch, this);
 
             TextureDictionary.Add("wizard.down", wizarddown);
             TextureDictionary.Add("wizard.up", wizardup);

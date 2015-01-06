@@ -45,7 +45,8 @@ namespace Final_Project
             return (int)((val+(Math.Sign(val))*(67/2)) / 67);
         }
         Texture2D blank;
-        public Player(int playerRow, int playerColumn, Texture2D tup, Texture2D tdown, Texture2D tleft, Texture2D tright, SpriteBatch game1spriteBatch)
+
+        public Player(int playerRow, int playerColumn, Texture2D tup, Texture2D tdown, Texture2D tleft, Texture2D tright, SpriteBatch game1spriteBatch, Game1 game) : base(game)
         {
             element = SpellElement.Light;
             Position = new Rectangle();
