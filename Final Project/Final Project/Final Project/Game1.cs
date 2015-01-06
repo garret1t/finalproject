@@ -237,7 +237,7 @@ namespace Final_Project
             #endregion
             for (int i = 0; i < Animations.Count; i++) if (Animations[i].NeedsRemove) Animations.RemoveAt(i);
             foreach (PrefabAnimation pa in Animations) pa.Update(gameTime);
-            foreach (Enemy e in enemies) e.Update(gameTime);
+            foreach (Enemy e in enemies) e.Update(gameTime, wizard.PositionV);
             oldpad1 = pad1;
             base.Update(gameTime);
         }

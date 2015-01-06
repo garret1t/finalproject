@@ -25,6 +25,13 @@ namespace Final_Project
             Rotation = rotation;
             Texture = texture;
         }
+        public void Update(GameTime gameTime, Vector2 playerPosition)
+        {
+            Vector2 direction = new Vector2(Position.X - playerPosition.X, Position.Y - playerPosition.Y);
+            direction.Normalize();
+            Rotation = (float)Math.Atan2(direction.Y, direction.X) + MathHelper.PiOver4;
+            base.Update(gameTime);
+        }
        
     }
 }
