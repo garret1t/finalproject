@@ -9,9 +9,6 @@ namespace Final_Project.Animations
 {
     public class SpellFlash : PrefabAnimation
     {
-#if DEBUG
-        private bool debug = true;
-#endif
         private SpellElement element;
         public SpellElement Element { get { return element; } }
         private Texture2D tex;

@@ -75,6 +75,18 @@ namespace Final_Project
             return (one.ElementId != binary.ElementId);
         }
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is SpellElement)) return false;
+            SpellElement compare = (SpellElement)obj;
+            return compare.ElementId == ElementId;
+        }
+
         #endregion
     }
 }

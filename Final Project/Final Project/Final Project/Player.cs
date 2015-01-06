@@ -18,7 +18,6 @@ namespace Final_Project
         public int GridX { get { return (int)((PositionV.X + 67 / 2) / 67); } set { PositionV = new Vector2(value * 67, PositionV.Y); } }
         public int GridY { get { return (int)((PositionV.Y + 67 / 2) / 67); } set { PositionV = new Vector2(PositionV.X, value * 67); } }
         float speed = 3;        
-        public Rectangle Position;
         public Texture2D texture;
         public Texture2D textureUp;
         public Texture2D textureDown;
@@ -214,7 +213,7 @@ namespace Final_Project
                 }
             }
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             int leftMargin = 100;
             int topMargin = 200;
