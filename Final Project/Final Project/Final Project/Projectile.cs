@@ -60,11 +60,12 @@ namespace Final_Project
 
                      
             if (type == ProjectileType.Fireball) { spriteBatch.Draw(texture, new Rectangle((int)location.X + 100, (int)location.Y + 200, 67, 67), Color.White); }
+            if (type == ProjectileType.Enemy) { spriteBatch.Draw(texture, new Rectangle((int)location.X + 100, (int)location.Y + 200, 16, 16), Color.White); }
             if (type == ProjectileType.Mudball) { spriteBatch.Draw(texture, new Rectangle((int)location.X + 100, (int)location.Y + 200, 67, 67), Color.White); }
             if (type == ProjectileType.Wave) { spriteBatch.Draw(texture, new Rectangle((int)location.X + 100, (int)location.Y + 200, 67, 67), Color.White); }
             
         }
         
     }
-    public enum ProjectileType { Fireball, Mudball, Wave }
+    public enum ProjectileType { Fireball, Mudball, Wave, Enemy }
 }

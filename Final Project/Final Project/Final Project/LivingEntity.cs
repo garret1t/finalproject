@@ -133,10 +133,5 @@ namespace Final_Project
             }
         }
 
-        public virtual void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(texture, position, null, Color.White, rotation, Vector2.Zero, SpriteEffects.None, 0);
-
-        }
     }
 }

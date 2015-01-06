@@ -39,7 +39,7 @@ namespace Final_Project
         Texture2D omnisel;
         Texture2D tilesel;
         Texture2D enemy1;
-
+        Texture2D bullet;
         public Dictionary<string, Texture2D> TextureDictionary = new Dictionary<string, Texture2D>();
         public List<PrefabAnimation> Animations = new List<PrefabAnimation>();
         public List<SpellProjectile> ActiveProjectiles = new List<SpellProjectile>();
@@ -209,10 +209,10 @@ namespace Final_Project
             heart = Content.Load<Texture2D>("heart");
             heartEmpty = Content.Load<Texture2D>("heartEmpty");
             enemy1 = Content.Load<Texture2D>("enemy1");
-
-            for (int i = 0; i < 4; i++)
+            bullet = Content.Load<Texture2D>("bullet");
+            for (int i = 0; i < 1; i++)
             {
-                enemies.Add(new Enemy(10, 3, 3, 3, new Rectangle(i * 67 *2 + 100 + 67, i * 67*2 + 200 + 67, 67, 67), 0, enemy1, this));
+                enemies.Add(new Enemy(10, 3, 3, 3, new Rectangle(i * 67 * 2 + 100 + 191, 400, 67, 67), 0, enemy1, bullet, this));
 
             }
 
