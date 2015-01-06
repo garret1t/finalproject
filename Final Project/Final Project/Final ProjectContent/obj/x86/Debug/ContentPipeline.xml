@@ -253,6 +253,24 @@
       <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Symbols\light.xnb</Output>
       <Time>2015-01-05T08:34:20.8837526-05:00</Time>
     </Item>
+    <Item>
+      <Source>OmniSelector.png</Source>
+      <Name>OmniSelector</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\OmniSelector.xnb</Output>
+      <Time>2015-01-05T14:54:59.2502794-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Projectile.png</Source>
+      <Name>Projectile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Projectile.xnb</Output>
+      <Time>2015-01-05T15:04:03.1886089-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

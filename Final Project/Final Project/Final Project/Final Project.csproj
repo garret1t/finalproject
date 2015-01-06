@@ -111,6 +111,8 @@
     <Compile Include="Animations\SpellFlash.cs" />
     <Compile Include="Events.cs" />
     <Compile Include="Grid.cs" />
+    <Compile Include="ISpellCaster.cs" />
+    <Compile Include="ISpellTargetable.cs" />
     <Compile Include="LivingEntity.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Player.cs" />
@@ -121,6 +123,7 @@
     <Compile Include="Spell.cs" />
     <Compile Include="SpellComboList.cs" />
     <Compile Include="SpellElement.cs" />
+    <Compile Include="SpellProjectile.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
@@ -133,6 +136,7 @@
     <Content Include="screen2.txt" />
     <Content Include="screen3.txt" />
     <Content Include="screen4.txt" />
+    <Content Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Final ProjectContent\Final ProjectContent.contentproj">

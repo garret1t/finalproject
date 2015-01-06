@@ -18,6 +18,13 @@ namespace Final_Project
         public static Game1 Instance;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
+        public delegate void TileSelectionHandler(int x, int y);
+        public delegate void OmniSelectionHandler(Vector2 vec);
+
+        public event OmniSelectionHandler OmniSelectionMade;
+        public event TileSelectionHandler TileSelectionMade;
+
         int[,] tileTypes = new int[9, 9];
         String[] lines = System.IO.File.ReadAllLines("screen1.txt");
         String[] template = new String[5];
@@ -29,12 +36,18 @@ namespace Final_Project
         GamePadState pad1, oldpad1;
         public Texture2D fireballleft, fireballright, fireballup, fireballdown;
         public Texture2D mudballleft, mudballright, mudballup, mudballdown;
-        Texture2D tilesel;
+        Texture2D tilesel, omnisel;
         public Dictionary<string, Texture2D> TextureDictionary = new Dictionary<string, Texture2D>();
         public List<PrefabAnimation> Animations = new List<PrefabAnimation>();
+        public List<SpellProjectile> ActiveProjectiles = new List<SpellProjectile>();
         public Map map = new Map();
         public int mapr = 0;
         public int mapc = 0;
+        public bool showingTileSelector = false;
+        public bool showingOmniSelector = false;
+
+        Vector2 omniSelVector = new Vector2();
+
         public Game1()
         {
             Game1.Instance = this;
@@ -43,6 +56,7 @@ namespace Final_Project
             graphics.PreferredBackBufferHeight = 800;
             graphics.PreferredBackBufferWidth = 800;
             Content.RootDirectory = "Content";
+            OmniSelectionMade += (Vector2 v) => { };
         }
 
         protected override void Initialize()
@@ -200,7 +214,10 @@ namespace Final_Project
             TextureDictionary.Add("symbols.air", Content.Load<Texture2D>("Symbols/air"));
             TextureDictionary.Add("symbols.light", Content.Load<Texture2D>("Symbols/light"));
 
+            TextureDictionary.Add("projectile", Content.Load<Texture2D>("projectile"));
+
             tilesel = Content.Load<Texture2D>("TileSelector");
+            omnisel = Content.Load<Texture2D>("OmniSelector");
             // TODO: use this.Content to load your game content here
         }
 
@@ -214,9 +231,16 @@ namespace Final_Project
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+            omniSelVector = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
+
             wizard.UpdateProjectiles(screen);
             wizard.PollInput();
             map.map[mapr, mapc].visible = true;
+
+            if (pad1.Buttons.RightShoulder == ButtonState.Pressed && oldpad1.Buttons.RightShoulder == ButtonState.Released)
+            {
+                if (showingOmniSelector) OmniSelectionMade((omniSelVector));
+            }
            
             #region FireBall
             if (pad1.ThumbSticks.Right.X > 0 && oldpad1.ThumbSticks.Right.X == 0) { wizard.Shoot(ProjectileType.Fireball, new Vector2(1, 0), fireballright); }
@@ -226,6 +250,12 @@ namespace Final_Project
             #endregion
             for (int i = 0; i < Animations.Count; i++) if (Animations[i].NeedsRemove) Animations.RemoveAt(i);
             foreach (PrefabAnimation pa in Animations) pa.Update(gameTime);
+
+            for (int i = 0; i < ActiveProjectiles.Count; i++) if (ActiveProjectiles[i].NeedsRemove) ActiveProjectiles.RemoveAt(i);
+            foreach (SpellProjectile sp in ActiveProjectiles) sp.Update();
+
+            Window.Title = "X: " + wizard.PositionV.X + ";  Y: " + wizard.PositionV.Y;
+
             oldpad1 = pad1;
             base.Update(gameTime);
         }
@@ -269,9 +299,14 @@ namespace Final_Project
                 {
                     
                     spriteBatch.Draw(screen.GetTile(i, j).tileTexture, new Rectangle(i * 67 + 100, j * 67 + 200, 67, 67), Color.White);
-                    if (((Mouse.GetState().X - 100) / 67) == i && ((Mouse.GetState().Y - 200) / 67) == j) spriteBatch.Draw(tilesel, new Rectangle(i * 67 + 100, j * 67 + 200, 67, 67), Color.White);
+                    if (showingTileSelector)
+                        if (((Mouse.GetState().X - 100) / 67) == i && ((Mouse.GetState().Y - 200) / 67) == j) spriteBatch.Draw(tilesel, new Rectangle(i * 67 + 100, j * 67 + 200, 67, 67), Color.White);
                 }
             }
+
+            if (showingOmniSelector)
+                spriteBatch.Draw(omnisel, new Rectangle(Mouse.GetState().X - 33, Mouse.GetState().Y - 33, 67, 67), Color.White);
+            foreach (SpellProjectile sp in ActiveProjectiles) sp.Draw(spriteBatch);
             foreach (Projectile p in wizard.projectiles) 
             {
                 p.Draw(spriteBatch,this);

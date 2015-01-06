@@ -12,13 +12,12 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Final_Project
 {
-    public class Player
+    public class Player : LivingEntity
     {
         // Need floats for positioning not ints.
-        public int GridX { get { return (int)((PositionV.X+67/2) / 67); } set { PositionV.X = value * 67; } }
-        public int GridY { get { return (int)((PositionV.Y + 67 / 2) / 67); } set { PositionV.Y = value * 67; } }
-        float speed = 3;
-        public Vector2 PositionV = new Vector2();
+        public int GridX { get { return (int)((PositionV.X + 67 / 2) / 67); } set { PositionV = new Vector2(value * 67, PositionV.Y); } }
+        public int GridY { get { return (int)((PositionV.Y + 67 / 2) / 67); } set { PositionV = new Vector2(PositionV.X, value * 67); } }
+        float speed = 3;        
         public Rectangle Position;
         public Texture2D texture;
         public Texture2D textureUp;
@@ -48,6 +47,7 @@ namespace Final_Project
         Texture2D blank;
         public Player(int playerRow, int playerColumn, Texture2D tup, Texture2D tdown, Texture2D tleft, Texture2D tright, SpriteBatch game1spriteBatch)
         {
+            element = SpellElement.Light;
             Position = new Rectangle();
             GridX = playerRow;
             GridY = playerColumn;
@@ -68,17 +68,32 @@ namespace Final_Project
             Console.WriteLine("Element: " + type.Name);
             Game1.Instance.Animations.Add(new Animations.SpellFlash(type));
         }
-
+        Spell current;
         void Player_OnRecordStatusChanged(bool on)
         {
             Console.WriteLine("Record Combo: " + (on ? "on" : "off"));
             if (!on)
             {
-                Spell c = currentCombo.Complete();
-                Console.WriteLine(c.Name);
+                Spell c = currentCombo.Complete();                
                 currentCombo.Clear();
+
+                Console.WriteLine(c.Name);
+
+                if (c is LivingTargetSpell)
+                {
+                    current = c;
+                    Game1.Instance.showingOmniSelector = true;
+                    Game1.Instance.OmniSelectionMade += new Game1.OmniSelectionHandler(Instance_OmniSelectionMade);
+                }
             }            
         }
+
+        void Instance_OmniSelectionMade(Vector2 vec)
+        {
+            LivingTargetSpell ltp = (LivingTargetSpell)current;
+            Game1.Instance.ActiveProjectiles.Add(new LivingTargetProjectile(this, vec, ltp));
+        }
+
         public void MoveOld(int r, int c, Grid tiles)
         {
             if (Math.Abs(GridX - r) <= 1 && Math.Abs(GridY - c) <= 1 && tiles.GetTile(r, c).canWalk) { GridX = r; GridY = c; }
@@ -120,11 +135,11 @@ namespace Final_Project
 
             if (tiles.GetTile(xr, GridY).canWalk)
             {
-                PositionV.X += x;                
+                PositionV = new Vector2(PositionV.X + x, PositionV.Y);                
             }
             if (tiles.GetTile(GridX, yr).canWalk)
             {
-                PositionV.Y -= y;
+                PositionV = new Vector2(PositionV.X, PositionV.Y - y);
             }
 
             if (x != 0 && x > 0) texture = textureRight;
