@@ -270,6 +270,10 @@ namespace Final_Project
             {
                 if (showingOmniSelector) OmniSelectionMade((omniSelVector));
             }
+            if (mouse.LeftButton == ButtonState.Pressed && oldmouse.LeftButton == ButtonState.Released)
+            {
+                if (showingOmniSelector) OmniSelectionMade((omniSelVector));
+            }
 
             if (!showingOmniSelector)
             {

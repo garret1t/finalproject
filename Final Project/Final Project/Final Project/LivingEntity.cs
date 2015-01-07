@@ -133,5 +133,9 @@ namespace Final_Project
             }
         }
 
+        public virtual void Draw(SpriteBatch spriteBatch)
+        {
+        }
+
     }
 }
