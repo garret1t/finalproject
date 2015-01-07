@@ -16,9 +16,7 @@ namespace Final_Project
     {
         List<Projectile> projectiles = new List<Projectile>();
         Texture2D projectileTexture;
-        int reloadTime;
-        int counter;
-        public Enemy(int hp, int attack, int speed, int range,int reload, Rectangle position, float rotation, Texture2D texture, Texture2D bulletTexture, Game game) : base(game)
+        public Enemy(int hp, int attack, int speed, int range, Rectangle position, float rotation, Texture2D texture, Texture2D bulletTexture, Game game) : base(game)
         {
             Hitpoints = hp;
             Attack = attack;
@@ -26,7 +24,6 @@ namespace Final_Project
             Range = range;
             Position = position;
             Rotation = rotation;
-            reloadTime = reload;
             Texture = texture;
             projectileTexture = bulletTexture;
         }
@@ -38,21 +35,6 @@ namespace Final_Project
             if (GamePad.GetState(PlayerIndex.One).IsButtonDown(Buttons.A))
             {
                 Shoot(new Vector2(PositionV.X + 125 + 67 / 2, PositionV.Y + 150 + 67 / 2), direction);
-            }
-            if (Vector2.Distance(PositionV + new Vector2(100, 200), playerPosition + new Vector2(100, 200)) > (Range * 100)) 
-            {
-                if (counter == 0)
-                {
-
-                    Shoot(new Vector2(PositionV.X + 125 + 67 / 2, PositionV.Y + 150 + 67 / 2), direction);
-                    counter = reloadTime;
-                }
-                
-                
-            }
-            if (counter > 0)
-            {
-                counter--;
             }
             UpdateProjectiles();
             base.Update(gameTime);

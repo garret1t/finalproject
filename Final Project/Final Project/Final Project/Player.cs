@@ -213,7 +213,7 @@ namespace Final_Project
                 }
             }
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             int leftMargin = 100;
             int topMargin = 200;
