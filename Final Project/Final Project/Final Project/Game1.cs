@@ -245,6 +245,7 @@ namespace Final_Project
 
         protected override void Update(GameTime gameTime)
         {
+
             pad1 = GamePad.GetState(PlayerIndex.One);
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
@@ -293,7 +294,7 @@ namespace Final_Project
             foreach (SpellProjectile sp in ActiveProjectiles) sp.Update();
 
             Window.Title = "X: " + wizard.PositionV.X + ";  Y: " + wizard.PositionV.Y;
-            foreach (Enemy e in enemies) e.Update(gameTime, wizard.PositionV);
+            foreach (Enemy e in enemies) e.Update(gameTime, wizard.PositionV + new Vector2(100,200));
             oldpad1 = pad1;
             oldmouse = mouse;
             base.Update(gameTime);

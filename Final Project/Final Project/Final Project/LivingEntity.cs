@@ -21,7 +21,7 @@ namespace Final_Project
         int attack;
         int speed;
         int range;
-        Rectangle position;
+        protected Rectangle position = new Rectangle();
         float rotation;
         Texture2D texture;
         bool alive;

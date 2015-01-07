@@ -101,6 +101,7 @@ namespace Final_Project
         }
         public void Move(float x, float y, Grid tiles)
         {
+
             float xi = PositionV.X + x;
             float yi = PositionV.Y - y;
             int xr = GetGridPosFromFloat(xi);
