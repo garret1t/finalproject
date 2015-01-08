@@ -8,9 +8,10 @@ namespace Final_Project
     public class Map
     {
         public Grid[,] map = new Grid[5, 5];
+        
         String[] lines = new String[9];
         int[,] tileTypes = new int[9,9];
-
+        int[,] enemyTypes = new int[9, 9];
         Random rand = new System.Random();
         public void Load(String[] templates, Game1 game) 
         {
@@ -27,10 +28,14 @@ namespace Final_Project
                         {
                             tileTypes[k, l] = Convert.ToInt32(new String(lines[l].ToCharArray()[k], 1));
                         }
+                        for (int m = 9; m < 18; m++)
+                        {
+                            enemyTypes[k, m - 9] = Convert.ToInt32(new String(lines[m].ToCharArray()[k], 1));
+                        }
                     }
                     map[i, j] = new Grid();
                     map[i, j].Load(tileTypes, game);
-
+                    map[i, j].LoadEnemies(enemyTypes, game);
                 }
             }
            

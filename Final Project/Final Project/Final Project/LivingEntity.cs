@@ -21,7 +21,7 @@ namespace Final_Project
         }
 
         int hitpoints;
-        int attack;
+        
         int speed;
         int range;
         protected int maxHealth;
@@ -29,7 +29,7 @@ namespace Final_Project
         protected Rectangle collisionBox;
         float rotation;
         Texture2D texture;
-        bool alive;
+       
 
         public Rectangle Collision { get { return collisionBox; } }
         public int Hitpoints
@@ -37,11 +37,7 @@ namespace Final_Project
             get { return hitpoints; }
             set { hitpoints = value; }
         }
-        public int Attack
-        {
-            get { return attack; }
-            set { attack = value; }
-        }
+       
         public int Speed
         {
             get { return speed; }
@@ -67,11 +63,7 @@ namespace Final_Project
             get { return texture; }
             set { texture = value; }
         }
-        public bool Alive
-        {
-            get { return alive; }
-            set { alive = value; }
-        }
+       
 
         public int Health
         {

@@ -18,11 +18,10 @@ namespace Final_Project
         Texture2D projectileTexture;
         int reloadTime;
         int counter;
-        public Enemy(int hp, int attack, int speed, int range,int reload, Rectangle position, float rotation, Texture2D texture, Texture2D bulletTexture, Game game) : base(game, SpellElement.Fire)
+        public Enemy(int hp, int speed, int range,int reload, Rectangle position, float rotation, Texture2D texture, Texture2D bulletTexture, Game1 game1) : base(game1, SpellElement.Fire)
         {
             health = hp;
-            maxHealth = hp;
-            Attack = attack;
+            maxHealth = hp;            
             Speed = speed;
             Range = range;
             Position = position;
@@ -37,22 +36,30 @@ namespace Final_Project
             Vector2 direction = new Vector2( playerPosition.X + 33 - Position.X, playerPosition.Y + 33 - Position.Y);
             direction.Normalize();
             Rotation = (float)Math.Atan2(direction.Y, direction.X) + MathHelper.Pi;
-
-            //Console.WriteLine(Vector2.Distance(new Vector2(Position.X, Position.Y), playerPosition));
+            
+           
             if (Vector2.Distance(new Vector2(Position.X, Position.Y), playerPosition ) < (Range * 100))
             {
                 if (counter == 0)
                 {
-
-                    Shoot(new Vector2(Position.X, Position.Y), direction);
-                    counter = reloadTime;
+                    if (!Dead)
+                    {
+                        //Console.WriteLine("Shooting");
+                        //Console.WriteLine("Mouse: " + Mouse.GetState().X + "," + Mouse.GetState().Y);
+                        //Console.WriteLine("Enemy: " + Position);
+                        //Console.WriteLine("Player: " + playerPosition);
+                        Shoot(new Vector2(Position.X, Position.Y), direction);
+                        counter = reloadTime;
+                    }
                 }
 
             }
             else 
             {
                 //Console.WriteLine("Moving");
-                Position = new Rectangle(Position.X + (int)direction.X, Position.Y + (int)direction.Y, Position.Width, Position.Height);
+                Console.WriteLine("Old Position: " + Position);
+                Position = new Rectangle(Position.X + (int)(direction.X * Speed) , Position.Y + (int)(direction.Y * Speed), Position.Width, Position.Height);
+                Console.WriteLine("New Position: " + Position);
                 
             }
 
@@ -60,8 +67,7 @@ namespace Final_Project
             {
                 counter--;
             }
-            //Console.WriteLine(Position);
-            //Console.WriteLine(playerPosition);
+            
             UpdateProjectiles();
 
             Vector2 rotatedp = Utils.RotateAboutOrigin(new Vector2(Position.X, Position.Y), new Vector2(Position.X, Position.Y), (float)Rotation);
@@ -80,6 +86,7 @@ namespace Final_Project
         {
             if (projectiles.Count < 3)
             {
+                
                 projectiles.Add(new Projectile(5, initialPosition, direction, ProjectileType.Enemy, projectileTexture));
             }
         }
@@ -88,7 +95,7 @@ namespace Final_Project
 
             foreach (Projectile p in projectiles)
             {
-                //Console.WriteLine(p.Location);
+                
                 p.Location += (p.Velocity * p.Speed);
                
                 if (Vector2.Distance(p.Location, new Vector2(Position.X + 100, Position.Y + 200)) > Range * 100) { p.Visible = false; }

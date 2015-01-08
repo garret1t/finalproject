@@ -213,11 +213,7 @@ namespace Final_Project
             heartEmpty = Content.Load<Texture2D>("heartEmpty");
             enemy1 = Content.Load<Texture2D>("enemy1");
             bullet = Content.Load<Texture2D>("bullet");
-            for (int i = 0; i < 1; i++)
-            {
-                enemies.Add(new Enemy(30, 3, 3, 3, 180, new Rectangle(i * 67 * 2 + 100 + 191, 400, 67, 67), 0, enemy1, bullet, this));
-
-            }
+           
 
             wizard = new Player(4, 4, wizardup, wizarddown, wizardleft, wizardright, spriteBatch, this);
 
@@ -284,12 +280,7 @@ namespace Final_Project
                 omniSelVector = new Vector2(wizard.PositionV.X+137,wizard.PositionV.Y+237);
             }
            
-            #region FireBall
-            if (pad1.ThumbSticks.Right.X > 0 && oldpad1.ThumbSticks.Right.X == 0) { wizard.Shoot(ProjectileType.Fireball, new Vector2(1, 0), fireballright); }
-            if (pad1.ThumbSticks.Right.X < 0 && oldpad1.ThumbSticks.Right.X == 0) { wizard.Shoot(ProjectileType.Fireball, new Vector2(-1, 0), fireballleft); }
-            if (pad1.ThumbSticks.Right.Y > 0 && oldpad1.ThumbSticks.Right.Y == 0) { wizard.Shoot(ProjectileType.Fireball, new Vector2(0, -1), fireballup); }
-            if (pad1.ThumbSticks.Right.Y < 0 && oldpad1.ThumbSticks.Right.Y == 0) { wizard.Shoot(ProjectileType.Fireball, new Vector2(0, 1), fireballdown); }
-            #endregion
+           
             for (int i = 0; i < Animations.Count; i++) if (Animations[i].NeedsRemove) Animations.RemoveAt(i);
             foreach (PrefabAnimation pa in Animations) pa.Update(gameTime);
 
@@ -297,7 +288,7 @@ namespace Final_Project
             foreach (SpellProjectile sp in ActiveProjectiles) sp.Update();
 
             Window.Title = "X: " + wizard.PositionV.X + ";  Y: " + wizard.PositionV.Y;
-            foreach (Enemy e in enemies) e.Update(gameTime, wizard.PositionV + new Vector2(100,200));
+            foreach (Enemy e in screen.enemyList) e.Update(gameTime, wizard.PositionV + new Vector2(100,200));
             oldpad1 = pad1;
             oldmouse = mouse;
             base.Update(gameTime);
@@ -354,7 +345,7 @@ namespace Final_Project
             {
                 p.Draw(spriteBatch);
             }
-            foreach (Enemy e in enemies) 
+            foreach (Enemy e in screen.enemyList) 
             {
                 e.Draw(spriteBatch);
             }
