@@ -61,6 +61,8 @@ namespace Final_Project
             currentCombo.OnSpellAdded += new SpellComboList.SpellAdded(currentCombo_OnSpellAdded);
             blank = new Texture2D(Game1.Instance.GraphicsDevice, 1, 1);
             blank.SetData(new Color[] { Color.White });
+
+            Game1.Instance.OmniSelectionMade += new Game1.OmniSelectionHandler(Instance_OmniSelectionMade);
         }
 
         void currentCombo_OnSpellAdded(SpellElement type)
@@ -82,8 +84,7 @@ namespace Final_Project
                 if (c is LivingTargetSpell && !(c is FailSpell))
                 {
                     current = c;
-                    Game1.Instance.showingOmniSelector = true;
-                    Game1.Instance.OmniSelectionMade += new Game1.OmniSelectionHandler(Instance_OmniSelectionMade);
+                    Game1.Instance.showingOmniSelector = true;                    
                 }
             }            
         }

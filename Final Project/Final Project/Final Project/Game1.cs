@@ -215,7 +215,7 @@ namespace Final_Project
             bullet = Content.Load<Texture2D>("bullet");
             for (int i = 0; i < 1; i++)
             {
-                enemies.Add(new Enemy(10, 3, 3, 3, 180, new Rectangle(i * 67 * 2 + 100 + 191, 400, 67, 67), 0, enemy1, bullet, this));
+                enemies.Add(new Enemy(30, 3, 3, 3, 180, new Rectangle(i * 67 * 2 + 100 + 191, 400, 67, 67), 0, enemy1, bullet, this));
 
             }
 

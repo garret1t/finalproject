@@ -85,7 +85,7 @@ namespace Final_Project
         }
         public override void OnHit(LivingEntity entity)
         {
-            entity.Damage(10, dominantType);
+            entity.Damage(6, dominantType);
             base.OnHit(entity);
         }
     }

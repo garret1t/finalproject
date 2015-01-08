@@ -58,10 +58,12 @@ namespace Final_Project
         }
         public bool IsWeakTo(SpellElement target)
         {
-            return WeakToMap[target.ElementId] == id;
+            if (target == SpellElement.None) return false;
+            return SpellElement.WeakToMap[target.ElementId] == id;
         }
         public bool IsStrongTo(SpellElement target)
         {
+            if (target == SpellElement.None) return false;
             return target.ElementId == ElementId;
         }
 

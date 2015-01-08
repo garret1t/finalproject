@@ -88,7 +88,7 @@ namespace Final_Project
 
             foreach (Projectile p in projectiles)
             {
-                Console.WriteLine(p.Location);
+                //Console.WriteLine(p.Location);
                 p.Location += (p.Velocity * p.Speed);
                
                 if (Vector2.Distance(p.Location, new Vector2(Position.X + 100, Position.Y + 200)) > Range * 100) { p.Visible = false; }
@@ -110,11 +110,12 @@ namespace Final_Project
             {
                 p.Draw(spriteBatch);
             }
-
+            
             if (!Dead)
             {
+                
                 spriteBatch.Draw(Game1.Instance.blank, new Rectangle(Collision.X, Collision.Y - 5, Collision.Width, 3), Color.Red);
-                spriteBatch.Draw(Game1.Instance.blank, new Rectangle(Collision.X, Collision.Y - 5, (Health / MaxHealth) * Collision.Width, 3), Color.Green);
+                spriteBatch.Draw(Game1.Instance.blank, new Rectangle(Collision.X, Collision.Y - 5, (int)(((float)Health / (float)MaxHealth) * Collision.Width), 3), Color.Green);
             }
             else
             {

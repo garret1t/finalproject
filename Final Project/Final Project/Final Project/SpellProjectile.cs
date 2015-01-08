@@ -23,7 +23,7 @@ namespace Final_Project
         protected Texture2D texture;
         protected bool needsRemove = false;
         protected Vector2 position;
-        protected Rectangle collisionBox;
+        protected Rectangle collisionBox;        
 
         public float Speed { get { return speed; } set { speed = value; } }
         public Vector2 Direction { get { return direction; } }
@@ -111,10 +111,13 @@ namespace Final_Project
 
             foreach (Enemy e in Game1.Instance.enemies)
             {
-                if (e.Collision.Intersects(new Rectangle(collisionBox.X + 100, collisionBox.Y + 200, collisionBox.Width, collisionBox.Height)))
+                if (e.Collision.Intersects(new Rectangle(collisionBox.X + 100, collisionBox.Y + 200, collisionBox.Width, collisionBox.Height)) && !NeedsRemove)
                 {
+                    
                     LivingTargetSpell ltp = (LivingTargetSpell)Spell;
-                    ltp.OnHit(e);
+                    e.OnHit(ltp, caster);
+                    Console.WriteLine("HIT: " + this.GetHashCode());
+                    //ltp.OnHit(e);
                     needsRemove = true;
                 }
             }
@@ -129,8 +132,8 @@ namespace Final_Project
             Vector2 drawCoord = new Vector2(position.X + 100, position.Y + 200);            
             //float rotation = 0f;
             spriteBatch.Draw(Game1.Instance.TextureDictionary["projectile"], drawCoord, null, spellColor, rotation, new Vector2(32,16), 1f, SpriteEffects.None, 0.8f);
-            Rectangle r = new Rectangle(collisionBox.X + 100, collisionBox.Y + 200, collisionBox.Width, collisionBox.Height);
-            spriteBatch.Draw(Game1.Instance.blank, r, Color.Red*0.5f);
+            //Rectangle r = new Rectangle(collisionBox.X + 100, collisionBox.Y + 200, collisionBox.Width, collisionBox.Height);
+            //spriteBatch.Draw(Game1.Instance.blank, r, Color.Red*0.5f);
             base.Draw(spriteBatch);
         }
     }
