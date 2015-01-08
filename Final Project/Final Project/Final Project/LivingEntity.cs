@@ -9,23 +9,29 @@ namespace Final_Project
 {
     public class LivingEntity : DrawableGameComponent, ISpellTargetable, ISpellCaster
     {
-        private int health;
+        protected int health;
         private bool dead;
 
         protected Vector2 posv = new Vector2();
 
         public Vector2 PositionV { get { return posv; } set { posv = value; } }
-        public LivingEntity(Game associatedGame) : base(associatedGame) { }
+        public LivingEntity(Game associatedGame, SpellElement assigned) : base(associatedGame) 
+        {
+            element = assigned;
+        }
 
         int hitpoints;
         int attack;
         int speed;
         int range;
+        protected int maxHealth;
         Rectangle position;
+        protected Rectangle collisionBox;
         float rotation;
         Texture2D texture;
         bool alive;
 
+        public Rectangle Collision { get { return collisionBox; } }
         public int Hitpoints
         {
             get { return hitpoints; }
@@ -69,20 +75,30 @@ namespace Final_Project
 
         public int Health
         {
-            get { return Health; }
+            get { return health; }
             set
             {
                 if (Dead) { return; }
-                if (health - value <= 0)
+                if (value <= 0)
                 {
                     dead = true;
                     health = 0;
                 }
+                else if (value > maxHealth)
+                {
+                    health = maxHealth;
+                }
                 else
                 {
-                    health -= value;
+                    health = value;
                 }
             }
+        }
+
+        public int MaxHealth
+        {
+            get { return maxHealth; }
+            set { maxHealth = value; }
         }
 
         public bool Dead

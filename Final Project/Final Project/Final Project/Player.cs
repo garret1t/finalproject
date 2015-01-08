@@ -45,7 +45,7 @@ namespace Final_Project
         }
         Texture2D blank;
 
-        public Player(int playerRow, int playerColumn, Texture2D tup, Texture2D tdown, Texture2D tleft, Texture2D tright, SpriteBatch game1spriteBatch, Game1 game) : base(game)
+        public Player(int playerRow, int playerColumn, Texture2D tup, Texture2D tdown, Texture2D tleft, Texture2D tright, SpriteBatch game1spriteBatch, Game1 game) : base(game, SpellElement.Light)
         {
             element = SpellElement.Light;
             Position = new Rectangle();

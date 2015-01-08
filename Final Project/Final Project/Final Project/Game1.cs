@@ -51,8 +51,10 @@ namespace Final_Project
         public bool showingOmniSelector = false;
         float selectionSensitivity = 10f;
 
-        List<Enemy> enemies = new List<Enemy>();
+        public List<Enemy> enemies = new List<Enemy>();
         Vector2 omniSelVector = new Vector2();
+
+        public Texture2D blank;        
 
         public Game1()
         {
@@ -190,7 +192,8 @@ namespace Final_Project
 
         protected override void LoadContent()
         {
-            
+            blank = new Texture2D(Game1.Instance.GraphicsDevice, 1, 1);
+            blank.SetData(new Color[] { Color.White });
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             wizarddown = Content.Load<Texture2D>("WizardDown");

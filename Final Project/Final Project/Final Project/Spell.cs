@@ -18,9 +18,11 @@ namespace Final_Project
             FailSpell = new FailSpell();
 
             SpellFireball fireball = new SpellFireball();
+            SpellWaterBullet waterbullet = new SpellWaterBullet();
 
 
             registeredSpells.Add(fireball);
+            registeredSpells.Add(waterbullet);
         }
 
         public static List<Spell> Registry { get { return registeredSpells; } }
@@ -66,6 +68,20 @@ namespace Final_Project
             name = "Fireball";
             dominantType = SpellElement.Fire;
             uniqueCombo = new SpellElement[] { SpellElement.Fire };
+        }
+        public override void OnHit(LivingEntity entity)
+        {
+            entity.Damage(10, dominantType);
+            base.OnHit(entity);
+        }
+    }
+    public class SpellWaterBullet : LivingTargetSpell
+    {
+        public SpellWaterBullet()
+        {
+            name = "Water Bullet";
+            dominantType = SpellElement.Water;
+            uniqueCombo = new SpellElement[] { SpellElement.Water };
         }
         public override void OnHit(LivingEntity entity)
         {

@@ -16,12 +16,14 @@ namespace Final_Project
     public class SpellProjectile
     {
         protected float speed = 5f;
+        protected float rotation = 0f;
         protected Vector2 direction;
         protected ISpellTargetable target;
         protected Spell spell;
         protected Texture2D texture;
         protected bool needsRemove = false;
         protected Vector2 position;
+        protected Rectangle collisionBox;
 
         public float Speed { get { return speed; } set { speed = value; } }
         public Vector2 Direction { get { return direction; } }
@@ -33,7 +35,8 @@ namespace Final_Project
         protected SpellProjectile(Spell spell)
         {
             this.spell = spell;
-            texture = Game1.Instance.TextureDictionary["projectile"];
+            texture = Game1.Instance.TextureDictionary["projectile"];            
+            
         }
 
         public virtual void Update()
@@ -42,6 +45,7 @@ namespace Final_Project
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
+            
         }
     }
 
@@ -61,6 +65,8 @@ namespace Final_Project
             Vector2 en = new Vector2(entity.PositionV.X + 100, entity.PositionV.Y + 200);
             Console.WriteLine("end: " + endpoint + "; start: " + entity.PositionV);
             direction = Vector2.Normalize(endpoint - en);
+
+            rotation = (float)(Math.Atan2(direction.Y, direction.X));
 
             for (int i = 0; i < Spell.Combination.Length; i++)
             {
@@ -83,21 +89,48 @@ namespace Final_Project
                 {
                     spellColor.B -= 85;                    
                 }
-            }
+            }            
         }
 
         public override void Update()
         {
+            //rotation += MathHelper.ToRadians(1f);
+            
             position += direction * speed;
+
+            Vector2 rotatedp = Utils.RotateAboutOrigin(new Vector2(position.X - 8, position.Y - 1), new Vector2(position.X, position.Y), (float)rotation);
+
+            rotatedp.X -= 8;
+            rotatedp.Y -= 8;
+
+            float x = rotatedp.X;
+            float y = rotatedp.Y;
+            int ix = (int)x, iy = (int)y;
+
+            collisionBox = new Rectangle(ix, iy, 16, 16);
+
+            foreach (Enemy e in Game1.Instance.enemies)
+            {
+                if (e.Collision.Intersects(new Rectangle(collisionBox.X + 100, collisionBox.Y + 200, collisionBox.Width, collisionBox.Height)))
+                {
+                    LivingTargetSpell ltp = (LivingTargetSpell)Spell;
+                    ltp.OnHit(e);
+                    needsRemove = true;
+                }
+            }
+            
+            
+            
             base.Update();
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            Vector2 drawCoord = new Vector2(position.X + 100, position.Y + 200);
-            float rotation = (float)(Math.Atan2(direction.Y, direction.X));
+            Vector2 drawCoord = new Vector2(position.X + 100, position.Y + 200);            
             //float rotation = 0f;
             spriteBatch.Draw(Game1.Instance.TextureDictionary["projectile"], drawCoord, null, spellColor, rotation, new Vector2(32,16), 1f, SpriteEffects.None, 0.8f);
+            Rectangle r = new Rectangle(collisionBox.X + 100, collisionBox.Y + 200, collisionBox.Width, collisionBox.Height);
+            spriteBatch.Draw(Game1.Instance.blank, r, Color.Red*0.5f);
             base.Draw(spriteBatch);
         }
     }

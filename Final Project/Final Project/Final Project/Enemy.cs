@@ -12,15 +12,16 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Final_Project
 {
-    class Enemy : LivingEntity
+    public class Enemy : LivingEntity
     {
         List<Projectile> projectiles = new List<Projectile>();
         Texture2D projectileTexture;
         int reloadTime;
         int counter;
-        public Enemy(int hp, int attack, int speed, int range,int reload, Rectangle position, float rotation, Texture2D texture, Texture2D bulletTexture, Game game) : base(game)
+        public Enemy(int hp, int attack, int speed, int range,int reload, Rectangle position, float rotation, Texture2D texture, Texture2D bulletTexture, Game game) : base(game, SpellElement.Fire)
         {
-            Hitpoints = hp;
+            health = hp;
+            maxHealth = hp;
             Attack = attack;
             Speed = speed;
             Range = range;
@@ -55,6 +56,17 @@ namespace Final_Project
                 counter--;
             }
             UpdateProjectiles();
+
+            Vector2 rotatedp = Utils.RotateAboutOrigin(new Vector2(Position.X, Position.Y), new Vector2(Position.X, Position.Y), (float)Rotation);
+            rotatedp.X -= 33;
+            rotatedp.Y -= 33;
+
+            float x = rotatedp.X;
+            float y = rotatedp.Y;
+            int ix = (int)x, iy = (int)y;
+
+            collisionBox = new Rectangle(ix, iy, Position.Width, Position.Height);
+
             base.Update(gameTime);
         }
         public void Shoot(Vector2 initialPosition, Vector2 direction) 
@@ -86,9 +98,20 @@ namespace Final_Project
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Texture, Position, null, Color.White, Rotation, new Vector2(Position.Width/4, Position.Height/4), SpriteEffects.None, 0);
+            //spriteBatch.Draw(Game1.Instance.blank, collisionBox, Color.Red*0.5f);
             foreach (Projectile p in projectiles) 
             {
                 p.Draw(spriteBatch);
+            }
+
+            if (!Dead)
+            {
+                spriteBatch.Draw(Game1.Instance.blank, new Rectangle(Collision.X, Collision.Y - 5, Collision.Width, 3), Color.Red);
+                spriteBatch.Draw(Game1.Instance.blank, new Rectangle(Collision.X, Collision.Y - 5, (Health / MaxHealth) * Collision.Width, 3), Color.Green);
+            }
+            else
+            {
+                spriteBatch.Draw(Game1.Instance.blank, new Rectangle(Collision.X, Collision.Y - 5, Collision.Width, 3), Color.Black);
             }
         }
        
