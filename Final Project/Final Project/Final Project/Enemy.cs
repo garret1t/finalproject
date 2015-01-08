@@ -18,6 +18,12 @@ namespace Final_Project
         Texture2D projectileTexture;
         int reloadTime;
         int counter;
+        int flyoverCounter = -1;
+        int flyoverHealthShown = 0;
+        bool flyoverTypeisDamage = false;
+        string flyoverText = "";
+        Vector2 flyoverPos = new Vector2();
+
         public Enemy(int hp, int attack, int speed, int range,int reload, Rectangle position, float rotation, Texture2D texture, Texture2D bulletTexture, Game game) : base(game, SpellElement.Fire)
         {
             health = hp;
@@ -31,7 +37,30 @@ namespace Final_Project
             reloadTime = reload;
             Texture = texture;
             projectileTexture = bulletTexture;
+            OnDamageTaken += new HealthHandler(Enemy_OnDamageTaken);
+            OnHealthTaken += new HealthHandler(Enemy_OnHealthTaken);
         }
+
+        void Enemy_OnHealthTaken(int oldHp, int newHp)
+        {
+            flyoverCounter = 0;
+            flyoverHealthShown = Math.Abs(newHp - oldHp);
+            flyoverTypeisDamage = false;
+            flyoverText = "" + ((flyoverTypeisDamage) ? "-" : "+") + flyoverHealthShown;
+            flyoverPos.X = ((collisionBox.Right - collisionBox.Left - Game1.Instance.Flyover.MeasureString(flyoverText).X) / 2) + collisionBox.Left;
+            flyoverPos.Y = collisionBox.Y - 8 - Game1.Instance.Flyover.MeasureString(flyoverText).Y;
+        }
+
+        void Enemy_OnDamageTaken(int oldHp, int newHp)
+        {
+            flyoverCounter = 0;
+            flyoverHealthShown = Math.Abs(oldHp - newHp);
+            flyoverTypeisDamage = true;
+            flyoverText = "" + ((flyoverTypeisDamage) ? "-" : "+") + flyoverHealthShown;
+            flyoverPos.X = ((collisionBox.Right - collisionBox.Left - Game1.Instance.Flyover.MeasureString(flyoverText).X) / 2) + collisionBox.Left;
+            flyoverPos.Y = collisionBox.Y - 8 - Game1.Instance.Flyover.MeasureString(flyoverText).Y;
+        }
+        Random random = new Random();
         public void Update(GameTime gameTime, Vector2 playerPosition)
         {
             Vector2 direction = new Vector2( playerPosition.X + 33 - Position.X, playerPosition.Y + 33 - Position.Y);
@@ -73,6 +102,18 @@ namespace Final_Project
             int ix = (int)x, iy = (int)y;
 
             collisionBox = new Rectangle(ix, iy, Position.Width, Position.Height);
+
+            if (flyoverCounter != -1)
+            {
+                flyoverCounter++;
+                flyoverPos.Y -= ((random.Next(100) > 80) ? 2 : 1);
+                flyoverPos.X -= ((random.Next(100) > 90) ? 1 : 0);
+            }
+
+            if (flyoverCounter == 60)
+            {
+                flyoverCounter = -1;
+            }
 
             base.Update(gameTime);
         }
@@ -120,6 +161,12 @@ namespace Final_Project
             else
             {
                 spriteBatch.Draw(Game1.Instance.blank, new Rectangle(Collision.X, Collision.Y - 5, Collision.Width, 3), Color.Black);
+            }
+
+            if (flyoverCounter != -1)
+            {
+                spriteBatch.DrawString(Game1.Instance.Flyover, flyoverText, new Vector2(flyoverPos.X - 2, flyoverPos.Y - 2), Color.Black, 0f, Vector2.Zero, 1.1f, SpriteEffects.None, 1f);
+                spriteBatch.DrawString(Game1.Instance.Flyover, flyoverText, flyoverPos, ((flyoverTypeisDamage) ? Color.Red : Color.Green));
             }
         }
        

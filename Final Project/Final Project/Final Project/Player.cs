@@ -47,6 +47,8 @@ namespace Final_Project
 
         public Player(int playerRow, int playerColumn, Texture2D tup, Texture2D tdown, Texture2D tleft, Texture2D tright, SpriteBatch game1spriteBatch, Game1 game) : base(game, SpellElement.Light)
         {
+            maxHealth = 30;
+            health = 1;
             element = SpellElement.Light;
             Position = new Rectangle();
             GridX = playerRow;
@@ -86,12 +88,18 @@ namespace Final_Project
                     current = c;
                     Game1.Instance.showingOmniSelector = true;                    
                 }
+                else if (c is SelfTargetSpell)
+                {
+                    SelfTargetSpell sts = (SelfTargetSpell)c;
+                    sts.OnCast(this);
+                }
             }            
         }
 
         void Instance_OmniSelectionMade(Vector2 vec)
         {
             LivingTargetSpell ltp = (LivingTargetSpell)current;
+            ltp.OnCast(this);
             Game1.Instance.ActiveProjectiles.Add(new LivingTargetProjectile(this, vec, ltp));
             Game1.Instance.showingOmniSelector = false;
         }
