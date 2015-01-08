@@ -109,7 +109,7 @@ namespace Final_Project
 
             collisionBox = new Rectangle(ix, iy, 16, 16);
 
-            foreach (Enemy e in Game1.Instance.enemies)
+            foreach (Enemy e in Game1.Instance.screen.enemyList)
             {
                 if (e.Collision.Intersects(new Rectangle(collisionBox.X + 100, collisionBox.Y + 200, collisionBox.Width, collisionBox.Height)) && !NeedsRemove)
                 {
