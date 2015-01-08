@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Final_Project
 {
-    public class LivingEntity : DrawableGameComponent, ISpellTargetable, ISpellCaster
+    public class LivingEntity : DrawableGameComponent, ISpellTargetable
     {
         protected int health;
         private bool dead;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
 
 namespace Final_Project
 {
@@ -17,12 +18,12 @@ namespace Final_Project
 
         #region Element Definitions
 
-        public static readonly SpellElement Fire = new SpellElement(0, "Fire");
-        public static readonly SpellElement Air = new SpellElement(1, "Air");
-        public static readonly SpellElement Water = new SpellElement(2, "Water");
-        public static readonly SpellElement Earth = new SpellElement(3, "Earth");
-        public static readonly SpellElement Light = new SpellElement(4, "Light");
-        public static readonly SpellElement None = new SpellElement(5, "None");
+        public static readonly SpellElement Fire = new SpellElement(0, "Fire", Color.Red);
+        public static readonly SpellElement Air = new SpellElement(1, "Air", Color.Green);
+        public static readonly SpellElement Water = new SpellElement(2, "Water", Color.Blue);
+        public static readonly SpellElement Earth = new SpellElement(3, "Earth", Color.Yellow);
+        public static readonly SpellElement Light = new SpellElement(4, "Light", Color.White);
+        public static readonly SpellElement None = new SpellElement(5, "None", Color.Black);
 
         #endregion
 
@@ -43,10 +44,12 @@ namespace Final_Project
 
         private int id;
         private string name;
-        public SpellElement(int id, string name)
+        private Color spellColor;
+        public SpellElement(int id, string name, Color color)
         {
             this.id = id;
             this.name = name;
+            this.spellColor = color;
         }
         public int ElementId
         {
@@ -56,21 +59,18 @@ namespace Final_Project
         {
             get { return name; }
         }
+
+        public Color SpellColor { get { return spellColor; } }
+
         public bool IsWeakTo(SpellElement target)
         {
             if (target == SpellElement.None) return false;
-            try
-            {
-                return SpellElement.WeakToMap[target.ElementId] == id;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
+            if (!SpellElement.WeakToMap.ContainsKey(target.ElementId)) return false;
+            return SpellElement.WeakToMap[target.ElementId] == id;
         }
         public bool IsStrongTo(SpellElement target)
         {
-            if (target == SpellElement.None) return false;
+            if (target == SpellElement.None) return false;            
             return target.ElementId == ElementId;
         }
 

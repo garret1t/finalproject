@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Final_Project
 {
-    public class Player : LivingEntity
+    public class Player : LivingEntity, ISpellCaster
     {
         // Need floats for positioning not ints.
         public int GridX { get { return (int)((PositionV.X + 67 / 2) / 67); } set { PositionV = new Vector2(value * 67, PositionV.Y); } }
