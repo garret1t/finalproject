@@ -25,7 +25,7 @@ namespace Final_Project
         int speed;
         int range;
         protected int maxHealth;
-        Rectangle position;
+        protected Rectangle position = new Rectangle();
         protected Rectangle collisionBox;
         float rotation;
         Texture2D texture;
