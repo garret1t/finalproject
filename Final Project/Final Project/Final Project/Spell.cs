@@ -19,10 +19,11 @@ namespace Final_Project
 
             SpellFireball fireball = new SpellFireball();
             SpellWaterBullet waterbullet = new SpellWaterBullet();
-
+            SpellHealOne healone = new SpellHealOne();
 
             registeredSpells.Add(fireball);
             registeredSpells.Add(waterbullet);
+            registeredSpells.Add(healone);
         }
 
         public static List<Spell> Registry { get { return registeredSpells; } }
@@ -57,6 +58,9 @@ namespace Final_Project
     public class TileTargetSpell : Spell
     {
         public virtual void OnHit(Tile tile) { }
+    }
+    public class SelfTargetSpell : Spell 
+    {
     }
     #endregion
 
@@ -95,6 +99,20 @@ namespace Final_Project
         {
             name = "Failure";
             dominantType = SpellElement.None;
+        }
+    }
+    public class SpellHealOne : SelfTargetSpell
+    {
+        public SpellHealOne()
+        {
+            name = "Heal I";
+            dominantType = SpellElement.Light;
+            uniqueCombo = new SpellElement[] { SpellElement.Light };
+        }
+        public override void OnCast(LivingEntity caster)
+        {
+            caster.Heal(15, DominantType);
+            base.OnCast(caster);
         }
     }
     #endregion

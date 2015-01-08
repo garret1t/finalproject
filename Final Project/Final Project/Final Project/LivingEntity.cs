@@ -14,10 +14,17 @@ namespace Final_Project
 
         protected Vector2 posv = new Vector2();
 
+        public delegate void HealthHandler(int oldHp, int newHp);
+
+        public event HealthHandler OnDamageTaken;
+        public event HealthHandler OnHealthTaken;
+
         public Vector2 PositionV { get { return posv; } set { posv = value; } }
         public LivingEntity(Game associatedGame, SpellElement assigned) : base(associatedGame) 
         {
             element = assigned;
+            OnDamageTaken += (int old, int ne) => { };
+            OnHealthTaken += (int old, int ne) => { };
         }
 
         int hitpoints;
@@ -111,6 +118,7 @@ namespace Final_Project
 
         public virtual void Damage(int power, SpellElement type)
         {
+            int oldHp = Health;
             Console.WriteLine("Damage: " + power + "; " + type.Name);
             int p = power;
             if (Element.IsStrongTo(type))
@@ -118,19 +126,26 @@ namespace Final_Project
                 Heal(power, type);
                 return;
             }
-            if (Element.IsWeakTo(type)) p *= 2;
+            if (Element.IsWeakTo(type)) p *= 2;            
             Health -= p;
+            int newHp = Health;
+            if (oldHp != newHp)
+                OnDamageTaken(oldHp, newHp);
         }
 
         public virtual void Heal(int power, SpellElement type)
         {
             int p = power;
+            int oldHp = Health;
             if (Element.IsWeakTo(type))
             {
                 Damage(p, SpellElement.None);
                 return;
             }
             Health += p;
+            int newHp = Health;
+            if (oldHp != newHp)
+                OnHealthTaken(oldHp, newHp);
         }
 
         public void OnHit(Spell spell, ISpellCaster caster)

@@ -16,6 +16,9 @@ namespace Final_Project
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         public static Game1 Instance;
+
+        #region Fields
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -36,6 +39,7 @@ namespace Final_Project
         GamePadState pad1, oldpad1;
         public Texture2D fireballleft, fireballright, fireballup, fireballdown;
         public Texture2D mudballleft, mudballright, mudballup, mudballdown;
+        public SpriteFont Flyover;
         Texture2D omnisel;
         Texture2D tilesel;
         Texture2D enemy1;
@@ -54,7 +58,9 @@ namespace Final_Project
         public List<Enemy> enemies = new List<Enemy>();
         Vector2 omniSelVector = new Vector2();
 
-        public Texture2D blank;        
+        public Texture2D blank;
+
+        #endregion
 
         public Game1()
         {
@@ -232,6 +238,8 @@ namespace Final_Project
 
             tilesel = Content.Load<Texture2D>("TileSelector");
             omnisel = Content.Load<Texture2D>("OmniSelector");
+
+            Flyover = Content.Load<SpriteFont>("flyoverfont");
             // TODO: use this.Content to load your game content here
         }
 
@@ -287,8 +295,13 @@ namespace Final_Project
             for (int i = 0; i < ActiveProjectiles.Count; i++) if (ActiveProjectiles[i].NeedsRemove) ActiveProjectiles.RemoveAt(i);
             foreach (SpellProjectile sp in ActiveProjectiles) sp.Update();
 
+
             Window.Title = "X: " + wizard.PositionV.X + ";  Y: " + wizard.PositionV.Y;
             foreach (Enemy e in screen.enemyList) e.Update(gameTime, wizard.PositionV + new Vector2(100,200));
+
+            Window.Title = "X: " + wizard.PositionV.X + ";  Y: " + wizard.PositionV.Y + "; HP: " + wizard.Health;
+            foreach (Enemy e in enemies) e.Update(gameTime, wizard.PositionV + new Vector2(100,200));
+
             oldpad1 = pad1;
             oldmouse = mouse;
             base.Update(gameTime);
