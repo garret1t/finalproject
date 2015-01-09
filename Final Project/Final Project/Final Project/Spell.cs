@@ -48,7 +48,7 @@ namespace Final_Project
         public SpellElement[] Combination { get { return uniqueCombo; } }
         public SpellElement DominantType { get { return dominantType; } }
         public string Name { get { return name; } }
-        public virtual void OnCast(LivingEntity caster) { }
+        public virtual void OnCast(ISpellCaster caster) { }
 
     }
     public class LivingTargetSpell : Spell
@@ -109,7 +109,7 @@ namespace Final_Project
             dominantType = SpellElement.Light;
             uniqueCombo = new SpellElement[] { SpellElement.Light };
         }
-        public override void OnCast(LivingEntity caster)
+        public override void OnCast(ISpellCaster caster)
         {
             caster.Heal(15, DominantType);
             base.OnCast(caster);

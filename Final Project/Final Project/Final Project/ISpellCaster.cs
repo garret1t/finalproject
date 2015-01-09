@@ -11,6 +11,6 @@ namespace Final_Project
     {
         Vector2 PositionV { get; set; }
         void Heal(int power, SpellElement type);
-        void Damage(int power, SpellElement type);
+        void Damage(int power, SpellElement type);        
     }
 }

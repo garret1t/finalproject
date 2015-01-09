@@ -2,6 +2,5 @@
 Boss enemies
 More types of enemies
 Make enemies harder
-Mana
 
 Just gotta finish the project

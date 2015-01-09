@@ -22,11 +22,11 @@ namespace Final_Project
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        public delegate void TileSelectionHandler(int x, int y);
+        //public delegate void TileSelectionHandler(int x, int y);
         public delegate void OmniSelectionHandler(Vector2 vec);
 
         public event OmniSelectionHandler OmniSelectionMade;
-        public event TileSelectionHandler TileSelectionMade;
+        //public event TileSelectionHandler TileSelectionMade;
 
         int[,] tileTypes = new int[9, 9];
         String[] lines = System.IO.File.ReadAllLines("screen1.txt");
@@ -39,7 +39,7 @@ namespace Final_Project
         GamePadState pad1, oldpad1;
         public Texture2D fireballleft, fireballright, fireballup, fireballdown;
         public Texture2D mudballleft, mudballright, mudballup, mudballdown;
-        public SpriteFont Flyover;
+        public SpriteFont Flyover, Hudfont;
         Texture2D omnisel;
         Texture2D tilesel;
         Texture2D enemy1;
@@ -76,7 +76,7 @@ namespace Final_Project
         protected override void Initialize()
         {
 
-            SpellElement.InitializeWeaknessMaps();
+            SpellElement.InitializeElements();
             SpellRegistry.Initialize();
             
             
@@ -240,6 +240,7 @@ namespace Final_Project
             omnisel = Content.Load<Texture2D>("OmniSelector");
 
             Flyover = Content.Load<SpriteFont>("flyoverfont");
+            Hudfont = Content.Load<SpriteFont>("hudfont");
             // TODO: use this.Content to load your game content here
         }
 
@@ -302,6 +303,11 @@ namespace Final_Project
             Window.Title = "X: " + wizard.PositionV.X + ";  Y: " + wizard.PositionV.Y + "; HP: " + wizard.Health;
             foreach (Enemy e in enemies) e.Update(gameTime, wizard.PositionV + new Vector2(100,200));
 
+            if (mouse.RightButton == ButtonState.Pressed)
+            {
+                Window.Title = "X: " + mouse.X + "; Y: " + mouse.Y;
+            }
+
             oldpad1 = pad1;
             oldmouse = mouse;
             base.Update(gameTime);
@@ -333,6 +339,7 @@ namespace Final_Project
                     for (int j = 0; j < 9; j++)
                     {
                         if (g.visible == true)
+                        //if (true)
                         { spriteBatch.Draw(g.GetTile(i, j).tileTexture, new Rectangle(i * dim + 5 + (horzOffset * dim * 9), j * dim + 5 + (vertOffsets * dim * 9), dim, dim), Color.White); }
                     }
                 }
@@ -362,8 +369,43 @@ namespace Final_Project
             {
                 e.Draw(spriteBatch);
             }
-            wizard.Draw(spriteBatch);
+            wizard.Draw(spriteBatch);            
+
+            #region Status
+
+            #region Health
+
+            //spriteBatch.DrawString(Hudfont, "Health: ", new Vector2(200, 10), Color.White);
+
+            #endregion
+
+            #region Mana
+
+            Mana m = wizard.mana;
+            int[] convVals = new int[5];
+            int[] srcVals = new int[5];
+            for (int i = 0; i < convVals.Length; i++)
+            {
+                float mult = (float)m[SpellElement.RegisteredElements[i]] / (float)m.MaximumMana;
+                float height = mult * 64;
+                float srchgt = mult * 200;
+                convVals[i] = (int)height;
+                srcVals[i] = (int)srchgt;
+            }
+            spriteBatch.Draw(TextureDictionary["symbols.light"], new Rectangle(426, 112 + (64 - convVals[4]), 64, convVals[4]), new Rectangle(0, 200 - srcVals[4], 200, srcVals[4]), Color.White); //4
+            spriteBatch.Draw(TextureDictionary["symbols.air"], new Rectangle(498, 112 + (64 - convVals[1]), 64, convVals[1]), new Rectangle(0, 200 - srcVals[1], 200, srcVals[1]), Color.White);
+            spriteBatch.Draw(TextureDictionary["symbols.water"], new Rectangle(570, 112 + (64 - convVals[2]), 64, convVals[2]), new Rectangle(0, 200 - srcVals[2], 200, srcVals[2]), Color.White);
+            spriteBatch.Draw(TextureDictionary["symbols.fire"], new Rectangle(642, 112 + (64 - convVals[0]), 64, convVals[0]), new Rectangle(0, 200 - srcVals[0], 200, srcVals[0]), Color.White);
+            spriteBatch.Draw(TextureDictionary["symbols.earth"], new Rectangle(714, 112 + (64 - convVals[3]), 64, convVals[3]), new Rectangle(0, 200 - srcVals[3], 200, srcVals[3]), Color.White);
+
+            spriteBatch.DrawString(Hudfont, "~Mana~", new Vector2(((714+64-426)-Hudfont.MeasureString("~Mana~").X)/2 + 426, 48), Color.White);
+
+            #endregion
+
+            #endregion
+
             foreach (PrefabAnimation pa in Animations) pa.Draw(spriteBatch);
+
             spriteBatch.End();
             base.Draw(gameTime);
         }

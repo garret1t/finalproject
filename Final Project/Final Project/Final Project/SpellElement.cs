@@ -23,15 +23,23 @@ namespace Final_Project
         public static readonly SpellElement Water = new SpellElement(2, "Water", Color.Blue);
         public static readonly SpellElement Earth = new SpellElement(3, "Earth", Color.Yellow);
         public static readonly SpellElement Light = new SpellElement(4, "Light", Color.White);
-        public static readonly SpellElement None = new SpellElement(5, "None", Color.Black);
+        public static readonly SpellElement None = new SpellElement(5, "None", Color.Black);        
 
         #endregion
 
         #region Weakness Maps
 
         public static Dictionary<int, int> WeakToMap = new Dictionary<int, int>();
-        public static void InitializeWeaknessMaps()
+        public static Dictionary<int, SpellElement> RegisteredElements = new Dictionary<int, SpellElement>();
+        public static void InitializeElements()
         {
+            RegisteredElements.Add(Fire.ElementId, Fire);
+            RegisteredElements.Add(Air.ElementId, Air);
+            RegisteredElements.Add(Water.ElementId, Water);
+            RegisteredElements.Add(Earth.ElementId, Earth);
+            RegisteredElements.Add(Light.ElementId, Light);
+            RegisteredElements.Add(None.ElementId, None);
+
             WeakToMap.Add(0, 2);
             WeakToMap.Add(1, 3);
             WeakToMap.Add(2, 0);

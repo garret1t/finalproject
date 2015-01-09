@@ -26,6 +26,7 @@ namespace Final_Project
         public SpriteBatch spriteBatch;
         public List<Projectile> projectiles = new List<Projectile>();
         public event RecordStatusEvent OnRecordStatusChanged;
+        public Mana mana;
         SpellComboList currentCombo = new SpellComboList();
         private bool recordingStatus = false;
 
@@ -49,6 +50,7 @@ namespace Final_Project
         {
             maxHealth = 30;
             health = 1;
+            mana = new Mana(30, true);
             element = SpellElement.Light;
             Position = new Rectangle();
             GridX = playerRow;
@@ -163,6 +165,14 @@ namespace Final_Project
             Projectile temp = new Projectile(5,new Vector2(GridX * 67, GridY * 67), vel, type, projtexture);
             if (projectiles.Count() < 3) { projectiles.Add(temp);  }
         }
+        private void AddElementToCombo(SpellElement type)
+        {
+            if (mana[type] > 0)
+            {
+                currentCombo.Add(type);
+                mana[type]--;
+            }
+        }
         GamePadState oldState, curState;
         public void PollInput()
         {
@@ -186,11 +196,11 @@ namespace Final_Project
 
             if (RecordStatus && currentCombo.Count < 3)
             {
-                if (oldState.Buttons.B == ButtonState.Released && curState.Buttons.B == ButtonState.Pressed) currentCombo.Add(SpellElement.Fire);
-                else if (oldState.Buttons.A == ButtonState.Released && curState.Buttons.A == ButtonState.Pressed) currentCombo.Add(SpellElement.Air);
-                else if (oldState.Buttons.X == ButtonState.Released && curState.Buttons.X == ButtonState.Pressed) currentCombo.Add(SpellElement.Water);
-                else if (oldState.Buttons.Y == ButtonState.Released && curState.Buttons.Y == ButtonState.Pressed) currentCombo.Add(SpellElement.Earth);
-                else if (oldState.Buttons.RightShoulder == ButtonState.Released && curState.Buttons.RightShoulder == ButtonState.Pressed) currentCombo.Add(SpellElement.Light);
+                if (oldState.Buttons.B == ButtonState.Released && curState.Buttons.B == ButtonState.Pressed) AddElementToCombo(SpellElement.Fire);
+                else if (oldState.Buttons.A == ButtonState.Released && curState.Buttons.A == ButtonState.Pressed) AddElementToCombo(SpellElement.Air);
+                else if (oldState.Buttons.X == ButtonState.Released && curState.Buttons.X == ButtonState.Pressed) AddElementToCombo(SpellElement.Water);
+                else if (oldState.Buttons.Y == ButtonState.Released && curState.Buttons.Y == ButtonState.Pressed) AddElementToCombo(SpellElement.Earth);
+                else if (oldState.Buttons.RightShoulder == ButtonState.Released && curState.Buttons.RightShoulder == ButtonState.Pressed) AddElementToCombo(SpellElement.Light);
             }
             
             #region Input > Move
