@@ -12,12 +12,14 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Final_Project
 {
-    public class Enemy : LivingEntity, ISpellCaster
+    public class Enemy : LivingEntity
     {
         List<Projectile> projectiles = new List<Projectile>();
         Texture2D projectileTexture;
         int reloadTime;
         int counter;
+        
+        
 
         public Enemy(int hp, int speed, int range,int reload, Rectangle position, float rotation, Texture2D texture, Texture2D bulletTexture, Game1 game) : base(game, SpellElement.Fire)
 
@@ -120,8 +122,8 @@ namespace Final_Project
             {
                 
                 p.Location += (p.Velocity * p.Speed);
-                p.CheckCollision();
-                if (Vector2.Distance(p.Location, new Vector2(Position.X + 100, Position.Y + 200)) > Range * 100) { p.Visible = false; }                
+               
+                if (Vector2.Distance(p.Location, new Vector2(Position.X + 100, Position.Y + 200)) > Range * 100) { p.Visible = false; }
             }
             for (int i = 0; i < projectiles.Count(); i++)
             {

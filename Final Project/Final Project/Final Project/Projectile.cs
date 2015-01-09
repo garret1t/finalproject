@@ -54,16 +54,6 @@ namespace Final_Project
             isVisible = true;
             texture = text;
         }
-
-        public void CheckCollision()
-        {
-            Rectangle collisionBox = new Rectangle((int)location.X, (int)location.Y, 16, 16);
-            if (Game1.Instance.wizard.Collision.Intersects(collisionBox))
-            {
-                Visible = false;
-                Game1.Instance.wizard.Damage(10, SpellElement.Fire);
-            }
-        }
         
         public void Draw(SpriteBatch spriteBatch) 
         {
