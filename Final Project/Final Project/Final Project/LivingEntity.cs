@@ -1,6 +1,4 @@
-﻿//#define debuggingCollision
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -220,10 +218,6 @@ namespace Final_Project
                 spriteBatch.DrawString(Game1.Instance.Flyover, flyoverText, new Vector2(flyoverPos.X - 2, flyoverPos.Y - 2), Color.Black, 0f, Vector2.Zero, 1.1f, SpriteEffects.None, 1f);
                 spriteBatch.DrawString(Game1.Instance.Flyover, flyoverText, flyoverPos, ((flyoverTypeisDamage) ? Color.Red : Color.Green));
             }
-#if (debuggingCollision)
-            Game.Window.Title = collisionBox.X + " ; " + collisionBox.Y + " ; " + collisionBox.Width + " ; " + collisionBox.Height;
-            spriteBatch.Draw(Game1.Instance.blank, collisionBox, Color.Red * 0.5f);
-#endif
         }
 
     }

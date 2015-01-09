@@ -176,8 +176,6 @@ namespace Final_Project
         GamePadState oldState, curState;
         public void PollInput()
         {
-            collisionBox = new Rectangle((int)PositionV.X+100, (int)PositionV.Y+200, 67, 67);
-
             curState = GamePad.GetState(PlayerIndex.One);
             if (oldState == null) oldState = curState;
 
