@@ -18,11 +18,7 @@ namespace Final_Project
         Texture2D projectileTexture;
         int reloadTime;
         int counter;
-        int flyoverCounter = -1;
-        int flyoverHealthShown = 0;
-        bool flyoverTypeisDamage = false;
-        string flyoverText = "";
-        Vector2 flyoverPos = new Vector2();
+        
         
 
         public Enemy(int hp, int speed, int range,int reload, Rectangle position, float rotation, Texture2D texture, Texture2D bulletTexture, Game1 game) : base(game, SpellElement.Fire)
@@ -37,31 +33,12 @@ namespace Final_Project
             Rotation = rotation;
             reloadTime = reload;
             Texture = texture;
-            projectileTexture = bulletTexture;
-            OnDamageTaken += new HealthHandler(Enemy_OnDamageTaken);
-            OnHealthTaken += new HealthHandler(Enemy_OnHealthTaken);
+            projectileTexture = bulletTexture;            
             
         }
 
-        void Enemy_OnHealthTaken(int oldHp, int newHp)
-        {
-            flyoverCounter = 0;
-            flyoverHealthShown = Math.Abs(newHp - oldHp);
-            flyoverTypeisDamage = false;
-            flyoverText = "" + ((flyoverTypeisDamage) ? "-" : "+") + flyoverHealthShown;
-            flyoverPos.X = ((collisionBox.Right - collisionBox.Left - Game1.Instance.Flyover.MeasureString(flyoverText).X) / 2) + collisionBox.Left;
-            flyoverPos.Y = collisionBox.Y - 8 - Game1.Instance.Flyover.MeasureString(flyoverText).Y;
-        }
 
-        void Enemy_OnDamageTaken(int oldHp, int newHp)
-        {
-            flyoverCounter = 0;
-            flyoverHealthShown = Math.Abs(oldHp - newHp);
-            flyoverTypeisDamage = true;
-            flyoverText = "" + ((flyoverTypeisDamage) ? "-" : "+") + flyoverHealthShown;
-            flyoverPos.X = ((collisionBox.Right - collisionBox.Left - Game1.Instance.Flyover.MeasureString(flyoverText).X) / 2) + collisionBox.Left;
-            flyoverPos.Y = collisionBox.Y - 8 - Game1.Instance.Flyover.MeasureString(flyoverText).Y;
-        }
+        
         Random random = new Random();
         public void Update(GameTime gameTime, Vector2 playerPosition, Player player)
         {
@@ -126,18 +103,8 @@ namespace Final_Project
 
             collisionBox = new Rectangle(ix, iy, Position.Width, Position.Height);
 
-            if (flyoverCounter != -1)
-            {
-                flyoverCounter++;
-                flyoverPos.Y -= ((random.Next(100) > 80) ? 2 : 1);
-                flyoverPos.X -= ((random.Next(100) > 90) ? 1 : 0);
-            }
 
-            if (flyoverCounter == 60)
-            {
-                flyoverCounter = -1;
-            }
-
+            base.Update();
             base.Update(gameTime);
         }
         public void Shoot(Vector2 initialPosition, Vector2 direction) 
@@ -167,7 +134,7 @@ namespace Final_Project
                 }
             }
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Texture, Position, null, Color.White, Rotation, new Vector2(Position.Width/4, Position.Height/4), SpriteEffects.None, 0);
             //spriteBatch.Draw(Game1.Instance.blank, collisionBox, Color.Red*0.5f);
@@ -175,23 +142,8 @@ namespace Final_Project
             {
                 p.Draw(spriteBatch);
             }
+            base.Draw(spriteBatch);
             
-            if (!Dead)
-            {
-                
-                spriteBatch.Draw(Game1.Instance.blank, new Rectangle(Collision.X, Collision.Y - 5, Collision.Width, 3), Color.Red);
-                spriteBatch.Draw(Game1.Instance.blank, new Rectangle(Collision.X, Collision.Y - 5, (int)(((float)Health / (float)MaxHealth) * Collision.Width), 3), Color.Green);
-            }
-            else
-            {
-                spriteBatch.Draw(Game1.Instance.blank, new Rectangle(Collision.X, Collision.Y - 5, Collision.Width, 3), Color.Black);
-            }
-
-            if (flyoverCounter != -1)
-            {
-                spriteBatch.DrawString(Game1.Instance.Flyover, flyoverText, new Vector2(flyoverPos.X - 2, flyoverPos.Y - 2), Color.Black, 0f, Vector2.Zero, 1.1f, SpriteEffects.None, 1f);
-                spriteBatch.DrawString(Game1.Instance.Flyover, flyoverText, flyoverPos, ((flyoverTypeisDamage) ? Color.Red : Color.Green));
-            }
         }
        
     }
