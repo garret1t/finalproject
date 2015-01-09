@@ -101,9 +101,11 @@ namespace Final_Project
         void Instance_OmniSelectionMade(Vector2 vec)
         {
             LivingTargetSpell ltp = (LivingTargetSpell)current;
+            
             ltp.OnCast(this);
             Game1.Instance.ActiveProjectiles.Add(new LivingTargetProjectile(this, vec, ltp));
             Game1.Instance.showingOmniSelector = false;
+            
         }
 
         public void MoveOld(int r, int c, Grid tiles)
@@ -244,7 +246,7 @@ namespace Final_Project
             //spriteBatch.Draw(texture, new Rectangle(row * 67 + 100, col * 67 + 200, 67, 67), Color.White);
             //spriteBatch.Draw(blank, new Rectangle(Row * 67 + leftMargin, Col * 67 + topMargin, 67, 67), Color.Red);
             spriteBatch.Draw(texture, new Rectangle((int)PositionV.X + leftMargin, (int)PositionV.Y + topMargin, 67, 67), Color.White);
-
+            //spriteBatch.Draw(Game1.Instance.blank, collisionBox, Color.Red * 0.5f);
             base.Draw(spriteBatch);
             
         }

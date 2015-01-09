@@ -12,16 +12,18 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Final_Project
 {
+    public enum EnemyType { Fire, Water, Melee, Boss }
     public class Enemy : LivingEntity
     {
         List<Projectile> projectiles = new List<Projectile>();
         Texture2D projectileTexture;
         int reloadTime;
         int counter;
-        
+        int meleeCounter;
+        EnemyType enemyType;
         
 
-        public Enemy(int hp, int speed, int range,int reload, Rectangle position, float rotation, Texture2D texture, Texture2D bulletTexture, Game1 game) : base(game, SpellElement.Fire)
+        public Enemy(int hp, int speed, int range,int reload, Rectangle position, float rotation, Texture2D texture, Texture2D bulletTexture, Game1 game, EnemyType type, SpellElement element) : base(game, element)
 
         {
             health = hp;
@@ -29,7 +31,7 @@ namespace Final_Project
             Speed = speed;
             Range = range;
             Position = position;
-            
+            enemyType = type;
             Rotation = rotation;
             reloadTime = reload;
             Texture = texture;
@@ -48,50 +50,150 @@ namespace Final_Project
             {
                 Rotation = (float)Math.Atan2(direction.Y, direction.X) + MathHelper.Pi;
             }
-            
-           
-            if (Vector2.Distance(new Vector2(Position.X, Position.Y), playerPosition ) < (Range * 100))
-            {
-                if (counter == 0)
-                {
-                    if (!Dead)
-                    {
-                        //Console.WriteLine("Shooting");
-                        //Console.WriteLine("Mouse: " + Mouse.GetState().X + "," + Mouse.GetState().Y);
-                        //Console.WriteLine("Enemy: " + Position);
-                        //Console.WriteLine("Player: " + playerPosition);
-                        if (Range > 1)
-                        {
-                            Shoot(new Vector2(Position.X, Position.Y), direction);
-                            
-                        }
-                        if (Collision.Contains(new Rectangle((int)(playerPosition.X - 67/2), (int)(playerPosition.Y - 67/2), 67, 67)))
-                        {
-                            player.Damage(10, SpellElement.None);
-                        }
-                        counter = reloadTime;
-                    }
-                }
 
-            }
-            else 
+            if (enemyType == EnemyType.Fire)
+            {
+                if (Vector2.Distance(new Vector2(Position.X, Position.Y), playerPosition) < (Range * 100))
+                {
+                    if (counter == 0)
+                    {
+                        if (!Dead)
+                        {
+                            //Console.WriteLine("Shooting");
+                            //Console.WriteLine("Mouse: " + Mouse.GetState().X + "," + Mouse.GetState().Y);
+                            //Console.WriteLine("Enemy: " + Position);
+                            //Console.WriteLine("Player: " + playerPosition);
+                            if (Range > 1)
+                            {
+                                Shoot(new Vector2(Position.X, Position.Y), direction);
+
+                            }
+
+                            counter = reloadTime;
+                        }
+                    }
+                    if (meleeCounter == 0)
+                    {
+                        if (!Dead)
+                        {
+                            if (Collision.Intersects(player.Collision))
+                            {
+                                Console.WriteLine("TakingDamage");
+                                player.Damage(10, SpellElement.None);
+                                meleeCounter = reloadTime;
+                            }
+                        }
+                    }
+
+                }
+                else
             {
                 if (!Dead)
                 {
                     //Console.WriteLine("Moving");
-                    Console.WriteLine("Old Position: " + Position);
+                    //Console.WriteLine("Old Position: " + Position);
                     Position = new Rectangle(Position.X + (int)(direction.X * Speed), Position.Y + (int)(direction.Y * Speed), Position.Width, Position.Height);
-                    Console.WriteLine("New Position: " + Position);
+                    //Console.WriteLine("New Position: " + Position);
                 }
-                
+
             }
 
             if (counter > 0)
             {
                 counter--;
             }
+            if (meleeCounter > 0)
+            {
+                meleeCounter--;
+            }
+            }
+            if (enemyType == EnemyType.Melee)
+            {
+                if (Vector2.Distance(new Vector2(Position.X, Position.Y), playerPosition) < (Range * 50))
+                {
+
+                    if (meleeCounter == 0)
+                    {
+                        if (!Dead)
+                        {
+                            if (Collision.Intersects(player.Collision))
+                            {
+                                Console.WriteLine("TakingDamage");
+                                player.Damage(5, SpellElement.None);
+                                meleeCounter = reloadTime;
+                            }
+                        }
+                    }
+
+
+                }
+                else
+                {
+                    if (!Dead)
+                    {
+                        //Console.WriteLine("Moving");
+                        //Console.WriteLine("Old Position: " + Position);
+                        Position = new Rectangle(Position.X + (int)(direction.X * Speed), Position.Y + (int)(direction.Y * Speed), Position.Width, Position.Height);
+                        //Console.WriteLine("New Position: " + Position);
+                    }
+
+                }
+            }
+            if (enemyType == EnemyType.Water)
+            {
+                if (Vector2.Distance(new Vector2(Position.X, Position.Y), playerPosition) < (Range * 100))
+                {
+                    if (counter == 0)
+                    {
+                        if (!Dead)
+                        {
+                            //Console.WriteLine("Shooting");
+                            //Console.WriteLine("Mouse: " + Mouse.GetState().X + "," + Mouse.GetState().Y);
+                            //Console.WriteLine("Enemy: " + Position);
+                            //Console.WriteLine("Player: " + playerPosition);
+                            if (Range > 1)
+                            {
+                                Shoot(new Vector2(Position.X, Position.Y), direction);
+
+                            }
+
+                            counter = reloadTime;
+                        }
+                    }
+                    if (meleeCounter == 0)
+                    {
+                        if (!Dead)
+                        {
+                            if (Collision.Intersects(player.Collision))
+                            {
+                                Console.WriteLine("TakingDamage");
+                                player.Damage(10, SpellElement.None);
+                                meleeCounter = reloadTime;
+                            }
+                        }
+                    }
+
+                }
+                else
+                {
+                    if (!Dead)
+                    {
+                        //Console.WriteLine("Moving");
+                        //Console.WriteLine("Old Position: " + Position);
+                        Position = new Rectangle(Position.X + (int)(direction.X * Speed), Position.Y, Position.Width, Position.Height);
+                        //Console.WriteLine("New Position: " + Position);
+                    }
+
+                }
+            }
+        
+        
+    
+           
             
-            UpdateProjectiles();
+            
+            
+            UpdateProjectiles(player);
 
             Vector2 rotatedp = Utils.RotateAboutOrigin(new Vector2(Position.X, Position.Y), new Vector2(Position.X, Position.Y), (float)Rotation);
             rotatedp.X -= 33;
@@ -112,18 +214,19 @@ namespace Final_Project
             if (projectiles.Count < 3)
             {
                 
-                projectiles.Add(new Projectile(5, initialPosition, direction, ProjectileType.Enemy, projectileTexture));
+                projectiles.Add(new Projectile(8, initialPosition, direction, ProjectileType.Enemy, projectileTexture));
             }
         }
-        public void UpdateProjectiles()
+        public void UpdateProjectiles(Player player)
         {
 
             foreach (Projectile p in projectiles)
             {
                 
                 p.Location += (p.Velocity * p.Speed);
-               
-                if (Vector2.Distance(p.Location, new Vector2(Position.X + 100, Position.Y + 200)) > Range * 100) { p.Visible = false; }
+                if (new Rectangle((int)p.Location.X, (int)p.Location.Y, 16, 16).Contains(player.Collision)) { player.Damage(10, SpellElement.None); }
+
+                if (Vector2.Distance(p.Location, new Vector2(Position.X, Position.Y)) > Range * 100) { p.Visible = false; }
             }
             for (int i = 0; i < projectiles.Count(); i++)
             {
@@ -138,6 +241,10 @@ namespace Final_Project
         {
             spriteBatch.Draw(Texture, Position, null, Color.White, Rotation, new Vector2(Position.Width/4, Position.Height/4), SpriteEffects.None, 0);
             //spriteBatch.Draw(Game1.Instance.blank, collisionBox, Color.Red*0.5f);
+            foreach (Projectile p in projectiles)
+            {
+                spriteBatch.Draw(Game1.Instance.blank, new Rectangle((int)p.Location.X, (int)p.Location.Y, 16, 16), Color.Red * 0.5f);
+            }
             foreach (Projectile p in projectiles) 
             {
                 p.Draw(spriteBatch);

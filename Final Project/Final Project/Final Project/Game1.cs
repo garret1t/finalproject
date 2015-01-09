@@ -44,6 +44,7 @@ namespace Final_Project
         Texture2D tilesel;
         Texture2D enemy1;
         Texture2D bullet;
+        public SoundEffect dingSound, waterSound, fireSound, buzzerSound;
         public Dictionary<string, Texture2D> TextureDictionary = new Dictionary<string, Texture2D>();
         public List<PrefabAnimation> Animations = new List<PrefabAnimation>();
         public List<SpellProjectile> ActiveProjectiles = new List<SpellProjectile>();
@@ -241,6 +242,11 @@ namespace Final_Project
 
             Flyover = Content.Load<SpriteFont>("flyoverfont");
             Hudfont = Content.Load<SpriteFont>("hudfont");
+
+            fireSound = Content.Load<SoundEffect>("fireball");
+            waterSound = Content.Load<SoundEffect>("wave");
+            dingSound = Content.Load<SoundEffect>("ding");
+            buzzerSound = Content.Load<SoundEffect>("buzzer");
             // TODO: use this.Content to load your game content here
         }
 
