@@ -60,7 +60,7 @@ namespace Final_Project
             : base(spell)
         {
             endp = endpoint;
-            position = entity.PositionV;
+            position = new Vector2(entity.PositionV.X + 33, entity.PositionV.Y + 33);
             caster = entity;
             Vector2 en = new Vector2(entity.PositionV.X + 100, entity.PositionV.Y + 200);
             Console.WriteLine("end: " + endpoint + "; start: " + entity.PositionV);

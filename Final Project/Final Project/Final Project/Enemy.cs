@@ -12,16 +12,21 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Final_Project
 {
+
     public enum EnemyType { Fire, Water, Melee, Boss }
-    public class Enemy : LivingEntity
+  
+
+    public class Enemy : LivingEntity, ISpellCaster
     {
         List<Projectile> projectiles = new List<Projectile>();
         Texture2D projectileTexture;
         int reloadTime;
         int counter;
+
         int meleeCounter;
         EnemyType enemyType;
         
+
 
         public Enemy(int hp, int speed, int range,int reload, Rectangle position, float rotation, Texture2D texture, Texture2D bulletTexture, Game1 game, EnemyType type, SpellElement element) : base(game, element)
 
@@ -224,9 +229,13 @@ namespace Final_Project
             {
                 
                 p.Location += (p.Velocity * p.Speed);
+
                 if (new Rectangle((int)p.Location.X, (int)p.Location.Y, 16, 16).Contains(player.Collision)) { player.Damage(10, SpellElement.None); }
 
                 if (Vector2.Distance(p.Location, new Vector2(Position.X, Position.Y)) > Range * 100) { p.Visible = false; }
+
+                p.CheckCollision();
+                
             }
             for (int i = 0; i < projectiles.Count(); i++)
             {
