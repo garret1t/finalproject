@@ -295,12 +295,10 @@ namespace Final_Project
             for (int i = 0; i < ActiveProjectiles.Count; i++) if (ActiveProjectiles[i].NeedsRemove) ActiveProjectiles.RemoveAt(i);
             foreach (SpellProjectile sp in ActiveProjectiles) sp.Update();
 
-
-            Window.Title = "X: " + wizard.PositionV.X + ";  Y: " + wizard.PositionV.Y;
-            foreach (Enemy e in screen.enemyList) e.Update(gameTime, wizard.PositionV + new Vector2(100,200));
-
             Window.Title = "X: " + wizard.PositionV.X + ";  Y: " + wizard.PositionV.Y + "; HP: " + wizard.Health;
-            foreach (Enemy e in enemies) e.Update(gameTime, wizard.PositionV + new Vector2(100,200));
+            foreach (Enemy e in screen.enemyList) e.Update(gameTime, wizard.PositionV + new Vector2(100,200), wizard);
+                       
+            
 
             oldpad1 = pad1;
             oldmouse = mouse;

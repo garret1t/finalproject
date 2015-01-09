@@ -63,11 +63,14 @@ namespace Final_Project
             flyoverPos.Y = collisionBox.Y - 8 - Game1.Instance.Flyover.MeasureString(flyoverText).Y;
         }
         Random random = new Random();
-        public void Update(GameTime gameTime, Vector2 playerPosition)
+        public void Update(GameTime gameTime, Vector2 playerPosition, Player player)
         {
             Vector2 direction = new Vector2( playerPosition.X + 33 - Position.X, playerPosition.Y + 33 - Position.Y);
             direction.Normalize();
-            Rotation = (float)Math.Atan2(direction.Y, direction.X) + MathHelper.Pi;
+            if (!Dead)
+            {
+                Rotation = (float)Math.Atan2(direction.Y, direction.X) + MathHelper.Pi;
+            }
             
            
             if (Vector2.Distance(new Vector2(Position.X, Position.Y), playerPosition ) < (Range * 100))
@@ -80,7 +83,15 @@ namespace Final_Project
                         //Console.WriteLine("Mouse: " + Mouse.GetState().X + "," + Mouse.GetState().Y);
                         //Console.WriteLine("Enemy: " + Position);
                         //Console.WriteLine("Player: " + playerPosition);
-                        Shoot(new Vector2(Position.X, Position.Y), direction);
+                        if (Range > 1)
+                        {
+                            Shoot(new Vector2(Position.X, Position.Y), direction);
+                            
+                        }
+                        if (Collision.Contains(new Rectangle((int)(playerPosition.X - 67/2), (int)(playerPosition.Y - 67/2), 67, 67)))
+                        {
+                            player.Damage(10, SpellElement.None);
+                        }
                         counter = reloadTime;
                     }
                 }
@@ -88,10 +99,13 @@ namespace Final_Project
             }
             else 
             {
-                //Console.WriteLine("Moving");
-                Console.WriteLine("Old Position: " + Position);
-                Position = new Rectangle(Position.X + (int)(direction.X * Speed) , Position.Y + (int)(direction.Y * Speed), Position.Width, Position.Height);
-                Console.WriteLine("New Position: " + Position);
+                if (!Dead)
+                {
+                    //Console.WriteLine("Moving");
+                    Console.WriteLine("Old Position: " + Position);
+                    Position = new Rectangle(Position.X + (int)(direction.X * Speed), Position.Y + (int)(direction.Y * Speed), Position.Width, Position.Height);
+                    Console.WriteLine("New Position: " + Position);
+                }
                 
             }
 
