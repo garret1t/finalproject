@@ -25,6 +25,9 @@ namespace Final_Project
             element = assigned;
             OnDamageTaken += (int old, int ne) => { };
             OnHealthTaken += (int old, int ne) => { };
+
+            OnDamageTaken += new HealthHandler(Enemy_OnDamageTaken);
+            OnHealthTaken += new HealthHandler(Enemy_OnHealthTaken);
         }
 
         int hitpoints;
@@ -36,7 +39,47 @@ namespace Final_Project
         protected Rectangle collisionBox;
         float rotation;
         Texture2D texture;
-       
+
+        int flyoverCounter = -1;
+        int flyoverHealthShown = 0;
+        bool flyoverTypeisDamage = false;
+        string flyoverText = "";
+        Vector2 flyoverPos = new Vector2();
+
+        void Enemy_OnHealthTaken(int oldHp, int newHp)
+        {
+            flyoverCounter = 0;
+            flyoverHealthShown = Math.Abs(newHp - oldHp);
+            flyoverTypeisDamage = false;
+            flyoverText = "" + ((flyoverTypeisDamage) ? "-" : "+") + flyoverHealthShown;
+            flyoverPos.X = ((collisionBox.Right - collisionBox.Left - Game1.Instance.Flyover.MeasureString(flyoverText).X) / 2) + collisionBox.Left;
+            flyoverPos.Y = collisionBox.Y - 8 - Game1.Instance.Flyover.MeasureString(flyoverText).Y;
+        }
+
+        void Enemy_OnDamageTaken(int oldHp, int newHp)
+        {
+            flyoverCounter = 0;
+            flyoverHealthShown = Math.Abs(oldHp - newHp);
+            flyoverTypeisDamage = true;
+            flyoverText = "" + ((flyoverTypeisDamage) ? "-" : "+") + flyoverHealthShown;
+            flyoverPos.X = ((collisionBox.Right - collisionBox.Left - Game1.Instance.Flyover.MeasureString(flyoverText).X) / 2) + collisionBox.Left;
+            flyoverPos.Y = collisionBox.Y - 8 - Game1.Instance.Flyover.MeasureString(flyoverText).Y;
+        }
+        Random random = new Random();
+        public virtual void Update()
+        {
+            if (flyoverCounter != -1)
+            {
+                flyoverCounter++;
+                flyoverPos.Y -= ((random.Next(100) > 80) ? 2 : 1);
+                flyoverPos.X -= ((random.Next(100) > 90) ? 1 : 0);
+            }
+
+            if (flyoverCounter == 60)
+            {
+                flyoverCounter = -1;
+            }
+        }
 
         public Rectangle Collision { get { return collisionBox; } }
         public int Hitpoints
@@ -157,7 +200,25 @@ namespace Final_Project
             }
         }
 
-        
+        public virtual void Draw(SpriteBatch spriteBatch)
+        {
+            if (!Dead)
+            {
+
+                spriteBatch.Draw(Game1.Instance.blank, new Rectangle(Collision.X, Collision.Y - 5, Collision.Width, 3), Color.Red);
+                spriteBatch.Draw(Game1.Instance.blank, new Rectangle(Collision.X, Collision.Y - 5, (int)(((float)Health / (float)MaxHealth) * Collision.Width), 3), Color.Green);
+            }
+            else
+            {
+                spriteBatch.Draw(Game1.Instance.blank, new Rectangle(Collision.X, Collision.Y - 5, Collision.Width, 3), Color.Black);
+            }
+
+            if (flyoverCounter != -1)
+            {
+                spriteBatch.DrawString(Game1.Instance.Flyover, flyoverText, new Vector2(flyoverPos.X - 2, flyoverPos.Y - 2), Color.Black, 0f, Vector2.Zero, 1.1f, SpriteEffects.None, 1f);
+                spriteBatch.DrawString(Game1.Instance.Flyover, flyoverText, flyoverPos, ((flyoverTypeisDamage) ? Color.Red : Color.Green));
+            }
+        }
 
     }
 }

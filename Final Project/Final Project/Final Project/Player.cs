@@ -200,6 +200,8 @@ namespace Final_Project
             //Console.WriteLine("X: " + x + "; Y: " + y);
             #endregion
 
+            base.Update();
+
             oldState = curState;
             
         }
@@ -223,13 +225,15 @@ namespace Final_Project
                 }
             }
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             int leftMargin = 100;
             int topMargin = 200;
             //spriteBatch.Draw(texture, new Rectangle(row * 67 + 100, col * 67 + 200, 67, 67), Color.White);
             //spriteBatch.Draw(blank, new Rectangle(Row * 67 + leftMargin, Col * 67 + topMargin, 67, 67), Color.Red);
             spriteBatch.Draw(texture, new Rectangle((int)PositionV.X + leftMargin, (int)PositionV.Y + topMargin, 67, 67), Color.White);
+
+            base.Draw(spriteBatch);
             
         }
     }
