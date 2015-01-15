@@ -39,3 +39,12 @@ Content\buzzer.xnb
 Content\ding.xnb
 Content\fireball.xnb
 Content\wave.xnb
+Content\Effects\Saturation.xnb
+Content\death.xnb
+Content\death.wma
+Content\lose.xnb
+Content\lose.wma
+Content\theme1.xnb
+Content\theme1.wma
+Content\theme2.xnb
+Content\theme2.wma

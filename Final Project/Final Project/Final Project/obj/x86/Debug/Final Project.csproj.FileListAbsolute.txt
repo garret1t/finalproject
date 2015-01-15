@@ -31,7 +31,6 @@ C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final
 C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\enemy1.xnb
 C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Final Project.exe
 C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Final Project.pdb
-C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\obj\x86\Debug\Final Project.csprojResolveAssemblyReference.cache
 C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\obj\x86\Debug\Final Project.exe
 C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\obj\x86\Debug\Final Project.pdb
@@ -92,3 +91,12 @@ C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final
 C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\ding.xnb
 C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\fireball.xnb
 C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\wave.xnb
+C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Effects\Saturation.xnb
+C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\death.xnb
+C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\lose.xnb
+C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\theme1.xnb
+C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\theme2.xnb
+C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\death.wma
+C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\lose.wma
+C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\theme1.wma
+C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\theme2.wma

@@ -107,6 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animations\DamageAbsorbsEffect.cs" />
     <Compile Include="Animations\PrefabAnimation.cs" />
     <Compile Include="Animations\SpellFlash.cs" />
     <Compile Include="Enemy.cs" />
