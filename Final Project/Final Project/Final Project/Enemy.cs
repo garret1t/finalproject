@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Media;
 namespace Final_Project
 {
 
-    public enum EnemyType { Fire, Water, Melee, Boss }
+    public enum EnemyTypeAI { Fire, Water, Melee, Boss }
   
 
     public class Enemy : LivingEntity, ISpellCaster
@@ -25,11 +25,11 @@ namespace Final_Project
         int waterCounter;
         int meleeCounter;
         int bossCounter;
-        EnemyType enemyType;
+        EnemyTypeAI enemyType;
         
 
 
-        public Enemy(int hp, int speed, int range,int reload, Rectangle position, float rotation, Texture2D texture, Texture2D bulletTexture, Game1 game, EnemyType type, SpellElement element) : base(game, element)
+        public Enemy(int hp, int speed, int range,int reload, Rectangle position, float rotation, Texture2D texture, Texture2D bulletTexture, Game1 game, EnemyTypeAI type, SpellElement element) : base(game, element)
 
         {
             health = hp;
@@ -63,7 +63,7 @@ namespace Final_Project
                 Rotation = (float)Math.Atan2(direction.Y, direction.X) + MathHelper.Pi;
             }
 
-            if (enemyType == EnemyType.Fire)
+            if (enemyType == EnemyTypeAI.Fire)
             {
                 if (Vector2.Distance(new Vector2(Position.X, Position.Y), playerPosition) < (Range * 100))
                 {
@@ -127,7 +127,7 @@ namespace Final_Project
                 meleeCounter--;
             }
             }
-            if (enemyType == EnemyType.Melee)
+            if (enemyType == EnemyTypeAI.Melee)
             {
                 if (Vector2.Distance(new Vector2(Position.X, Position.Y), playerPosition) < (Range * 50))
                 {
@@ -159,7 +159,7 @@ namespace Final_Project
 
                 }
             }
-            if (enemyType == EnemyType.Water)
+            if (enemyType == EnemyTypeAI.Water)
             {
                 if (Vector2.Distance(new Vector2(Position.X, Position.Y), playerPosition) < (Range * 100))
                 {
@@ -206,7 +206,7 @@ namespace Final_Project
 
                 }
             }
-            if (enemyType == EnemyType.Boss)
+            if (enemyType == EnemyTypeAI.Boss)
             {
                 if (Vector2.Distance(new Vector2(Position.X, Position.Y), playerPosition) < (Range * 100))
                 {

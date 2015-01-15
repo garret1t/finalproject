@@ -77,3 +77,10 @@ C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final
 C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Final Project.pdb
 C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\hudfont.xnb
 C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\obj\x86\Debug\Final Project.csprojResolveAssemblyReference.cache
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\enemy2.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\enemy3.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\buzzer.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\ding.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\fireball.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\wave.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\boss.xnb
