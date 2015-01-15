@@ -31,8 +31,14 @@ namespace Final_Project
             Rotation = rotation;
             reloadTime = reload;
             Texture = texture;
-            projectileTexture = bulletTexture;            
-            
+            projectileTexture = bulletTexture;
+
+            OnDeath += new DeathHandler(Enemy_OnDeath);
+        }
+
+        void Enemy_OnDeath()
+        {
+            Game1.Instance.TriggerEnemyDeath(EnemyType.Standard, this);
         }
 
 
@@ -144,5 +150,10 @@ namespace Final_Project
             
         }
        
+    }
+    public enum EnemyType
+    {
+        Standard,
+        Boss
     }
 }

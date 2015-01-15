@@ -17,17 +17,31 @@ namespace Final_Project
     {
         public static Game1 Instance;
 
+        public enum GameState
+        {
+            Game,
+            Death
+        }
+
+
+
         #region Fields
+
+        public GameState State = GameState.Game;
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
         //public delegate void TileSelectionHandler(int x, int y);
         public delegate void OmniSelectionHandler(Vector2 vec);
+        public delegate void EnemyEventHandler(EnemyType type, Enemy e);
 
         public event OmniSelectionHandler OmniSelectionMade;
+        public event EnemyEventHandler EnemyDeath;
         //public event TileSelectionHandler TileSelectionMade;
 
+        public int ManaSelectedRefill = 0;
+        public bool ShowingManaRefill = false;
         int[,] tileTypes = new int[9, 9];
         String[] lines = System.IO.File.ReadAllLines("screen1.txt");
         String[] template = new String[5];
@@ -49,7 +63,7 @@ namespace Final_Project
         public List<SpellProjectile> ActiveProjectiles = new List<SpellProjectile>();
         public Map map = new Map();
         public int mapr = 0;
-        public int mapc = 0;
+        public int mapc = 0;        
 
         public bool showingTileSelector = false;
         public bool showingOmniSelector = false;
@@ -69,13 +83,19 @@ namespace Final_Project
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferHeight = 800;
             graphics.PreferredBackBufferWidth = 800;
+            graphics.SynchronizeWithVerticalRetrace = true;
             Content.RootDirectory = "Content";
             OmniSelectionMade += (Vector2 v) => { };
+            EnemyDeath += (EnemyType e, Enemy et) => { };
+        }
+
+        public void TriggerEnemyDeath(EnemyType e, Enemy et)
+        {
+            EnemyDeath(e, et);
         }
 
         protected override void Initialize()
-        {
-
+        {            
             SpellElement.InitializeElements();
             SpellRegistry.Initialize();
             
@@ -196,8 +216,12 @@ namespace Final_Project
             base.Initialize();
         }
 
+        public Texture2D freeze;
+
         protected override void LoadContent()
         {
+            freeze = new Texture2D(GraphicsDevice, 800, 800);
+            renderTarget = new RenderTarget2D(GraphicsDevice, GraphicsDevice.PresentationParameters.BackBufferWidth, GraphicsDevice.PresentationParameters.BackBufferHeight);
             blank = new Texture2D(Game1.Instance.GraphicsDevice, 1, 1);
             blank.SetData(new Color[] { Color.White });
             // Create a new SpriteBatch, which can be used to draw textures.
@@ -252,6 +276,17 @@ namespace Final_Project
         MouseState oldmouse, mouse;
 
         protected override void Update(GameTime gameTime)
+        {
+            if (State == GameState.Game)
+                UpdateMainGame(gameTime);
+            else if (State == GameState.Death)
+            {
+                deathAnimTrans -= 0.01f;
+            }
+            base.Update(gameTime);
+        }
+
+        protected void UpdateMainGame(GameTime gameTime)
         {
 
             pad1 = GamePad.GetState(PlayerIndex.One);
@@ -310,12 +345,44 @@ namespace Final_Project
             oldmouse = mouse;
             base.Update(gameTime);
         }
-
+        public RenderTarget2D renderTarget;
+        public bool isDying = false;
+        float deathAnimTrans = 1f;
+        protected override bool BeginDraw()
+        {
+            if (isDying)
+            {                                
+                GraphicsDevice.SetRenderTargets(renderTarget);
+            }
+            return base.BeginDraw();
+        }
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-            
-
+            GraphicsDevice.Clear(Color.Black);
+            if (State == GameState.Game)
+                DrawMainGame(gameTime);
+            else if (State == GameState.Death)
+            {
+                spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+                spriteBatch.Draw(freeze, Vector2.Zero, Color.White * deathAnimTrans);
+                spriteBatch.End();
+            }
+            base.Draw(gameTime);
+        }
+        protected override void EndDraw()
+        {
+            if (isDying)
+            {               
+                GraphicsDevice.SetRenderTarget(null);                
+                freeze = (Texture2D)renderTarget;
+                freeze.SaveAsJpeg(new System.IO.FileStream("jpgthing.jpg", System.IO.FileMode.Create), 800, 800);
+                isDying = false;
+                State = GameState.Death;
+            }
+            base.EndDraw();
+        }
+        protected void DrawMainGame(GameTime gameTime)
+        {                        
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);           
 
             spriteBatch.Draw(gui, new Rectangle(0, 0, 800, 800), Color.White);
@@ -390,11 +457,15 @@ namespace Final_Project
                 convVals[i] = (int)height;
                 srcVals[i] = (int)srchgt;
             }
+
+            if (ShowingManaRefill)
+            spriteBatch.Draw(tilesel, new Rectangle(426 + 72 * ManaSelectedRefill, 112, 64, 64), Color.White);
+
             spriteBatch.Draw(TextureDictionary["symbols.light"], new Rectangle(426, 112 + (64 - convVals[4]), 64, convVals[4]), new Rectangle(0, 200 - srcVals[4], 200, srcVals[4]), Color.White); //4
             spriteBatch.Draw(TextureDictionary["symbols.air"], new Rectangle(498, 112 + (64 - convVals[1]), 64, convVals[1]), new Rectangle(0, 200 - srcVals[1], 200, srcVals[1]), Color.White);
             spriteBatch.Draw(TextureDictionary["symbols.water"], new Rectangle(570, 112 + (64 - convVals[2]), 64, convVals[2]), new Rectangle(0, 200 - srcVals[2], 200, srcVals[2]), Color.White);
             spriteBatch.Draw(TextureDictionary["symbols.fire"], new Rectangle(642, 112 + (64 - convVals[0]), 64, convVals[0]), new Rectangle(0, 200 - srcVals[0], 200, srcVals[0]), Color.White);
-            spriteBatch.Draw(TextureDictionary["symbols.earth"], new Rectangle(714, 112 + (64 - convVals[3]), 64, convVals[3]), new Rectangle(0, 200 - srcVals[3], 200, srcVals[3]), Color.White);
+            spriteBatch.Draw(TextureDictionary["symbols.earth"], new Rectangle(714, 112 + (64 - convVals[3]), 64, convVals[3]), new Rectangle(0, 200 - srcVals[3], 200, srcVals[3]), Color.White);            
 
             spriteBatch.DrawString(Hudfont, "~Mana~", new Vector2(((714+64-426)-Hudfont.MeasureString("~Mana~").X)/2 + 426, 48), Color.White);
 

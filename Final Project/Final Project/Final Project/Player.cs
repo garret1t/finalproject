@@ -27,6 +27,7 @@ namespace Final_Project
         public List<Projectile> projectiles = new List<Projectile>();
         public event RecordStatusEvent OnRecordStatusChanged;
         public Mana mana;
+        public int Refills = 10;
         SpellComboList currentCombo = new SpellComboList();
         private bool recordingStatus = false;
 
@@ -67,6 +68,22 @@ namespace Final_Project
             blank.SetData(new Color[] { Color.White });
 
             Game1.Instance.OmniSelectionMade += new Game1.OmniSelectionHandler(Instance_OmniSelectionMade);
+            Game1.Instance.EnemyDeath += new Game1.EnemyEventHandler(Instance_EnemyDeath);
+            OnDeath += new DeathHandler(Player_OnDeath);
+        }
+
+        void Player_OnDeath()
+        {
+            Game1.Instance.isDying = true;            
+            
+        }
+
+        void Instance_EnemyDeath(EnemyType type, Enemy e)
+        {
+            if (type == EnemyType.Standard)
+            {
+                Refills++;
+            }
         }
 
         void currentCombo_OnSpellAdded(SpellElement type)
@@ -84,7 +101,10 @@ namespace Final_Project
                 currentCombo.Clear();
 
                 Console.WriteLine(c.Name);
-
+                if (c is FailSpell)
+                {
+                    c.OnCast(this);
+                }
                 if (c is LivingTargetSpell && !(c is FailSpell))
                 {
                     current = c;
@@ -204,6 +224,39 @@ namespace Final_Project
                 else if (oldState.Buttons.Y == ButtonState.Released && curState.Buttons.Y == ButtonState.Pressed) AddElementToCombo(SpellElement.Earth);
                 else if (oldState.Buttons.RightShoulder == ButtonState.Released && curState.Buttons.RightShoulder == ButtonState.Pressed) AddElementToCombo(SpellElement.Light);
             }
+
+            if (curState.Buttons.RightStick == ButtonState.Pressed && oldState.Buttons.RightStick == ButtonState.Released)
+            {
+                if (Refills > 0)
+                {
+                    if (Game1.Instance.ShowingManaRefill)
+                    {
+                        Refills--;
+                        int select = Game1.Instance.ManaSelectedRefill;
+                        if (select == 0) mana[SpellElement.Light] = (int)MathHelper.Min(mana[SpellElement.Light] + 15f, 30f);
+                        if (select == 1) mana[SpellElement.Air] = (int)MathHelper.Min(mana[SpellElement.Air] + 15, 30);
+                        if (select == 2) mana[SpellElement.Water] = (int)MathHelper.Min(mana[SpellElement.Water] + 15, 30);
+                        if (select == 3) mana[SpellElement.Fire] = (int)MathHelper.Min(mana[SpellElement.Fire] + 15, 30);
+                        if (select == 4) mana[SpellElement.Earth] = (int)MathHelper.Min(mana[SpellElement.Earth] + 15, 30);
+                        Game1.Instance.ShowingManaRefill = false;
+                    }
+                    else
+                    {
+                        Game1.Instance.ShowingManaRefill = true;
+                    }
+                }
+            }
+
+            if (curState.DPad.Left == ButtonState.Pressed && oldState.DPad.Left == ButtonState.Released)
+            {
+                if (Game1.Instance.ManaSelectedRefill == 0) Game1.Instance.ManaSelectedRefill = 4;
+                else Game1.Instance.ManaSelectedRefill--;
+            }
+            if (curState.DPad.Right == ButtonState.Pressed && oldState.DPad.Right == ButtonState.Released)
+            {
+                if (Game1.Instance.ManaSelectedRefill == 4) Game1.Instance.ManaSelectedRefill = 0;
+                else Game1.Instance.ManaSelectedRefill++;
+            }
             
             #region Input > Move
             float x = curState.ThumbSticks.Left.X * speed;
@@ -237,6 +290,7 @@ namespace Final_Project
                 }
             }
         }
+        
         public override void Draw(SpriteBatch spriteBatch)
         {
             int leftMargin = 100;
