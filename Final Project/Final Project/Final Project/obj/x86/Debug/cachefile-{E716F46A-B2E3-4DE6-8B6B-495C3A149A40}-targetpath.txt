@@ -30,12 +30,12 @@ Content\OmniSelector.xnb
 Content\Projectile.xnb
 Content\enemy1.xnb
 Content\bullet.xnb
-Content\flyoverfont.xnb
-Content\hudfont.xnb
 Content\enemy2.xnb
 Content\enemy3.xnb
+Content\boss.xnb
+Content\flyoverfont.xnb
+Content\hudfont.xnb
 Content\buzzer.xnb
 Content\ding.xnb
 Content\fireball.xnb
 Content\wave.xnb
-Content\boss.xnb

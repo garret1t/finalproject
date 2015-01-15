@@ -249,7 +249,8 @@ namespace Final_Project
            
 
             wizard = new Player(4, 4, wizardup, wizarddown, wizardleft, wizardright, spriteBatch, this);
-            wizard.Health = 30;
+            wizard.Health = 50;
+            wizard.MaxHealth = 50;
             TextureDictionary.Add("wizard.down", wizarddown);
             TextureDictionary.Add("wizard.up", wizardup);
             TextureDictionary.Add("wizard.left", wizardleft);
@@ -360,6 +361,7 @@ namespace Final_Project
                 map.map[2, 2].enemyList = new List<Enemy>();
                 bossSpawned = true;
                 map.map[2,2].enemyList.Add(new Enemy(100,3,5,3,new Rectangle(400, 500, 134,134), -MathHelper.Pi, this.Content.Load<Texture2D>("boss"),bullet, this, EnemyTypeAI.Boss, SpellElement.None));
+
 
             }
 

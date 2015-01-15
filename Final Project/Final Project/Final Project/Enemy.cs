@@ -77,7 +77,7 @@ namespace Final_Project
                             //Console.WriteLine("Player: " + playerPosition);
                             if (Range > 1)
                             {
-                                Shoot(new Vector2(Position.X, Position.Y), direction);
+                                Shoot(new Vector2(Position.X, Position.Y), direction, 8);
 
                             }
 
@@ -110,22 +110,7 @@ namespace Final_Project
 
             }
 
-            if (counter > 0)
-            {
-                counter--;
-            }
-            if (waterCounter > 0)
-            {
-                waterCounter--;
-            }
-            if (bossCounter > 0)
-            {
-                bossCounter--;
-            }
-            if (meleeCounter > 0)
-            {
-                meleeCounter--;
-            }
+           
             }
             if (enemyType == EnemyTypeAI.Melee)
             {
@@ -173,7 +158,7 @@ namespace Final_Project
                             //Console.WriteLine("Player: " + playerPosition);
                             if (Range > 1)
                             {
-                                Shoot(new Vector2(Position.X, Position.Y), direction);
+                                Shoot(new Vector2(Position.X, Position.Y), direction, 8);
 
                             }
 
@@ -187,7 +172,7 @@ namespace Final_Project
                             if (Collision.Intersects(player.Collision))
                             {
                                 Console.WriteLine("TakingDamage");
-                                player.Damage(10, SpellElement.None);
+                                player.Damage(20, SpellElement.None);
                                 meleeCounter = reloadTime;
                             }
                         }
@@ -217,13 +202,13 @@ namespace Final_Project
                             //Console.WriteLine("Shooting");
                             //Console.WriteLine("Mouse: " + Mouse.GetState().X + "," + Mouse.GetState().Y);
                             //Console.WriteLine("Enemy: " + Position);
-                            //Console.WriteLine("Player: " + playerPosition);
-                            if (Range > 1)
-                            {
-                                Shoot(new Vector2(Position.X, Position.Y), direction);
-
-                            }
-
+                            //Console.WriteLine("Player: " + playerPosition);                                                     
+                            Shoot(new Vector2(Position.X, Position.Y), direction, 7);
+                            Shoot(new Vector2(Position.X, Position.Y), direction, 6);
+                            Shoot(new Vector2(Position.X, Position.Y), direction, 5);
+                            Shoot(new Vector2(Position.X, Position.Y), direction, 4);
+                                
+                           
                             bossCounter = reloadTime;
                         }
                     }
@@ -242,10 +227,25 @@ namespace Final_Project
 
                 }
             }
-        
-        
-    
-           
+
+
+
+            if (counter > 0)
+            {
+                counter--;
+            }
+            if (waterCounter > 0)
+            {
+                waterCounter--;
+            }
+            if (bossCounter > 0)
+            {
+                bossCounter--;
+            }
+            if (meleeCounter > 0)
+            {
+                meleeCounter--;
+            }
             
             
             
@@ -265,12 +265,12 @@ namespace Final_Project
             base.Update();
             base.Update(gameTime);
         }
-        public void Shoot(Vector2 initialPosition, Vector2 direction) 
+        public void Shoot(Vector2 initialPosition, Vector2 direction, int Speed) 
         {
             if (projectiles.Count < 3)
             {
                 
-                projectiles.Add(new Projectile(8, initialPosition, direction, ProjectileType.Enemy, projectileTexture));
+                projectiles.Add(new Projectile(Speed, initialPosition, direction, ProjectileType.Enemy, projectileTexture));
             }
         }
         public void UpdateProjectiles(Player player)
