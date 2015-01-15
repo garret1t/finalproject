@@ -22,8 +22,9 @@ namespace Final_Project
         Texture2D projectileTexture;
         int reloadTime;
         int counter;
-
+        int waterCounter;
         int meleeCounter;
+        int bossCounter;
         EnemyType enemyType;
         
 
@@ -107,6 +108,14 @@ namespace Final_Project
             {
                 counter--;
             }
+            if (waterCounter > 0)
+            {
+                waterCounter--;
+            }
+            if (bossCounter > 0)
+            {
+                bossCounter--;
+            }
             if (meleeCounter > 0)
             {
                 meleeCounter--;
@@ -123,7 +132,7 @@ namespace Final_Project
                         {
                             if (Collision.Intersects(player.Collision))
                             {
-                                Console.WriteLine("TakingDamage");
+                                
                                 player.Damage(5, SpellElement.None);
                                 meleeCounter = reloadTime;
                             }
@@ -186,6 +195,42 @@ namespace Final_Project
                         //Console.WriteLine("Moving");
                         //Console.WriteLine("Old Position: " + Position);
                         Position = new Rectangle(Position.X + (int)(direction.X * Speed), Position.Y, Position.Width, Position.Height);
+                        //Console.WriteLine("New Position: " + Position);
+                    }
+
+                }
+            }
+            if (enemyType == EnemyType.Boss)
+            {
+                if (Vector2.Distance(new Vector2(Position.X, Position.Y), playerPosition) < (Range * 100))
+                {
+                    if (bossCounter == 0)
+                    {
+                        if (!Dead)
+                        {
+                            //Console.WriteLine("Shooting");
+                            //Console.WriteLine("Mouse: " + Mouse.GetState().X + "," + Mouse.GetState().Y);
+                            //Console.WriteLine("Enemy: " + Position);
+                            //Console.WriteLine("Player: " + playerPosition);
+                            if (Range > 1)
+                            {
+                                Shoot(new Vector2(Position.X, Position.Y), direction);
+
+                            }
+
+                            bossCounter = reloadTime;
+                        }
+                    }
+                    
+
+                }
+                else
+                {
+                    if (!Dead)
+                    {
+                        //Console.WriteLine("Moving");
+                        //Console.WriteLine("Old Position: " + Position);
+                        //Position = new Rectangle(Position.X + (int)(direction.X * Speed), Position.Y, Position.Width, Position.Height);
                         //Console.WriteLine("New Position: " + Position);
                     }
 

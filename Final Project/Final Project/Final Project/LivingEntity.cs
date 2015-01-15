@@ -30,7 +30,7 @@ namespace Final_Project
             OnHealthTaken += new HealthHandler(Enemy_OnHealthTaken);
         }
 
-        int hitpoints;
+        
         
         int speed;
         int range;
@@ -82,11 +82,7 @@ namespace Final_Project
         }
 
         public Rectangle Collision { get { return collisionBox; } }
-        public int Hitpoints
-        {
-            get { return hitpoints; }
-            set { hitpoints = value; }
-        }
+        
        
         public int Speed
         {
