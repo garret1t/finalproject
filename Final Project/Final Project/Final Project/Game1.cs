@@ -327,7 +327,7 @@ namespace Final_Project
             }
             base.Update(gameTime);
         }
-
+        int timeStopTime = 0;
         protected void UpdateMainGame(GameTime gameTime)
         {
 
@@ -336,6 +336,16 @@ namespace Final_Project
 
             if (timeStopTimer <= 0) { timeStopped = false; }
             else { timeStopTimer--; }
+
+            if (timeStopped)
+            {
+                timeStopTime++;
+                float sat = 1f;
+                float mult = MathHelper.Clamp((30 - timeStopTime) / 30f, 0f, 1f);
+                sat = MathHelper.Clamp(sat * mult, 0.3f, 1f);                
+                saturation.Parameters["Saturation"].SetValue(sat);
+            }
+            else timeStopTime = 0;
 
             if (oldmouse == null) oldmouse = mouse;
 

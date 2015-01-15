@@ -11,6 +11,8 @@ namespace Final_Project
     {
         protected int health;
         private bool dead;
+        private int damageAbsorbs = 0;
+        public int DamageAbsorbs { get { return damageAbsorbs; } set { damageAbsorbs = value; } }
 
         protected Vector2 posv = new Vector2();
 
@@ -169,6 +171,13 @@ namespace Final_Project
                 Heal(power, type);
                 return;
             }
+
+            if (DamageAbsorbs > 0)
+            {
+                DamageAbsorbs--;
+                return;
+            }
+
             if (Element.IsWeakTo(type)) p *= 2;            
             Health -= p;
             int newHp = Health;

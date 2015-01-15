@@ -70,6 +70,8 @@ namespace Final_Project
             Game1.Instance.OmniSelectionMade += new Game1.OmniSelectionHandler(Instance_OmniSelectionMade);
             Game1.Instance.EnemyDeath += new Game1.EnemyEventHandler(Instance_EnemyDeath);
             OnDeath += new DeathHandler(Player_OnDeath);
+
+            Game1.Instance.Animations.Add(new Animations.DamageAbsorbsEffect(this));
         }
 
         void Player_OnDeath()

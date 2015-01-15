@@ -22,12 +22,14 @@ namespace Final_Project
             SpellWindBlast windBlast = new SpellWindBlast();
             SpellHealOne healone = new SpellHealOne();
             SpellTimeStop timeStop = new SpellTimeStop();
+            SpellShield shield = new SpellShield();
 
             registeredSpells.Add(fireball);
             registeredSpells.Add(waterbullet);
             registeredSpells.Add(healone);
             registeredSpells.Add(windBlast);
             registeredSpells.Add(timeStop);
+            registeredSpells.Add(shield);
         }
 
         public static List<Spell> Registry { get { return registeredSpells; } }
@@ -188,6 +190,24 @@ namespace Final_Project
         {
             Game1.Instance.timeStopped = true;
             Game1.Instance.timeStopTimer += 360;            
+            base.OnCast(caster);
+        }
+    }
+
+    public class SpellShield : SelfTargetSpell
+    {
+        public SpellShield()
+        {
+            name = "Shield";
+            dominantType = SpellElement.Light;
+            uniqueCombo = new SpellElement[] { SpellElement.Light, SpellElement.Light };
+        }
+        public override void OnCast(ISpellCaster caster)
+        {
+            if (caster is LivingEntity)
+            {
+                ((LivingEntity)caster).DamageAbsorbs += 3;
+            }
             base.OnCast(caster);
         }
     }
