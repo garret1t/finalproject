@@ -60,7 +60,11 @@ namespace Final_Project
         Texture2D tilesel;
         Texture2D enemy1;
         Texture2D bullet;
+
         public Song currentTheme;
+
+        Effect saturation;
+
         bool bossSpawned;
         public SoundEffect dingSound, waterSound, fireSound, buzzerSound;
         public Song death, lose;
@@ -79,6 +83,8 @@ namespace Final_Project
         Vector2 omniSelVector = new Vector2();
 
         public Texture2D blank;
+        public bool timeStopped = false;
+        public int timeStopTimer = 0;
         public int enemiesRemaining;
         #endregion
 
@@ -271,6 +277,8 @@ namespace Final_Project
 
             TextureDictionary.Add("projectile", Content.Load<Texture2D>("projectile"));
 
+            saturation = Content.Load<Effect>("Effects/Saturation");
+
             tilesel = Content.Load<Texture2D>("TileSelector");
             omnisel = Content.Load<Texture2D>("OmniSelector");
 
@@ -301,13 +309,21 @@ namespace Final_Project
         bool mouseActive = false;
         MouseState oldmouse, mouse;
 
+        int exitTime = 0, maxExitTime = 180;
         protected override void Update(GameTime gameTime)
         {
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                exitTime++;
+            else exitTime = 0;
+
+            if (exitTime >= maxExitTime) this.Exit();
+
             if (State == GameState.Game)
                 UpdateMainGame(gameTime);
             else if (State == GameState.Death)
             {
                 deathAnimTrans -= 0.01f;
+                if (new Rectangle(300, 400, 200, 100).Contains(new Point(Mouse.GetState().X, Mouse.GetState().Y)) && Mouse.GetState().LeftButton == ButtonState.Pressed) Exit();
             }
             base.Update(gameTime);
         }
@@ -315,10 +331,12 @@ namespace Final_Project
         protected void UpdateMainGame(GameTime gameTime)
         {
 
-            pad1 = GamePad.GetState(PlayerIndex.One);
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
+            pad1 = GamePad.GetState(PlayerIndex.One);            
             mouse = Mouse.GetState();
+
+            if (timeStopTimer <= 0) { timeStopped = false; }
+            else { timeStopTimer--; }
+
             if (oldmouse == null) oldmouse = mouse;
 
             if (mouse.X != oldmouse.X || mouse.Y != oldmouse.Y) mouseActive = true;
@@ -356,18 +374,19 @@ namespace Final_Project
 
             for (int i = 0; i < ActiveProjectiles.Count; i++) if (ActiveProjectiles[i].NeedsRemove) ActiveProjectiles.RemoveAt(i);
             foreach (SpellProjectile sp in ActiveProjectiles) sp.Update();
-
-            Window.Title = "X: " + wizard.PositionV.X + ";  Y: " + wizard.PositionV.Y + "; HP: " + wizard.Health;
+            
+            if (!timeStopped)
             foreach (Enemy e in screen.enemyList) e.Update(gameTime, wizard.PositionV + new Vector2(100,200), wizard);
 
-            
-            
-            
-            
+
+          
+            //Console.WriteLine(map.map[2, 2].enemyList.Count);
+
             if (enemiesRemaining == 0 && !bossSpawned)
             {
                 map.map[2, 2].enemyList = new List<Enemy>();
                 bossSpawned = true;
+
                 map.map[2, 2] = new Grid();
                 for (int k = 0; k < 9; k++)
                 {
@@ -388,9 +407,6 @@ namespace Final_Project
                 
 
             }
-
-
-
 
             if (mouse.RightButton == ButtonState.Pressed)
             {
@@ -422,6 +438,24 @@ namespace Final_Project
             else if (State == GameState.Death)
             {
                 spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+
+                Vector2 gameoverPos = new Vector2();
+                string goText = "Game Over";
+                gameoverPos.X = (800 - Hudfont.MeasureString(goText).X) / 2;
+                gameoverPos.Y = ((800 - Hudfont.MeasureString(goText).Y)) / 4;
+                spriteBatch.DrawString(Hudfont, goText, gameoverPos, Color.LightGray);
+
+                spriteBatch.Draw(blank, new Rectangle(300, 400, 200, 100), Color.White);
+                spriteBatch.Draw(blank, new Rectangle(302, 402, 196, 96), Color.Black);
+
+                Vector2 exitPos = new Vector2();
+                string exitText = "Exit";
+                exitPos.X = (196 - Hudfont.MeasureString(exitText).X) / 2;
+                exitPos.Y = ((96 - Hudfont.MeasureString(exitText).Y)) / 2;
+                exitPos.X += 302;
+                exitPos.Y += 402;
+                spriteBatch.DrawString(Hudfont, exitText, exitPos, Color.LightGray);
+
                 spriteBatch.Draw(freeze, Vector2.Zero, Color.White * deathAnimTrans);
                 spriteBatch.End();
             }
@@ -435,15 +469,18 @@ namespace Final_Project
                 MediaPlayer.Play(lose);
                 GraphicsDevice.SetRenderTarget(null);                
                 freeze = (Texture2D)renderTarget;
-                freeze.SaveAsJpeg(new System.IO.FileStream("jpgthing.jpg", System.IO.FileMode.Create), 800, 800);
+                System.IO.FileStream st = new System.IO.FileStream("latest-death.jpg", System.IO.FileMode.Create);
+                freeze.SaveAsJpeg(st, 800, 800);
+                st.Flush();
+                st.Close();
                 isDying = false;
                 State = GameState.Death;
             }
             base.EndDraw();
         }
         protected void DrawMainGame(GameTime gameTime)
-        {                        
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);           
+        {            
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
 
             spriteBatch.Draw(gui, new Rectangle(0, 0, 800, 800), Color.White);
             
@@ -470,8 +507,14 @@ namespace Final_Project
                 }
                 vertOffsets++;
                 renders++;
-            }
+            }            
             spriteBatch.Draw(this.Content.Load<Texture2D>("playerMarker"), new Rectangle((mapr * dim *9) + 1 + (dim *9 / 2), (mapc * dim * 9) + 1 + (dim *9 / 2), dim *2, dim * 2), Color.White);
+
+            if (timeStopped)
+            {
+                spriteBatch.End();
+                spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, saturation);
+            }
             for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 9; j++)
@@ -482,18 +525,37 @@ namespace Final_Project
                         if (((Mouse.GetState().X - 100) / 67) == i && ((Mouse.GetState().Y - 200) / 67) == j) spriteBatch.Draw(tilesel, new Rectangle(i * 67 + 100, j * 67 + 200, 67, 67), Color.White);
                 }
             }
+            if (timeStopped)
+            {
+                spriteBatch.End();
+                spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+            }
 
             if (showingOmniSelector)
                 spriteBatch.Draw(omnisel, new Rectangle((int)omniSelVector.X - 33, (int)omniSelVector.Y - 33, 67, 67), Color.White);
+
             foreach (SpellProjectile sp in ActiveProjectiles) sp.Draw(spriteBatch);
             foreach (Projectile p in wizard.projectiles) 
             {
+                
                 p.Draw(spriteBatch);
+            }
+            if (timeStopped)
+            {
+                spriteBatch.End();
+                spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, saturation);
             }
             foreach (Enemy e in screen.enemyList) 
             {
                 e.Draw(spriteBatch);
             }
+
+            if (timeStopped)
+            {
+                spriteBatch.End();
+                spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+            }
+
             wizard.Draw(spriteBatch);            
 
             #region Status

@@ -55,7 +55,7 @@ namespace Final_Project
         ISpellCaster caster;
 
         Color spellColor = Color.White;
-
+        List<int> hitEnemies = new List<int>();
         public LivingTargetProjectile(ISpellCaster entity, Vector2 endpoint, LivingTargetSpell spell)
             : base(spell)
         {
@@ -113,12 +113,18 @@ namespace Final_Project
             {
                 if (e.Collision.Intersects(new Rectangle(collisionBox.X + 100, collisionBox.Y + 200, collisionBox.Width, collisionBox.Height)) && !NeedsRemove)
                 {
-                    
+                    Console.WriteLine("HIT: " + e.GetHashCode());
                     LivingTargetSpell ltp = (LivingTargetSpell)Spell;
+
+                    if (!hitEnemies.Contains(e.GetHashCode()))
                     e.OnHit(ltp, caster);
-                    Console.WriteLine("HIT: " + this.GetHashCode());
+                    
+                    hitEnemies.Add(e.GetHashCode());
                     //ltp.OnHit(e);
-                    needsRemove = true;
+                    if (ltp.GetSpecialProperty<bool>("RemoveProjectileOnHit", true))
+                    {
+                        needsRemove = true;
+                    }
                 }
             }
             
