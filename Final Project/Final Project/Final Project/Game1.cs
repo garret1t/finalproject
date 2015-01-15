@@ -290,6 +290,7 @@ namespace Final_Project
             else if (State == GameState.Death)
             {
                 deathAnimTrans -= 0.01f;
+                if (new Rectangle(300, 400, 200, 100).Contains(new Point(Mouse.GetState().X, Mouse.GetState().Y)) && Mouse.GetState().LeftButton == ButtonState.Pressed) Exit();
             }
             base.Update(gameTime);
         }
@@ -362,9 +363,6 @@ namespace Final_Project
 
             }
 
-
-
-
             if (mouse.RightButton == ButtonState.Pressed)
             {
                   Window.Title = "X: " + mouse.X + "; Y: " + mouse.Y;
@@ -393,6 +391,24 @@ namespace Final_Project
             else if (State == GameState.Death)
             {
                 spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+
+                Vector2 gameoverPos = new Vector2();
+                string goText = "Game Over";
+                gameoverPos.X = (800 - Hudfont.MeasureString(goText).X) / 2;
+                gameoverPos.Y = ((800 - Hudfont.MeasureString(goText).Y)) / 4;
+                spriteBatch.DrawString(Hudfont, goText, gameoverPos, Color.LightGray);
+
+                spriteBatch.Draw(blank, new Rectangle(300, 400, 200, 100), Color.White);
+                spriteBatch.Draw(blank, new Rectangle(302, 402, 196, 96), Color.Black);
+
+                Vector2 exitPos = new Vector2();
+                string exitText = "Exit";
+                exitPos.X = (196 - Hudfont.MeasureString(exitText).X) / 2;
+                exitPos.Y = ((96 - Hudfont.MeasureString(exitText).Y)) / 2;
+                exitPos.X += 302;
+                exitPos.Y += 402;
+                spriteBatch.DrawString(Hudfont, exitText, exitPos, Color.LightGray);
+
                 spriteBatch.Draw(freeze, Vector2.Zero, Color.White * deathAnimTrans);
                 spriteBatch.End();
             }
@@ -404,7 +420,10 @@ namespace Final_Project
             {               
                 GraphicsDevice.SetRenderTarget(null);                
                 freeze = (Texture2D)renderTarget;
-                freeze.SaveAsJpeg(new System.IO.FileStream("jpgthing.jpg", System.IO.FileMode.Create), 800, 800);
+                System.IO.FileStream st = new System.IO.FileStream("latest-death.jpg", System.IO.FileMode.Create);
+                freeze.SaveAsJpeg(st, 800, 800);
+                st.Flush();
+                st.Close();
                 isDying = false;
                 State = GameState.Death;
             }
