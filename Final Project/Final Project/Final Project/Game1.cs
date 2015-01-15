@@ -284,8 +284,15 @@ namespace Final_Project
         bool mouseActive = false;
         MouseState oldmouse, mouse;
 
+        int exitTime = 0, maxExitTime = 180;
         protected override void Update(GameTime gameTime)
         {
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                exitTime++;
+            else exitTime = 0;
+
+            if (exitTime >= maxExitTime) this.Exit();
+
             if (State == GameState.Game)
                 UpdateMainGame(gameTime);
             else if (State == GameState.Death)
@@ -299,9 +306,7 @@ namespace Final_Project
         protected void UpdateMainGame(GameTime gameTime)
         {
 
-            pad1 = GamePad.GetState(PlayerIndex.One);
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
+            pad1 = GamePad.GetState(PlayerIndex.One);            
             mouse = Mouse.GetState();
             if (oldmouse == null) oldmouse = mouse;
 
