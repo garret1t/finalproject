@@ -41,6 +41,10 @@ namespace Final_Project
             Rotation = rotation;
             reloadTime = reload;
             Texture = texture;
+            counter = reloadTime;
+            waterCounter = reloadTime;
+            meleeCounter = reloadTime;
+            bossCounter = reloadTime;
             projectileTexture = bulletTexture;
 
             OnDeath += new DeathHandler(Enemy_OnDeath);
@@ -77,7 +81,7 @@ namespace Final_Project
                             //Console.WriteLine("Player: " + playerPosition);
                             if (Range > 1)
                             {
-                                Shoot(new Vector2(Position.X, Position.Y), direction, 8);
+                                Shoot(new Vector2(Position.X, Position.Y), direction, 6);
 
                             }
 
@@ -124,7 +128,7 @@ namespace Final_Project
                             if (Collision.Intersects(player.Collision))
                             {
                                 
-                                player.Damage(5, SpellElement.None);
+                                player.Damage(7, SpellElement.None);
                                 meleeCounter = reloadTime;
                             }
                         }
@@ -203,11 +207,11 @@ namespace Final_Project
                             //Console.WriteLine("Mouse: " + Mouse.GetState().X + "," + Mouse.GetState().Y);
                             //Console.WriteLine("Enemy: " + Position);
                             //Console.WriteLine("Player: " + playerPosition);                                                     
-                            Shoot(new Vector2(Position.X, Position.Y), direction, 7);
+                            
                             Shoot(new Vector2(Position.X, Position.Y), direction, 6);
                             Shoot(new Vector2(Position.X, Position.Y), direction, 5);
                             Shoot(new Vector2(Position.X, Position.Y), direction, 4);
-                                
+                            Shoot(new Vector2(Position.X, Position.Y), direction, 3);    
                            
                             bossCounter = reloadTime;
                         }

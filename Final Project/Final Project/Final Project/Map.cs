@@ -34,6 +34,7 @@ namespace Final_Project
                         }
                     }
                     map[i, j] = new Grid();
+                    
                     map[i, j].Load(tileTypes, game);
                     map[i, j].LoadEnemies(enemyTypes, game);
                 }

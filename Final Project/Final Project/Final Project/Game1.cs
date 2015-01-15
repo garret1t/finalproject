@@ -45,6 +45,8 @@ namespace Final_Project
         int[,] tileTypes = new int[9, 9];
         String[] lines = System.IO.File.ReadAllLines("screen1.txt");
         String[] template = new String[5];
+        public Song[] themes = new Song[2];
+        Song theme1, theme2;
         public Grid screen = new Grid();
         public Player wizard;
         Texture2D wizardup, wizarddown, wizardleft, wizardright;
@@ -58,8 +60,10 @@ namespace Final_Project
         Texture2D tilesel;
         Texture2D enemy1;
         Texture2D bullet;
+        public Song currentTheme;
         bool bossSpawned;
         public SoundEffect dingSound, waterSound, fireSound, buzzerSound;
+        public Song death, lose;
         public Dictionary<string, Texture2D> TextureDictionary = new Dictionary<string, Texture2D>();
         public List<PrefabAnimation> Animations = new List<PrefabAnimation>();
         public List<SpellProjectile> ActiveProjectiles = new List<SpellProjectile>();
@@ -93,7 +97,9 @@ namespace Final_Project
 
         public void TriggerEnemyDeath(EnemyType e, Enemy et)
         {
+            enemiesRemaining--;
             EnemyDeath(e, et);
+            
         }
 
         protected override void Initialize()
@@ -249,8 +255,9 @@ namespace Final_Project
            
 
             wizard = new Player(4, 4, wizardup, wizarddown, wizardleft, wizardright, spriteBatch, this);
-            wizard.Health = 50;
             wizard.MaxHealth = 50;
+            wizard.Health = 50;
+            
             TextureDictionary.Add("wizard.down", wizarddown);
             TextureDictionary.Add("wizard.up", wizardup);
             TextureDictionary.Add("wizard.left", wizardleft);
@@ -274,6 +281,16 @@ namespace Final_Project
             waterSound = Content.Load<SoundEffect>("wave");
             dingSound = Content.Load<SoundEffect>("ding");
             buzzerSound = Content.Load<SoundEffect>("buzzer");
+            death = Content.Load<Song>("death");
+            lose = Content.Load<Song>("lose");
+            theme1 = Content.Load<Song>("theme1");
+            theme2 = Content.Load<Song>("theme2");
+            themes[0] = theme1;
+            themes[1] = theme2;
+            Random rand = new System.Random();
+            Game1.Instance.currentTheme = Game1.Instance.themes[rand.Next(0, 2)];
+            MediaPlayer.Stop();
+            MediaPlayer.Play(Game1.Instance.currentTheme);
             // TODO: use this.Content to load your game content here
         }
 
@@ -343,24 +360,32 @@ namespace Final_Project
             Window.Title = "X: " + wizard.PositionV.X + ";  Y: " + wizard.PositionV.Y + "; HP: " + wizard.Health;
             foreach (Enemy e in screen.enemyList) e.Update(gameTime, wizard.PositionV + new Vector2(100,200), wizard);
 
-            enemiesRemaining = 0;
-            for (int i = 0; i < 5; i++) 
-            {
-                for (int j = 0; j < 5; j++)
-                {
-                    enemiesRemaining += map.map[i, j].enemyList.Count;
-                    
-                }
- 
-            }
-            enemiesRemaining = 0;
-            Console.WriteLine(map.map[2, 2].enemyList.Count);
+            
+            
+            
+            
             if (enemiesRemaining == 0 && !bossSpawned)
             {
                 map.map[2, 2].enemyList = new List<Enemy>();
                 bossSpawned = true;
-                map.map[2,2].enemyList.Add(new Enemy(100,3,5,3,new Rectangle(400, 500, 134,134), -MathHelper.Pi, this.Content.Load<Texture2D>("boss"),bullet, this, EnemyTypeAI.Boss, SpellElement.None));
-
+                map.map[2, 2] = new Grid();
+                for (int k = 0; k < 9; k++)
+                {
+                    for (int l = 0; l < 9; l++)
+                    {
+                        map.map[2, 2].grid[k, l] = new Tile(Tile.Material.Sand, true, false, this.Content.Load<Texture2D>("SandTile"));
+                        map.map[2, 2].grid[k, 0] = new Tile(Tile.Material.Sand, false, false, this.Content.Load<Texture2D>("RockTile"));
+                        map.map[2, 2].grid[k, 8] = new Tile(Tile.Material.Sand, false, false, this.Content.Load<Texture2D>("RockTile"));
+                        map.map[2, 2].grid[0, l] = new Tile(Tile.Material.Sand, false, false, this.Content.Load<Texture2D>("RockTile"));
+                        map.map[2, 2].grid[8, l] = new Tile(Tile.Material.Sand, false, false, this.Content.Load<Texture2D>("RockTile"));
+                        map.map[2, 2].grid[4, 0] = new Tile(Tile.Material.Sand, true, false, this.Content.Load<Texture2D>("RockTile"));
+                        map.map[2, 2].grid[4, 8] = new Tile(Tile.Material.Sand, true, false, this.Content.Load<Texture2D>("RockTile"));
+                        map.map[2, 2].grid[0, 4] = new Tile(Tile.Material.Sand, true, false, this.Content.Load<Texture2D>("RockTile"));
+                        map.map[2, 2].grid[8, 4] = new Tile(Tile.Material.Sand, true, false, this.Content.Load<Texture2D>("RockTile"));
+                    }
+                }
+                map.map[2,2].enemyList.Add(new Enemy(100,3,10,10,new Rectangle(400, 500, 134,134), -MathHelper.Pi, this.Content.Load<Texture2D>("boss"),bullet, this, EnemyTypeAI.Boss, SpellElement.None));
+                
 
             }
 
@@ -382,7 +407,9 @@ namespace Final_Project
         protected override bool BeginDraw()
         {
             if (isDying)
-            {                                
+            {
+                MediaPlayer.Stop();
+                MediaPlayer.Play(death);
                 GraphicsDevice.SetRenderTargets(renderTarget);
             }
             return base.BeginDraw();
@@ -403,7 +430,9 @@ namespace Final_Project
         protected override void EndDraw()
         {
             if (isDying)
-            {               
+            {
+                
+                MediaPlayer.Play(lose);
                 GraphicsDevice.SetRenderTarget(null);                
                 freeze = (Texture2D)renderTarget;
                 freeze.SaveAsJpeg(new System.IO.FileStream("jpgthing.jpg", System.IO.FileMode.Create), 800, 800);

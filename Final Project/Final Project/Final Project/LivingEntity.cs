@@ -123,6 +123,7 @@ namespace Final_Project
                 if (value <= 0)
                 {
                     dead = true;
+                    
                     health = 0;
                 }
                 else if (value > maxHealth)

@@ -144,6 +144,10 @@ namespace Final_Project
                 Game1.Instance.mapr++;
                 Game1.Instance.screen = Game1.Instance.map.map[Game1.Instance.mapr, Game1.Instance.mapc];                
                 GridX = 0;
+                Random rand = new System.Random();
+                Game1.Instance.currentTheme = Game1.Instance.themes[rand.Next(0, 2)];
+                MediaPlayer.Stop();
+                MediaPlayer.Play(Game1.Instance.currentTheme);
                 return;
             }
             if (xr < 0 && Game1.Instance.mapr > 0)
@@ -151,6 +155,10 @@ namespace Final_Project
                 Game1.Instance.mapr--;
                 Game1.Instance.screen = Game1.Instance.map.map[Game1.Instance.mapr, Game1.Instance.mapc];
                 GridX = 8;
+                Random rand = new System.Random();
+                Game1.Instance.currentTheme = Game1.Instance.themes[rand.Next(0, 2)];
+                MediaPlayer.Stop();
+                MediaPlayer.Play(Game1.Instance.currentTheme);
                 return;
             }
             if (yr > 8 && Game1.Instance.mapc < 4)
@@ -158,6 +166,10 @@ namespace Final_Project
                 Game1.Instance.mapc++;
                 Game1.Instance.screen = Game1.Instance.map.map[Game1.Instance.mapr, Game1.Instance.mapc];
                 GridY = 0;
+                Random rand = new System.Random();
+                Game1.Instance.currentTheme = Game1.Instance.themes[rand.Next(0, 2)];
+                MediaPlayer.Stop();
+                MediaPlayer.Play(Game1.Instance.currentTheme);
                 return;
             }
             if (yr < 0 && Game1.Instance.mapc > 0)
@@ -165,9 +177,13 @@ namespace Final_Project
                 Game1.Instance.mapc--;
                 Game1.Instance.screen = Game1.Instance.map.map[Game1.Instance.mapr, Game1.Instance.mapc];
                 GridY = 8;
+                Random rand = new System.Random();
+                Game1.Instance.currentTheme = Game1.Instance.themes[rand.Next(0, 2)];
+                MediaPlayer.Stop();
+                MediaPlayer.Play(Game1.Instance.currentTheme);
                 return;
             }
-
+            
             if (tiles.GetTile(xr, GridY).canWalk)
             {
                 PositionV = new Vector2(PositionV.X + x, PositionV.Y);                
