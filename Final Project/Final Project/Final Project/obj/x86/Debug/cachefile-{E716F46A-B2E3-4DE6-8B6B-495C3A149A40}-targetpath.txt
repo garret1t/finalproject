@@ -31,3 +31,4 @@ Content\Projectile.xnb
 Content\enemy1.xnb
 Content\bullet.xnb
 Content\flyoverfont.xnb
+Content\hudfont.xnb

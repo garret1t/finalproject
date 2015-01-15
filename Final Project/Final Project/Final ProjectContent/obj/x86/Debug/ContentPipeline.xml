@@ -298,6 +298,15 @@
       <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\flyoverfont.xnb</Output>
       <Time>2015-01-08T14:29:19.6063765-05:00</Time>
     </Item>
+    <Item>
+      <Source>hudfont.spritefont</Source>
+      <Name>hudfont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\hudfont.xnb</Output>
+      <Time>2015-01-09T09:05:31.6495942-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
