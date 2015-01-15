@@ -78,6 +78,11 @@ namespace Final_Project
             entity.Damage(10, dominantType);
             base.OnHit(entity);
         }
+        public override void OnCast(ISpellCaster caster)
+        {
+            Game1.Instance.fireSound.Play(1, 0, 0); 
+            base.OnCast(caster);
+        }
     }
     public class SpellWaterBullet : LivingTargetSpell
     {
@@ -92,6 +97,11 @@ namespace Final_Project
             entity.Damage(6, dominantType);
             base.OnHit(entity);
         }
+        public override void OnCast(ISpellCaster caster)
+        {
+            Game1.Instance.waterSound.Play(1, 0, 0); 
+            base.OnCast(caster);
+        }
     }
     public class FailSpell : LivingTargetSpell
     {
@@ -99,6 +109,11 @@ namespace Final_Project
         {
             name = "Failure";
             dominantType = SpellElement.None;
+        }
+        public override void OnCast(ISpellCaster caster)
+        {
+            Game1.Instance.buzzerSound.Play(1, 0, 0);
+            base.OnCast(caster);
         }
     }
     public class SpellHealOne : SelfTargetSpell
@@ -111,6 +126,7 @@ namespace Final_Project
         }
         public override void OnCast(ISpellCaster caster)
         {
+            Game1.Instance.dingSound.Play(1, 0, 0); 
             caster.Heal(15, DominantType);
             base.OnCast(caster);
         }

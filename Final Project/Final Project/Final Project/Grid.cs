@@ -75,11 +75,15 @@ namespace Final_Project
                     }
                     if (enemies[i, j] == 1)
                     {
-                        enemyList.Add(new Enemy(30,3, 3, 180, new Rectangle(i * 67 + 100 + 67 / 2, i * 67 + 200 + 67/2, 67, 67), 0, game1.Content.Load<Texture2D>("enemy1"), game1.Content.Load<Texture2D>("bullet"), game1));
+                        enemyList.Add(new Enemy(30,3, 3, 180, new Rectangle(i * 67 + 100 + 67 / 2, i * 67 + 200 + 67/2, 67, 67), 0, game1.Content.Load<Texture2D>("enemy1"), game1.Content.Load<Texture2D>("bullet"), game1, EnemyType.Fire, SpellElement.Fire));
                     }
                     if (enemies[i, j] == 2)
                     {
-                        enemyList.Add(new Enemy(30, 5, 1, 180, new Rectangle(i * 67 + 100 + 67 / 2, i * 67 + 200 + 67 / 2, 67, 67), 0, game1.Content.Load<Texture2D>("enemy1"), game1.Content.Load<Texture2D>("bullet"), game1));
+                        enemyList.Add(new Enemy(20, 4, 1, 180, new Rectangle(i * 67 + 100 + 67 / 2, i * 67 + 200 + 67 / 2, 67, 67), 0, game1.Content.Load<Texture2D>("enemy3"), game1.Content.Load<Texture2D>("bullet"), game1, EnemyType.Melee, SpellElement.None));
+                    }
+                    if (enemies[i, j] == 3)
+                    {
+                        enemyList.Add(new Enemy(30, 5, 3, 180, new Rectangle(i * 67 + 100 + 67 / 2, i * 67 + 200 + 67 / 2, 67, 67), 0, game1.Content.Load<Texture2D>("enemy2"), game1.Content.Load<Texture2D>("bullet"), game1, EnemyType.Water, SpellElement.Water));
                     }
                 }
             }

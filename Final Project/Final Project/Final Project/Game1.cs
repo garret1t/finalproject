@@ -58,6 +58,8 @@ namespace Final_Project
         Texture2D tilesel;
         Texture2D enemy1;
         Texture2D bullet;
+        bool bossSpawned;
+        public SoundEffect dingSound, waterSound, fireSound, buzzerSound;
         public Dictionary<string, Texture2D> TextureDictionary = new Dictionary<string, Texture2D>();
         public List<PrefabAnimation> Animations = new List<PrefabAnimation>();
         public List<SpellProjectile> ActiveProjectiles = new List<SpellProjectile>();
@@ -73,7 +75,7 @@ namespace Final_Project
         Vector2 omniSelVector = new Vector2();
 
         public Texture2D blank;
-
+        public int enemiesRemaining;
         #endregion
 
         public Game1()
@@ -213,6 +215,7 @@ namespace Final_Project
                 }
             }
             screen = map.map[mapr, mapc];
+            
             base.Initialize();
         }
 
@@ -246,7 +249,7 @@ namespace Final_Project
            
 
             wizard = new Player(4, 4, wizardup, wizarddown, wizardleft, wizardright, spriteBatch, this);
-
+            wizard.Health = 30;
             TextureDictionary.Add("wizard.down", wizarddown);
             TextureDictionary.Add("wizard.up", wizardup);
             TextureDictionary.Add("wizard.left", wizardleft);
@@ -265,6 +268,11 @@ namespace Final_Project
 
             Flyover = Content.Load<SpriteFont>("flyoverfont");
             Hudfont = Content.Load<SpriteFont>("hudfont");
+
+            fireSound = Content.Load<SoundEffect>("fireball");
+            waterSound = Content.Load<SoundEffect>("wave");
+            dingSound = Content.Load<SoundEffect>("ding");
+            buzzerSound = Content.Load<SoundEffect>("buzzer");
             // TODO: use this.Content to load your game content here
         }
 
@@ -333,12 +341,33 @@ namespace Final_Project
 
             Window.Title = "X: " + wizard.PositionV.X + ";  Y: " + wizard.PositionV.Y + "; HP: " + wizard.Health;
             foreach (Enemy e in screen.enemyList) e.Update(gameTime, wizard.PositionV + new Vector2(100,200), wizard);
-                       
-            
+
+            enemiesRemaining = 0;
+            for (int i = 0; i < 5; i++) 
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    enemiesRemaining += map.map[i, j].enemyList.Count;
+                    
+                }
+ 
+            }
+            enemiesRemaining = 0;
+            Console.WriteLine(map.map[2, 2].enemyList.Count);
+            if (enemiesRemaining == 0 && !bossSpawned)
+            {
+                map.map[2, 2].enemyList = new List<Enemy>();
+                bossSpawned = true;
+                map.map[2,2].enemyList.Add(new Enemy(100,3,5,3,new Rectangle(400, 500, 134,134), -MathHelper.Pi, this.Content.Load<Texture2D>("boss"),bullet, this, EnemyType.Boss, SpellElement.None));
+
+            }
+
+
+
 
             if (mouse.RightButton == ButtonState.Pressed)
             {
-                Window.Title = "X: " + mouse.X + "; Y: " + mouse.Y;
+                  Window.Title = "X: " + mouse.X + "; Y: " + mouse.Y;
             }
 
             oldpad1 = pad1;
