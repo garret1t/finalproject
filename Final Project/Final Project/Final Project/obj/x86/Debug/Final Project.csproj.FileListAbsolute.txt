@@ -37,3 +37,58 @@ C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final
 C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\obj\x86\Debug\Final Project.pdb
 C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\bullet.xnb
 C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\flyoverfont.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\obj\x86\Debug\Final Project.exe
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\obj\x86\Debug\Final Project.pdb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\GrassTile.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\RockTile.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\SandTile.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WaterTile.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardDown.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardLeft.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardRight.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardUp.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballDown.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballLeft.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballRight.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballUp.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\air.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\earth.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\fire.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\gui.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\heart.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\heartEmpty.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\water.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\playerMarker.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\SandRockTile.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WaterRockTile.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Symbols\fire.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Symbols\water.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Symbols\earth.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Symbols\air.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\TileSelector.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Symbols\light.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\OmniSelector.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Projectile.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\enemy1.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\bullet.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\flyoverfont.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Final Project.exe
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Final Project.pdb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\hudfont.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\obj\x86\Debug\Final Project.csprojResolveAssemblyReference.cache
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\enemy2.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\enemy3.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\buzzer.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\ding.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\fireball.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\wave.xnb
+C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\boss.xnb
+C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\enemy2.xnb
+C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\enemy3.xnb
+C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\boss.xnb
+C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\hudfont.xnb
+C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\buzzer.xnb
+C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\ding.xnb
+C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\fireball.xnb
+C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\wave.xnb

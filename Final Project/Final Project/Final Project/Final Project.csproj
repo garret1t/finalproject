@@ -115,6 +115,7 @@
     <Compile Include="ISpellCaster.cs" />
     <Compile Include="ISpellTargetable.cs" />
     <Compile Include="LivingEntity.cs" />
+    <Compile Include="Mana.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Projectile.cs" />

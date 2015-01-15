@@ -143,7 +143,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\gui.xnb</Output>
-      <Time>2014-12-09T15:07:39.0707828-05:00</Time>
+      <Time>2015-01-09T13:59:30.6065643-05:00</Time>
     </Item>
     <Item>
       <Source>heart.png</Source>
@@ -290,6 +290,33 @@
       <Time>2015-01-06T15:27:58.5487346-05:00</Time>
     </Item>
     <Item>
+      <Source>enemy2.png</Source>
+      <Name>enemy2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\enemy2.xnb</Output>
+      <Time>2015-01-09T15:30:58.3172793-05:00</Time>
+    </Item>
+    <Item>
+      <Source>enemy3.png</Source>
+      <Name>enemy3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\enemy3.xnb</Output>
+      <Time>2015-01-09T15:30:58.3172793-05:00</Time>
+    </Item>
+    <Item>
+      <Source>boss.png</Source>
+      <Name>boss</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\boss.xnb</Output>
+      <Time>2015-01-15T11:30:48.433316-05:00</Time>
+    </Item>
+    <Item>
       <Source>flyoverfont.spritefont</Source>
       <Name>flyoverfont</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -297,6 +324,51 @@
       <Options>None</Options>
       <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\flyoverfont.xnb</Output>
       <Time>2015-01-08T15:05:24.8954149-05:00</Time>
+    </Item>
+    <Item>
+      <Source>hudfont.spritefont</Source>
+      <Name>hudfont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\hudfont.xnb</Output>
+      <Time>2015-01-09T13:59:30.6075643-05:00</Time>
+    </Item>
+    <Item>
+      <Source>buzzer.wav</Source>
+      <Name>buzzer</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\buzzer.xnb</Output>
+      <Time>2015-01-09T15:30:58.314279-05:00</Time>
+    </Item>
+    <Item>
+      <Source>ding.wav</Source>
+      <Name>ding</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\ding.xnb</Output>
+      <Time>2015-01-09T15:30:58.3162792-05:00</Time>
+    </Item>
+    <Item>
+      <Source>fireball.wav</Source>
+      <Name>fireball</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\fireball.xnb</Output>
+      <Time>2015-01-09T15:30:58.3202796-05:00</Time>
+    </Item>
+    <Item>
+      <Source>wave.wav</Source>
+      <Name>wave</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\wave.xnb</Output>
+      <Time>2015-01-09T15:30:58.3222798-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

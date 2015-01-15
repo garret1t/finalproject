@@ -15,9 +15,11 @@ namespace Final_Project
         protected Vector2 posv = new Vector2();
 
         public delegate void HealthHandler(int oldHp, int newHp);
+        public delegate void DeathHandler();
 
         public event HealthHandler OnDamageTaken;
         public event HealthHandler OnHealthTaken;
+        public event DeathHandler OnDeath;
 
         public Vector2 PositionV { get { return posv; } set { posv = value; } }
         public LivingEntity(Game associatedGame, SpellElement assigned) : base(associatedGame) 
@@ -28,6 +30,7 @@ namespace Final_Project
 
             OnDamageTaken += new HealthHandler(Enemy_OnDamageTaken);
             OnHealthTaken += new HealthHandler(Enemy_OnHealthTaken);
+            OnDeath += () => { };
         }
 
         
@@ -170,6 +173,8 @@ namespace Final_Project
             int newHp = Health;
             if (oldHp != newHp)
                 OnDamageTaken(oldHp, newHp);
+            if (Dead)
+                OnDeath();
         }
 
         public virtual void Heal(int power, SpellElement type)
