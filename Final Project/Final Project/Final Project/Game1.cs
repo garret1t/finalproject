@@ -64,6 +64,7 @@ namespace Final_Project
         public Song currentTheme;
 
         Effect saturation;
+        Effect satlit;
 
         bool bossSpawned;
         public SoundEffect dingSound, waterSound, fireSound, buzzerSound, bansheeSound;
@@ -86,6 +87,10 @@ namespace Final_Project
         public bool timeStopped = false;
         public int timeStopTimer = 0;
         public int enemiesRemaining;
+
+        public DateTime startGame;
+
+        bool gameDone = false;
         #endregion
 
         public Game1()
@@ -105,7 +110,11 @@ namespace Final_Project
         {
             enemiesRemaining--;
             EnemyDeath(e, et);
-            
+
+            if (e == EnemyType.Boss)
+            {
+                gameDone = true;
+            }
         }
 
         protected override void Initialize()
@@ -279,6 +288,8 @@ namespace Final_Project
             TextureDictionary.Add("projectile", Content.Load<Texture2D>("projectile"));
 
             saturation = Content.Load<Effect>("Effects/Saturation");
+            satlit = Content.Load<Effect>("Effects/Saturation");
+            satlit.Parameters["Saturation"].SetValue(1f);
 
             tilesel = Content.Load<Texture2D>("TileSelector");
             omnisel = Content.Load<Texture2D>("OmniSelector");
@@ -301,7 +312,8 @@ namespace Final_Project
             Game1.Instance.currentTheme = Game1.Instance.themes[rand.Next(0, 2)];
             MediaPlayer.Stop();
             MediaPlayer.Play(Game1.Instance.currentTheme);
-            // TODO: use this.Content to load your game content here
+
+            startGame = DateTime.Now;
         }
 
         protected override void UnloadContent()
@@ -348,6 +360,8 @@ namespace Final_Project
         }
 
         int timeStopTime = 0;
+        float satlitsat = 1f;
+        float satlitlit = 0f;
         protected void UpdateMainGame(GameTime gameTime)
         {
 
@@ -366,6 +380,14 @@ namespace Final_Project
                 saturation.Parameters["Saturation"].SetValue(sat);
             }
             else timeStopTime = 0;
+            //gameDone = true;
+            if (gameDone)
+            {
+                //satlitsat -= 0.005f;
+                //satlitlit += 0.005f;
+                satlit.Parameters["Saturation"].SetValue(MathHelper.Clamp(satlitsat, 0f, 1f));
+                satlit.Parameters["Brightness"].SetValue(MathHelper.Clamp(satlitlit, 0f, 1f));
+            }
 
             if (oldmouse == null) oldmouse = mouse;
 
@@ -523,7 +545,7 @@ namespace Final_Project
         }
         protected void DrawMainGame(GameTime gameTime)
         {            
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null);
 
             spriteBatch.Draw(gui, new Rectangle(0, 0, 800, 800), Color.White);
             

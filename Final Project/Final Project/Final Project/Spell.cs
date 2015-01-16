@@ -26,7 +26,7 @@ namespace Final_Project
             SpellBlink blink = new SpellBlink();
             SpellQuake quake = new SpellQuake();
             SpellFirebomb firebomb = new SpellFirebomb();
-            //SpellNuke nuke = new SpellNuke();
+            SpellNuke nuke = new SpellNuke();
 
             registeredSpells.Add(fireball);
             registeredSpells.Add(waterbullet);
@@ -37,7 +37,7 @@ namespace Final_Project
             registeredSpells.Add(blink);
             registeredSpells.Add(quake);
             registeredSpells.Add(firebomb);
-            //registeredSpells.Add(nuke);
+            registeredSpells.Add(nuke);
         }
 
         public static List<Spell> Registry { get { return registeredSpells; } }
