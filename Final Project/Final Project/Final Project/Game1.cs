@@ -66,7 +66,7 @@ namespace Final_Project
         Effect saturation;
 
         bool bossSpawned;
-        public SoundEffect dingSound, waterSound, fireSound, buzzerSound;
+        public SoundEffect dingSound, waterSound, fireSound, buzzerSound, bansheeSound;
         public Song death, lose;
         public Dictionary<string, Texture2D> TextureDictionary = new Dictionary<string, Texture2D>();
         public List<PrefabAnimation> Animations = new List<PrefabAnimation>();
@@ -263,6 +263,7 @@ namespace Final_Project
             wizard = new Player(4, 4, wizardup, wizarddown, wizardleft, wizardright, spriteBatch, this);
             wizard.MaxHealth = 50;
             wizard.Health = 50;
+            wizard.Activate();
             
             TextureDictionary.Add("wizard.down", wizarddown);
             TextureDictionary.Add("wizard.up", wizardup);
@@ -289,6 +290,7 @@ namespace Final_Project
             waterSound = Content.Load<SoundEffect>("wave");
             dingSound = Content.Load<SoundEffect>("ding");
             buzzerSound = Content.Load<SoundEffect>("buzzer");
+            bansheeSound = Content.Load<SoundEffect>("banshee");
             death = Content.Load<Song>("death");
             lose = Content.Load<Song>("lose");
             theme1 = Content.Load<Song>("theme1");
@@ -324,9 +326,27 @@ namespace Final_Project
             {
                 deathAnimTrans -= 0.01f;
                 if (new Rectangle(300, 400, 200, 100).Contains(new Point(Mouse.GetState().X, Mouse.GetState().Y)) && Mouse.GetState().LeftButton == ButtonState.Pressed) Exit();
+                if (Save.GetSavedData<bool>("HasSave", false))
+                {
+                    if (new Rectangle(250, 600, 300, 100).Contains(new Point(Mouse.GetState().X, Mouse.GetState().Y)) && Mouse.GetState().LeftButton == ButtonState.Pressed) LoadGame();
+                }
             }
             base.Update(gameTime);
         }
+
+        void LoadGame()
+        {
+            screen = Save.GetSavedData<Grid>("Screen");
+            wizard = Save.GetSavedData<Player>("Player").Copy();
+            wizard.Activate();
+            map.map = Save.GetSavedData<Grid[,]>("Map");
+            mapr = Save.GetSavedData<int>("mapr", mapr);
+            mapc = Save.GetSavedData<int>("mapc", mapc);
+            timeStopped = Save.GetSavedData<bool>("TimeStopped", timeStopped);
+            timeStopTimer = Save.GetSavedData<int>("TimeStopTimer", timeStopTimer);
+            State = GameState.Game;
+        }
+
         int timeStopTime = 0;
         protected void UpdateMainGame(GameTime gameTime)
         {
@@ -391,8 +411,8 @@ namespace Final_Project
 
           
             //Console.WriteLine(map.map[2, 2].enemyList.Count);
-
-            if (enemiesRemaining == 0 && !bossSpawned)
+            Window.Title = enemiesRemaining.ToString();
+            if (enemiesRemaining <= 0 && !bossSpawned)
             {
                 map.map[2, 2].enemyList = new List<Enemy>();
                 bossSpawned = true;
@@ -414,8 +434,15 @@ namespace Final_Project
                     }
                 }
                 map.map[2,2].enemyList.Add(new Enemy(100,3,10,10,new Rectangle(400, 500, 134,134), -MathHelper.Pi, this.Content.Load<Texture2D>("boss"),bullet, this, EnemyTypeAI.Boss, SpellElement.None));
-                
 
+                Save.SetSavedData<Grid>("Screen", screen);
+                Save.SetSavedData<Player>("Player", wizard.Copy());
+                Save.SetSavedData<Grid[,]>("Map", map.map);
+                Save.SetSavedData<int>("mapr", mapr);
+                Save.SetSavedData<int>("mapc", mapc);
+                Save.SetSavedData<bool>("TimeStopped", timeStopped);
+                Save.SetSavedData<int>("TimeStopTimer", timeStopTimer);
+                Save.SetSavedData<bool>("HasSave", true);
             }
 
             if (mouse.RightButton == ButtonState.Pressed)
@@ -465,6 +492,21 @@ namespace Final_Project
                 exitPos.X += 302;
                 exitPos.Y += 402;
                 spriteBatch.DrawString(Hudfont, exitText, exitPos, Color.LightGray);
+
+
+                if (Save.GetSavedData<bool>("HasSave", false))
+                {
+                    spriteBatch.Draw(blank, new Rectangle(250, 600, 300, 100), Color.White);
+                    spriteBatch.Draw(blank, new Rectangle(252, 602, 296, 96), Color.Black);
+
+                    Vector2 loadSavePos = new Vector2();
+                    string loadSaveText = "Load Game";
+                    loadSavePos.X = (296 - Hudfont.MeasureString(loadSaveText).X) / 2;
+                    loadSavePos.Y = ((96 - Hudfont.MeasureString(loadSaveText).Y)) / 2;
+                    loadSavePos.X += 252;
+                    loadSavePos.Y += 602;
+                    spriteBatch.DrawString(Hudfont, loadSaveText, loadSavePos, Color.LightGray);
+                }
 
                 spriteBatch.Draw(freeze, Vector2.Zero, Color.White * deathAnimTrans);
                 spriteBatch.End();

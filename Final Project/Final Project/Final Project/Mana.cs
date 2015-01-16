@@ -34,6 +34,13 @@ namespace Final_Project
 
         public int MaximumMana { get { return max; } set { max = value; } }
 
+        public Mana Copy()
+        {
+            Mana m = new Mana(30, true);
+            m.manavalues = manavalues;
+            return m;
+        }
+
         public int this[SpellElement index]
         {
             get

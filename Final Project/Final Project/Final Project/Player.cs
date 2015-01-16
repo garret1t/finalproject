@@ -65,19 +65,48 @@ namespace Final_Project
             OnRecordStatusChanged += new RecordStatusEvent(Player_OnRecordStatusChanged);
             currentCombo.OnSpellAdded += new SpellComboList.SpellAdded(currentCombo_OnSpellAdded);
             blank = new Texture2D(Game1.Instance.GraphicsDevice, 1, 1);
-            blank.SetData(new Color[] { Color.White });
+            blank.SetData(new Color[] { Color.White });            
+        }
 
+        Animations.DamageAbsorbsEffect absorbEffect;
+
+        public void Activate()
+        {
             Game1.Instance.OmniSelectionMade += new Game1.OmniSelectionHandler(Instance_OmniSelectionMade);
             Game1.Instance.EnemyDeath += new Game1.EnemyEventHandler(Instance_EnemyDeath);
             OnDeath += new DeathHandler(Player_OnDeath);
 
-            Game1.Instance.Animations.Add(new Animations.DamageAbsorbsEffect(this));
+            absorbEffect = new Animations.DamageAbsorbsEffect(this);
+
+            Game1.Instance.Animations.Add(absorbEffect);
+        }
+
+        public void Deactivate()
+        {
+            Game1.Instance.OmniSelectionMade -= Instance_OmniSelectionMade;
+            Game1.Instance.EnemyDeath -= Instance_EnemyDeath;
+            OnDeath -= Player_OnDeath;
+
+            Game1.Instance.Animations.Remove(absorbEffect);
+        }
+
+        public Player Copy()
+        {
+            Player copy = new Player(GridX, GridY, textureUp, textureDown, textureLeft, textureRight, spriteBatch, Game1.Instance);
+            copy.PositionV = PositionV;
+            copy.mana = mana.Copy();
+            copy.health = health;
+            copy.maxHealth = maxHealth;
+            copy.Refills = Refills;
+            copy.recordingStatus = recordingStatus;
+            copy.currentCombo = currentCombo;
+            return copy;
         }
 
         void Player_OnDeath()
         {
-            Game1.Instance.isDying = true;            
-            
+            Game1.Instance.isDying = true;
+            Deactivate();   
         }
 
         void Instance_EnemyDeath(EnemyType type, Enemy e)
@@ -122,6 +151,7 @@ namespace Final_Project
 
         void Instance_OmniSelectionMade(Vector2 vec)
         {
+            Console.WriteLine("omni made");
             LivingTargetSpell ltp = (LivingTargetSpell)current;
             
             ltp.OnCast(this);

@@ -1,6 +1,5 @@
-﻿Sound/Music
-Boss enemies
-More types of enemies
-Make enemies harder
+﻿Bugs:
+	Tests still needed on loading game after death.
+	Mana does not go back to original values.
 
 Just gotta finish the project

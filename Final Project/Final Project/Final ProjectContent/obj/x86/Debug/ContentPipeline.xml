@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\GrassTile.xnb</Output>
-      <Time>2014-12-04T15:01:18.0007217-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\GrassTile.xnb</Output>
+      <Time>2014-12-15T14:07:16.3210009-05:00</Time>
     </Item>
     <Item>
       <Source>RockTile.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\RockTile.xnb</Output>
-      <Time>2014-12-04T15:01:18.0127217-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\RockTile.xnb</Output>
+      <Time>2014-12-15T14:07:16.3220008-05:00</Time>
     </Item>
     <Item>
       <Source>SandTile.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\SandTile.xnb</Output>
-      <Time>2014-12-04T15:01:18.0177217-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\SandTile.xnb</Output>
+      <Time>2014-12-15T14:07:16.3220008-05:00</Time>
     </Item>
     <Item>
       <Source>WaterTile.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WaterTile.xnb</Output>
-      <Time>2014-12-04T15:04:55.1507217-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WaterTile.xnb</Output>
+      <Time>2014-12-15T14:07:16.3230007-05:00</Time>
     </Item>
     <Item>
       <Source>WizardDown.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardDown.xnb</Output>
-      <Time>2014-12-05T15:01:28.1037095-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardDown.xnb</Output>
+      <Time>2014-12-15T14:07:16.3230007-05:00</Time>
     </Item>
     <Item>
       <Source>WizardLeft.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardLeft.xnb</Output>
-      <Time>2014-12-05T15:01:28.1047095-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardLeft.xnb</Output>
+      <Time>2014-12-15T14:07:16.3240006-05:00</Time>
     </Item>
     <Item>
       <Source>WizardRight.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardRight.xnb</Output>
-      <Time>2014-12-05T15:01:28.1067095-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardRight.xnb</Output>
+      <Time>2014-12-15T14:07:16.3240006-05:00</Time>
     </Item>
     <Item>
       <Source>WizardUp.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardUp.xnb</Output>
-      <Time>2014-12-05T15:01:28.1077095-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WizardUp.xnb</Output>
+      <Time>2014-12-15T14:07:16.3250005-05:00</Time>
     </Item>
     <Item>
       <Source>FireballDown.png</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballDown.xnb</Output>
-      <Time>2014-12-05T15:13:58.5455645-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballDown.xnb</Output>
+      <Time>2014-12-15T14:07:16.320001-05:00</Time>
     </Item>
     <Item>
       <Source>FireballLeft.png</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballLeft.xnb</Output>
-      <Time>2014-12-05T15:13:58.5475647-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballLeft.xnb</Output>
+      <Time>2014-12-15T14:07:16.320001-05:00</Time>
     </Item>
     <Item>
       <Source>FireballRight.png</Source>
@@ -97,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballRight.xnb</Output>
-      <Time>2014-12-05T15:13:58.5485648-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballRight.xnb</Output>
+      <Time>2014-12-15T14:07:16.3210009-05:00</Time>
     </Item>
     <Item>
       <Source>FireballUp.png</Source>
@@ -106,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballUp.xnb</Output>
-      <Time>2014-12-05T15:13:58.5495649-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\FireballUp.xnb</Output>
+      <Time>2014-12-15T14:07:16.3210009-05:00</Time>
     </Item>
     <Item>
       <Source>air.png</Source>
@@ -115,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\air.xnb</Output>
-      <Time>2014-12-09T15:01:00.2267828-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\air.xnb</Output>
+      <Time>2014-12-15T14:07:16.3250005-05:00</Time>
     </Item>
     <Item>
       <Source>earth.png</Source>
@@ -124,8 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\earth.xnb</Output>
-      <Time>2014-12-09T15:01:00.2277828-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\earth.xnb</Output>
+      <Time>2014-12-15T14:07:16.3250005-05:00</Time>
     </Item>
     <Item>
       <Source>fire.png</Source>
@@ -133,8 +133,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\fire.xnb</Output>
-      <Time>2014-12-09T15:01:00.2287828-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\fire.xnb</Output>
+      <Time>2014-12-15T14:07:16.3260004-05:00</Time>
     </Item>
     <Item>
       <Source>gui.png</Source>
@@ -142,8 +142,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\gui.xnb</Output>
-      <Time>2015-01-09T13:59:30.6065643-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\gui.xnb</Output>
+      <Time>2015-01-09T09:19:21.6065959-05:00</Time>
     </Item>
     <Item>
       <Source>heart.png</Source>
@@ -151,8 +151,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\heart.xnb</Output>
-      <Time>2014-12-09T15:01:00.2317828-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\heart.xnb</Output>
+      <Time>2014-12-15T14:07:16.3309999-05:00</Time>
     </Item>
     <Item>
       <Source>heartEmpty.png</Source>
@@ -160,8 +160,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\heartEmpty.xnb</Output>
-      <Time>2014-12-09T15:01:00.2327828-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\heartEmpty.xnb</Output>
+      <Time>2014-12-15T14:07:16.3309999-05:00</Time>
     </Item>
     <Item>
       <Source>water.png</Source>
@@ -169,8 +169,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\water.xnb</Output>
-      <Time>2014-12-09T15:01:00.2337828-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\water.xnb</Output>
+      <Time>2014-12-15T14:07:16.3339996-05:00</Time>
     </Item>
     <Item>
       <Source>playerMarker.png</Source>
@@ -178,8 +178,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\playerMarker.xnb</Output>
-      <Time>2014-12-16T08:45:12.8631975-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\playerMarker.xnb</Output>
+      <Time>2014-12-16T14:11:45.5167577-05:00</Time>
     </Item>
     <Item>
       <Source>SandRockTile.png</Source>
@@ -187,8 +187,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\SandRockTile.xnb</Output>
-      <Time>2014-12-17T15:29:26.2607896-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\SandRockTile.xnb</Output>
+      <Time>2014-12-18T08:50:15.8643513-05:00</Time>
     </Item>
     <Item>
       <Source>WaterRockTile.png</Source>
@@ -196,8 +196,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WaterRockTile.xnb</Output>
-      <Time>2014-12-17T15:29:26.2617897-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\WaterRockTile.xnb</Output>
+      <Time>2014-12-18T08:50:15.8653502-05:00</Time>
     </Item>
     <Item>
       <Source>Symbols\fire.png</Source>
@@ -205,8 +205,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Symbols\fire.xnb</Output>
-      <Time>2014-12-17T14:25:20.5574718-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Symbols\fire.xnb</Output>
+      <Time>2014-12-16T15:17:59.9540736-05:00</Time>
     </Item>
     <Item>
       <Source>Symbols\water.png</Source>
@@ -214,8 +214,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Symbols\water.xnb</Output>
-      <Time>2014-12-17T14:25:21.4204718-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Symbols\water.xnb</Output>
+      <Time>2014-12-16T15:04:18.922029-05:00</Time>
     </Item>
     <Item>
       <Source>Symbols\earth.png</Source>
@@ -223,8 +223,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Symbols\earth.xnb</Output>
-      <Time>2014-12-17T15:29:25.0456681-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Symbols\earth.xnb</Output>
+      <Time>2014-12-17T14:54:55.355724-05:00</Time>
     </Item>
     <Item>
       <Source>Symbols\air.png</Source>
@@ -232,8 +232,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Symbols\air.xnb</Output>
-      <Time>2014-12-17T15:29:25.044668-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Symbols\air.xnb</Output>
+      <Time>2014-12-17T15:12:13.3102246-05:00</Time>
     </Item>
     <Item>
       <Source>TileSelector.png</Source>
@@ -241,8 +241,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\TileSelector.xnb</Output>
-      <Time>2015-01-05T14:00:33.1642208-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\TileSelector.xnb</Output>
+      <Time>2015-01-05T08:34:15.9316824-05:00</Time>
     </Item>
     <Item>
       <Source>Symbols\light.png</Source>
@@ -250,8 +250,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Symbols\light.xnb</Output>
-      <Time>2015-01-05T14:00:33.1632206-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Symbols\light.xnb</Output>
+      <Time>2015-01-05T08:34:20.8837526-05:00</Time>
     </Item>
     <Item>
       <Source>OmniSelector.png</Source>
@@ -259,8 +259,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\OmniSelector.xnb</Output>
-      <Time>2015-01-06T14:34:34.4649201-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\OmniSelector.xnb</Output>
+      <Time>2015-01-06T14:24:39.8760602-05:00</Time>
     </Item>
     <Item>
       <Source>Projectile.png</Source>
@@ -268,8 +268,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Projectile.xnb</Output>
-      <Time>2014-12-15T15:30:52.7471989-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Projectile.xnb</Output>
+      <Time>2015-01-05T15:04:03.1886089-05:00</Time>
     </Item>
     <Item>
       <Source>enemy1.png</Source>
@@ -277,8 +277,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\enemy1.xnb</Output>
-      <Time>2015-01-05T15:24:07.4731673-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\enemy1.xnb</Output>
+      <Time>2015-01-06T14:24:40.7260602-05:00</Time>
     </Item>
     <Item>
       <Source>bullet.png</Source>
@@ -286,8 +286,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\bullet.xnb</Output>
-      <Time>2015-01-06T15:27:58.5487346-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\bullet.xnb</Output>
+      <Time>2015-01-07T14:03:02.5377848-05:00</Time>
     </Item>
     <Item>
       <Source>enemy2.png</Source>
@@ -295,8 +295,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\enemy2.xnb</Output>
-      <Time>2015-01-15T15:10:40.9233189-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\enemy2.xnb</Output>
+      <Time>2015-01-15T11:57:43.2553964-05:00</Time>
     </Item>
     <Item>
       <Source>enemy3.png</Source>
@@ -304,8 +304,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\enemy3.xnb</Output>
-      <Time>2015-01-15T15:10:40.9533189-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\enemy3.xnb</Output>
+      <Time>2015-01-15T11:57:43.2563964-05:00</Time>
     </Item>
     <Item>
       <Source>boss.png</Source>
@@ -313,8 +313,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\boss.xnb</Output>
-      <Time>2015-01-15T14:56:31.9359996-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\boss.xnb</Output>
+      <Time>2015-01-15T15:02:19.4473777-05:00</Time>
     </Item>
     <Item>
       <Source>flyoverfont.spritefont</Source>
@@ -322,8 +322,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\flyoverfont.xnb</Output>
-      <Time>2015-01-08T15:05:24.8954149-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\flyoverfont.xnb</Output>
+      <Time>2015-01-08T14:29:19.6063765-05:00</Time>
     </Item>
     <Item>
       <Source>hudfont.spritefont</Source>
@@ -331,8 +331,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\hudfont.xnb</Output>
-      <Time>2015-01-09T13:59:30.6075643-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\hudfont.xnb</Output>
+      <Time>2015-01-09T09:05:31.6495942-05:00</Time>
     </Item>
     <Item>
       <Source>buzzer.wav</Source>
@@ -340,8 +340,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\buzzer.xnb</Output>
-      <Time>2015-01-15T15:10:40.8633189-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\buzzer.xnb</Output>
+      <Time>2015-01-15T11:57:43.2533964-05:00</Time>
     </Item>
     <Item>
       <Source>ding.wav</Source>
@@ -349,8 +349,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\ding.xnb</Output>
-      <Time>2015-01-15T15:10:40.8933189-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\ding.xnb</Output>
+      <Time>2015-01-15T11:57:43.2553964-05:00</Time>
     </Item>
     <Item>
       <Source>fireball.wav</Source>
@@ -358,8 +358,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\fireball.xnb</Output>
-      <Time>2015-01-15T15:10:40.9883189-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\fireball.xnb</Output>
+      <Time>2015-01-15T11:57:43.2593964-05:00</Time>
     </Item>
     <Item>
       <Source>wave.wav</Source>
@@ -367,8 +367,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\wave.xnb</Output>
-      <Time>2015-01-15T15:10:41.0583189-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\wave.xnb</Output>
+      <Time>2015-01-15T11:57:43.2633964-05:00</Time>
     </Item>
     <Item>
       <Source>Effects\Saturation.fx</Source>
@@ -376,8 +376,8 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Effects\Saturation.xnb</Output>
-      <Time>2015-01-15T14:56:32.8890949-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\Effects\Saturation.xnb</Output>
+      <Time>2015-01-15T13:52:12.2623845-05:00</Time>
     </Item>
     <Item>
       <Source>death.mp3</Source>
@@ -385,9 +385,9 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\death.xnb</Output>
-      <Extra>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\death.wma</Extra>
-      <Time>2015-01-15T15:13:25.9313189-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\death.xnb</Output>
+      <Extra>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\death.wma</Extra>
+      <Time>2015-01-15T15:02:19.4483777-05:00</Time>
     </Item>
     <Item>
       <Source>lose.mp3</Source>
@@ -395,9 +395,9 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\lose.xnb</Output>
-      <Extra>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\lose.wma</Extra>
-      <Time>2015-01-15T15:13:26.7313189-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\lose.xnb</Output>
+      <Extra>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\lose.wma</Extra>
+      <Time>2015-01-15T15:02:19.4493777-05:00</Time>
     </Item>
     <Item>
       <Source>theme1.mp3</Source>
@@ -405,9 +405,9 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\theme1.xnb</Output>
-      <Extra>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\theme1.wma</Extra>
-      <Time>2015-01-15T15:13:27.1393189-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\theme1.xnb</Output>
+      <Extra>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\theme1.wma</Extra>
+      <Time>2015-01-15T15:02:19.4593777-05:00</Time>
     </Item>
     <Item>
       <Source>theme2.mp3</Source>
@@ -415,9 +415,18 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\theme2.xnb</Output>
-      <Extra>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\theme2.wma</Extra>
-      <Time>2015-01-15T15:13:27.4933189-05:00</Time>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\theme2.xnb</Output>
+      <Extra>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\theme2.wma</Extra>
+      <Time>2015-01-15T15:02:19.4733777-05:00</Time>
+    </Item>
+    <Item>
+      <Source>banshee.wav</Source>
+      <Name>banshee</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\banshee.xnb</Output>
+      <Time>2015-01-16T08:54:11.9948259-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -425,10 +434,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final ProjectContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final ProjectContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\1635922\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final ProjectContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final ProjectContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\1635774\Documents\GitHub\finalproject\Final Project\Final Project\Final Project\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -457,7 +466,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-09-16T09:42:13.1108047-04:00</Value>
+        <Value>2013-09-16T09:42:24.2952053-04:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

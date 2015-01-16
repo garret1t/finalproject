@@ -209,7 +209,9 @@ namespace Final_Project
                             Shoot(new Vector2(Position.X, Position.Y), direction, 6);
                             Shoot(new Vector2(Position.X, Position.Y), direction, 5);
                             Shoot(new Vector2(Position.X, Position.Y), direction, 4);
-                            Shoot(new Vector2(Position.X, Position.Y), direction, 3);    
+                            Shoot(new Vector2(Position.X, Position.Y), direction, 3);
+
+                            //Game1.Instance.bansheeSound.Play();
                            
                             bossCounter = reloadTime;
                         }
