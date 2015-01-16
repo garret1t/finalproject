@@ -23,6 +23,7 @@ namespace Final_Project
             SpellHealOne healone = new SpellHealOne();
             SpellTimeStop timeStop = new SpellTimeStop();
             SpellShield shield = new SpellShield();
+            SpellNuke nuke = new SpellNuke();
 
             registeredSpells.Add(fireball);
             registeredSpells.Add(waterbullet);
@@ -30,6 +31,7 @@ namespace Final_Project
             registeredSpells.Add(windBlast);
             registeredSpells.Add(timeStop);
             registeredSpells.Add(shield);
+            registeredSpells.Add(nuke);
         }
 
         public static List<Spell> Registry { get { return registeredSpells; } }
@@ -207,6 +209,28 @@ namespace Final_Project
             if (caster is LivingEntity)
             {
                 ((LivingEntity)caster).DamageAbsorbs += 3;
+            }
+            base.OnCast(caster);
+        }
+    }
+
+    public class SpellNuke : SelfTargetSpell
+    {
+        public SpellNuke()
+        {
+            name = "Nuke";
+            dominantType = SpellElement.None;
+            uniqueCombo = new SpellElement[] { SpellElement.Fire, SpellElement.Light, SpellElement.Fire };
+        }
+        public override void OnCast(ISpellCaster caster)
+        {
+            foreach (Grid g in Game1.Instance.map.map)
+            {
+                foreach (Enemy e in g.enemyList)
+                {
+                    if (e.enemyType != EnemyTypeAI.Boss)
+                        e.Damage(10000, SpellElement.None);
+                }
             }
             base.OnCast(caster);
         }

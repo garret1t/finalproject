@@ -25,9 +25,7 @@ namespace Final_Project
         int waterCounter;
         int meleeCounter;
         int bossCounter;
-        EnemyTypeAI enemyType;
-        
-
+        public EnemyTypeAI enemyType;
 
         public Enemy(int hp, int speed, int range,int reload, Rectangle position, float rotation, Texture2D texture, Texture2D bulletTexture, Game1 game, EnemyTypeAI type, SpellElement element) : base(game, element)
 
