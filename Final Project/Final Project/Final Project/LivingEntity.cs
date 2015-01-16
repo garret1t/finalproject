@@ -24,6 +24,8 @@ namespace Final_Project
         public event DeathHandler OnDeath;
 
         public Vector2 PositionV { get { return posv; } set { posv = value; } }
+        public int GridX { get { return (int)((PositionV.X + 67 / 2) / 67); } set { PositionV = new Vector2(value * 67, PositionV.Y); } }
+        public int GridY { get { return (int)((PositionV.Y + 67 / 2) / 67); } set { PositionV = new Vector2(PositionV.X, value * 67); } }
         public LivingEntity(Game associatedGame, SpellElement assigned) : base(associatedGame) 
         {
             element = assigned;

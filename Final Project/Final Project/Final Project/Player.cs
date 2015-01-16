@@ -15,8 +15,9 @@ namespace Final_Project
     public class Player : LivingEntity, ISpellCaster
     {
         // Need floats for positioning not ints.
-        public int GridX { get { return (int)((PositionV.X + 67 / 2) / 67); } set { PositionV = new Vector2(value * 67, PositionV.Y); } }
-        public int GridY { get { return (int)((PositionV.Y + 67 / 2) / 67); } set { PositionV = new Vector2(PositionV.X, value * 67); } }
+        
+        public Vector2 OmniSelectionTarget { get { return lastOmniTarget; } }
+        Vector2 lastOmniTarget;
         float speed = 3;        
         public Texture2D texture;
         public Texture2D textureUp;
@@ -133,7 +134,7 @@ namespace Final_Project
                 {
                     c.OnCast(this);
                 }
-                if (c is LivingTargetSpell && !(c is FailSpell))
+                else if (c is LivingTargetSpell)
                 {
                     current = c;
                     Game1.Instance.showingOmniSelector = true;                    
@@ -147,11 +148,17 @@ namespace Final_Project
         }
 
         void Instance_OmniSelectionMade(Vector2 vec)
-        {            
-            LivingTargetSpell ltp = (LivingTargetSpell)current;
-            
+        {
+            lastOmniTarget = vec;
+
+            LivingTargetSpell ltp = (LivingTargetSpell)current;           
+
             ltp.OnCast(this);
-            Game1.Instance.ActiveProjectiles.Add(new LivingTargetProjectile(this, vec, ltp));
+
+            if (ltp.GetSpecialProperty<bool>("ShootProjectile", true))
+            {
+                Game1.Instance.ActiveProjectiles.Add(new LivingTargetProjectile(this, vec, ltp));
+            }
             Game1.Instance.showingOmniSelector = false;
             
         }

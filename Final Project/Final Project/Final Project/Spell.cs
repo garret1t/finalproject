@@ -23,7 +23,10 @@ namespace Final_Project
             SpellHealOne healone = new SpellHealOne();
             SpellTimeStop timeStop = new SpellTimeStop();
             SpellShield shield = new SpellShield();
-            SpellNuke nuke = new SpellNuke();
+            SpellBlink blink = new SpellBlink();
+            SpellQuake quake = new SpellQuake();
+            SpellFirebomb firebomb = new SpellFirebomb();
+            //SpellNuke nuke = new SpellNuke();
 
             registeredSpells.Add(fireball);
             registeredSpells.Add(waterbullet);
@@ -31,7 +34,10 @@ namespace Final_Project
             registeredSpells.Add(windBlast);
             registeredSpells.Add(timeStop);
             registeredSpells.Add(shield);
-            registeredSpells.Add(nuke);
+            registeredSpells.Add(blink);
+            registeredSpells.Add(quake);
+            registeredSpells.Add(firebomb);
+            //registeredSpells.Add(nuke);
         }
 
         public static List<Spell> Registry { get { return registeredSpells; } }
@@ -123,6 +129,36 @@ namespace Final_Project
         }
     }
 
+    public class SpellFirebomb : LivingTargetSpell
+    {
+        public SpellFirebomb()
+        {
+            name = "Firebomb";
+            dominantType = SpellElement.Fire;
+            uniqueCombo = new SpellElement[] { SpellElement.Fire, SpellElement.Fire };
+        }
+        public override void OnHit(LivingEntity entity)
+        {
+            foreach (Enemy e in Game1.Instance.screen.enemyList)
+            {
+                if (Vector2.Distance(e.PositionV, entity.PositionV) < 100)
+                {
+                    e.Damage(5, dominantType);
+                }
+            }
+            entity.Damage(7, dominantType);
+
+            Game1.Instance.Animations.Add(new Animations.FirebombEffect(entity, 100));
+
+            base.OnHit(entity);
+        }
+        public override void OnCast(ISpellCaster caster)
+        {
+            Game1.Instance.fireSound.Play(1, 0, 0);
+            base.OnCast(caster);
+        }
+    }
+
     public class SpellWaterBullet : LivingTargetSpell
     {
         public SpellWaterBullet()
@@ -163,7 +199,44 @@ namespace Final_Project
             base.OnCast(caster);
         }
     }
-    
+
+    public class SpellBlink : LivingTargetSpell
+    {
+        public SpellBlink()
+        {
+            name = "Blink";
+            dominantType = SpellElement.Light;
+            uniqueCombo = new SpellElement[] { SpellElement.Light, SpellElement.Light, SpellElement.Air };
+            SetSpecialProperty<bool>("ShootProjectile", false);
+        }
+
+        public override void OnCast(ISpellCaster caster)
+        {
+            Game1.Instance.fireSound.Play(0.85f, 0, 0);
+
+
+            Vector2 oldPos = new Vector2(caster.PositionV.X, caster.PositionV.Y);
+
+            caster.PositionV = new Vector2(caster.OmniSelectionTarget.X - 100, caster.OmniSelectionTarget.Y - 200);
+
+            try
+            {
+
+                if (!Game1.Instance.screen.grid[caster.GridX, caster.GridY].canWalk)
+                {
+                    caster.PositionV = oldPos;
+                }
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                caster.PositionV = oldPos;
+            }
+
+            base.OnCast(caster);
+        }
+
+    }
+
     public class SpellHealOne : SelfTargetSpell
     {
         public SpellHealOne()
@@ -214,6 +287,24 @@ namespace Final_Project
         }
     }
 
+    public class SpellQuake : SelfTargetSpell
+    {
+        public SpellQuake()
+        {
+            name = "Quake";
+            dominantType = SpellElement.Earth;
+            uniqueCombo = new SpellElement[] { SpellElement.Earth, SpellElement.Earth, SpellElement.Earth };
+        }
+        public override void OnCast(ISpellCaster caster)
+        {
+            foreach (Enemy e in Game1.Instance.screen.enemyList)
+            {
+                e.Damage(7, DominantType);
+            }            
+            base.OnCast(caster);
+        }
+    }
+
     public class SpellNuke : SelfTargetSpell
     {
         public SpellNuke()
@@ -236,7 +327,7 @@ namespace Final_Project
         }
     }
 
-    public class FailSpell : LivingTargetSpell
+    public class FailSpell : SelfTargetSpell
     {
         public FailSpell()
         {
@@ -249,5 +340,6 @@ namespace Final_Project
             base.OnCast(caster);
         }
     }
+
     #endregion
 }

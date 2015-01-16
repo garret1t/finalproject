@@ -14,10 +14,10 @@ namespace Final_Project
 {
 
     public enum EnemyTypeAI { Fire, Water, Melee, Boss }
-  
 
-    public class Enemy : LivingEntity, ISpellCaster
-    {
+
+    public class Enemy : LivingEntity
+    {       
         List<Projectile> projectiles = new List<Projectile>();
         Texture2D projectileTexture;
         int reloadTime;
@@ -27,11 +27,11 @@ namespace Final_Project
         int bossCounter;
         public EnemyTypeAI enemyType;
 
-        public Enemy(int hp, int speed, int range,int reload, Rectangle position, float rotation, Texture2D texture, Texture2D bulletTexture, Game1 game, EnemyTypeAI type, SpellElement element) : base(game, element)
-
+        public Enemy(int hp, int speed, int range, int reload, Rectangle position, float rotation, Texture2D texture, Texture2D bulletTexture, Game1 game, EnemyTypeAI type, SpellElement element)
+            : base(game, element)
         {
             health = hp;
-            maxHealth = hp;            
+            maxHealth = hp;
             Speed = speed;
             Range = range;
             Position = position;
@@ -54,11 +54,11 @@ namespace Final_Project
         }
 
 
-        
+
         Random random = new Random();
         public void Update(GameTime gameTime, Vector2 playerPosition, Player player)
         {
-            Vector2 direction = new Vector2( playerPosition.X + 33 - Position.X, playerPosition.Y + 33 - Position.Y);
+            Vector2 direction = new Vector2(playerPosition.X + 33 - Position.X, playerPosition.Y + 33 - Position.Y);
             direction.Normalize();
             if (!Dead)
             {
@@ -87,7 +87,7 @@ namespace Final_Project
                         if (!Dead)
                         {
                             if (Collision.Intersects(player.Collision))
-                            {                                
+                            {
                                 player.Damage(10, SpellElement.None);
                                 meleeCounter = reloadTime;
                             }
@@ -96,15 +96,15 @@ namespace Final_Project
 
                 }
                 else
-            {
-                if (!Dead)
                 {
-                    Position = new Rectangle(Position.X + (int)(direction.X * Speed), Position.Y + (int)(direction.Y * Speed), Position.Width, Position.Height);
+                    if (!Dead)
+                    {
+                        Position = new Rectangle(Position.X + (int)(direction.X * Speed), Position.Y + (int)(direction.Y * Speed), Position.Width, Position.Height);
+                    }
+
                 }
 
-            }
 
-           
             }
             if (enemyType == EnemyTypeAI.Melee)
             {
@@ -117,7 +117,7 @@ namespace Final_Project
                         {
                             if (Collision.Intersects(player.Collision))
                             {
-                                
+
                                 player.Damage(7, SpellElement.None);
                                 meleeCounter = reloadTime;
                             }
@@ -181,17 +181,17 @@ namespace Final_Project
                     if (bossCounter == 0)
                     {
                         if (!Dead)
-                        {                                                 
-                            
+                        {
+
                             Shoot(new Vector2(Position.X, Position.Y), direction, 6);
                             Shoot(new Vector2(Position.X, Position.Y), direction, 5);
                             Shoot(new Vector2(Position.X, Position.Y), direction, 4);
                             Shoot(new Vector2(Position.X, Position.Y), direction, 3);
-                           
+
                             bossCounter = reloadTime;
                         }
                     }
-                    
+
 
                 }
                 else
@@ -222,9 +222,9 @@ namespace Final_Project
             {
                 meleeCounter--;
             }
-            
-            
-            
+
+
+
             UpdateProjectiles(player);
 
             Vector2 rotatedp = Utils.RotateAboutOrigin(new Vector2(Position.X, Position.Y), new Vector2(Position.X, Position.Y), (float)Rotation);
@@ -241,11 +241,11 @@ namespace Final_Project
             base.Update();
             base.Update(gameTime);
         }
-        public void Shoot(Vector2 initialPosition, Vector2 direction, int Speed) 
+        public void Shoot(Vector2 initialPosition, Vector2 direction, int Speed)
         {
             if (projectiles.Count < 3)
             {
-                
+
                 projectiles.Add(new Projectile(Speed, initialPosition, direction, ProjectileType.Enemy, projectileTexture));
             }
         }
@@ -254,7 +254,7 @@ namespace Final_Project
 
             foreach (Projectile p in projectiles)
             {
-                
+
                 p.Location += (p.Velocity * p.Speed);
 
                 if (new Rectangle((int)p.Location.X, (int)p.Location.Y, 16, 16).Contains(player.Collision)) { player.Damage(10, SpellElement.None); }
@@ -262,7 +262,7 @@ namespace Final_Project
                 if (Vector2.Distance(p.Location, new Vector2(Position.X, Position.Y)) > Range * 100) { p.Visible = false; }
 
                 p.CheckCollision();
-                
+
             }
             for (int i = 0; i < projectiles.Count(); i++)
             {
@@ -275,20 +275,20 @@ namespace Final_Project
         }
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Texture, Position, null, Color.White, Rotation, new Vector2(Position.Width/4, Position.Height/4), SpriteEffects.None, 0);
+            spriteBatch.Draw(Texture, Position, null, Color.White, Rotation, new Vector2(Position.Width / 4, Position.Height / 4), SpriteEffects.None, 0);
             //spriteBatch.Draw(Game1.Instance.blank, collisionBox, Color.Red*0.5f);
             foreach (Projectile p in projectiles)
             {
                 spriteBatch.Draw(Game1.Instance.blank, new Rectangle((int)p.Location.X, (int)p.Location.Y, 16, 16), Color.Red * 0.5f);
             }
-            foreach (Projectile p in projectiles) 
+            foreach (Projectile p in projectiles)
             {
                 p.Draw(spriteBatch);
             }
             base.Draw(spriteBatch);
-            
+
         }
-       
+
     }
     public enum EnemyType
     {
