@@ -407,11 +407,7 @@ namespace Final_Project
             
             if (!timeStopped)
             foreach (Enemy e in screen.enemyList) e.Update(gameTime, wizard.PositionV + new Vector2(100,200), wizard);
-
-
           
-            //Console.WriteLine(map.map[2, 2].enemyList.Count);
-            Window.Title = enemiesRemaining.ToString();
             if (enemiesRemaining <= 0 && !bossSpawned)
             {
                 map.map[2, 2].enemyList = new List<Enemy>();
@@ -443,11 +439,6 @@ namespace Final_Project
                 Save.SetSavedData<bool>("TimeStopped", timeStopped);
                 Save.SetSavedData<int>("TimeStopTimer", timeStopTimer);
                 Save.SetSavedData<bool>("HasSave", true);
-            }
-
-            if (mouse.RightButton == ButtonState.Pressed)
-            {
-                  Window.Title = "X: " + mouse.X + "; Y: " + mouse.Y;
             }
 
             oldpad1 = pad1;

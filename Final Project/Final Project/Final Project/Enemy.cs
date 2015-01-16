@@ -73,10 +73,6 @@ namespace Final_Project
                     {
                         if (!Dead)
                         {
-                            //Console.WriteLine("Shooting");
-                            //Console.WriteLine("Mouse: " + Mouse.GetState().X + "," + Mouse.GetState().Y);
-                            //Console.WriteLine("Enemy: " + Position);
-                            //Console.WriteLine("Player: " + playerPosition);
                             if (Range > 1)
                             {
                                 Shoot(new Vector2(Position.X, Position.Y), direction, 6);
@@ -91,8 +87,7 @@ namespace Final_Project
                         if (!Dead)
                         {
                             if (Collision.Intersects(player.Collision))
-                            {
-                                Console.WriteLine("TakingDamage");
+                            {                                
                                 player.Damage(10, SpellElement.None);
                                 meleeCounter = reloadTime;
                             }
@@ -104,10 +99,7 @@ namespace Final_Project
             {
                 if (!Dead)
                 {
-                    //Console.WriteLine("Moving");
-                    //Console.WriteLine("Old Position: " + Position);
                     Position = new Rectangle(Position.X + (int)(direction.X * Speed), Position.Y + (int)(direction.Y * Speed), Position.Width, Position.Height);
-                    //Console.WriteLine("New Position: " + Position);
                 }
 
             }
@@ -138,10 +130,7 @@ namespace Final_Project
                 {
                     if (!Dead)
                     {
-                        //Console.WriteLine("Moving");
-                        //Console.WriteLine("Old Position: " + Position);
                         Position = new Rectangle(Position.X + (int)(direction.X * Speed), Position.Y + (int)(direction.Y * Speed), Position.Width, Position.Height);
-                        //Console.WriteLine("New Position: " + Position);
                     }
 
                 }
@@ -154,10 +143,6 @@ namespace Final_Project
                     {
                         if (!Dead)
                         {
-                            //Console.WriteLine("Shooting");
-                            //Console.WriteLine("Mouse: " + Mouse.GetState().X + "," + Mouse.GetState().Y);
-                            //Console.WriteLine("Enemy: " + Position);
-                            //Console.WriteLine("Player: " + playerPosition);
                             if (Range > 1)
                             {
                                 Shoot(new Vector2(Position.X, Position.Y), direction, 8);
@@ -173,7 +158,6 @@ namespace Final_Project
                         {
                             if (Collision.Intersects(player.Collision))
                             {
-                                Console.WriteLine("TakingDamage");
                                 player.Damage(20, SpellElement.None);
                                 meleeCounter = reloadTime;
                             }
@@ -185,10 +169,7 @@ namespace Final_Project
                 {
                     if (!Dead)
                     {
-                        //Console.WriteLine("Moving");
-                        //Console.WriteLine("Old Position: " + Position);
                         Position = new Rectangle(Position.X + (int)(direction.X * Speed), Position.Y, Position.Width, Position.Height);
-                        //Console.WriteLine("New Position: " + Position);
                     }
 
                 }
@@ -200,18 +181,12 @@ namespace Final_Project
                     if (bossCounter == 0)
                     {
                         if (!Dead)
-                        {
-                            //Console.WriteLine("Shooting");
-                            //Console.WriteLine("Mouse: " + Mouse.GetState().X + "," + Mouse.GetState().Y);
-                            //Console.WriteLine("Enemy: " + Position);
-                            //Console.WriteLine("Player: " + playerPosition);                                                     
+                        {                                                 
                             
                             Shoot(new Vector2(Position.X, Position.Y), direction, 6);
                             Shoot(new Vector2(Position.X, Position.Y), direction, 5);
                             Shoot(new Vector2(Position.X, Position.Y), direction, 4);
                             Shoot(new Vector2(Position.X, Position.Y), direction, 3);
-
-                            //Game1.Instance.bansheeSound.Play();
                            
                             bossCounter = reloadTime;
                         }
@@ -223,10 +198,7 @@ namespace Final_Project
                 {
                     if (!Dead)
                     {
-                        //Console.WriteLine("Moving");
-                        //Console.WriteLine("Old Position: " + Position);
-                        //Position = new Rectangle(Position.X + (int)(direction.X * Speed), Position.Y, Position.Width, Position.Height);
-                        //Console.WriteLine("New Position: " + Position);
+
                     }
 
                 }

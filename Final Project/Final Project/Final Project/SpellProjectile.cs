@@ -63,7 +63,6 @@ namespace Final_Project
             position = new Vector2(entity.PositionV.X + 33, entity.PositionV.Y + 33);
             caster = entity;
             Vector2 en = new Vector2(entity.PositionV.X + 100 + 33, entity.PositionV.Y + 200+ 33);
-            Console.WriteLine("end: " + endpoint + "; start: " + entity.PositionV);
             direction = Vector2.Normalize(endpoint - en);
 
             rotation = (float)(Math.Atan2(direction.Y, direction.X));
@@ -112,8 +111,7 @@ namespace Final_Project
             foreach (Enemy e in Game1.Instance.screen.enemyList)
             {
                 if (e.Collision.Intersects(new Rectangle(collisionBox.X + 100, collisionBox.Y + 200, collisionBox.Width, collisionBox.Height)) && !NeedsRemove)
-                {
-                    Console.WriteLine("HIT: " + e.GetHashCode());
+                {                    
                     LivingTargetSpell ltp = (LivingTargetSpell)Spell;
 
                     if (!hitEnemies.Contains(e.GetHashCode()))

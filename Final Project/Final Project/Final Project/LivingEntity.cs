@@ -163,8 +163,7 @@ namespace Final_Project
 
         public virtual void Damage(int power, SpellElement type)
         {
-            int oldHp = Health;
-            Console.WriteLine("Damage: " + power + "; " + type.Name);
+            int oldHp = Health;            
             int p = power;
             if (Element.IsStrongTo(type))
             {

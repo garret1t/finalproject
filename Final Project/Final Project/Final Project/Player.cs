@@ -119,19 +119,16 @@ namespace Final_Project
 
         void currentCombo_OnSpellAdded(SpellElement type)
         {
-            Console.WriteLine("Element: " + type.Name);
             Game1.Instance.Animations.Add(new Animations.SpellFlash(type));
         }
         Spell current;
         void Player_OnRecordStatusChanged(bool on)
         {
-            Console.WriteLine("Record Combo: " + (on ? "on" : "off"));
             if (!on)
             {
                 Spell c = currentCombo.Complete();                
                 currentCombo.Clear();
 
-                Console.WriteLine(c.Name);
                 if (c is FailSpell)
                 {
                     c.OnCast(this);
@@ -150,8 +147,7 @@ namespace Final_Project
         }
 
         void Instance_OmniSelectionMade(Vector2 vec)
-        {
-            Console.WriteLine("omni made");
+        {            
             LivingTargetSpell ltp = (LivingTargetSpell)current;
             
             ltp.OnCast(this);
@@ -312,7 +308,6 @@ namespace Final_Project
             float x = curState.ThumbSticks.Left.X * speed;
             float y = curState.ThumbSticks.Left.Y * speed;
             Move(x, y, Game1.Instance.screen);
-            //Console.WriteLine("X: " + x + "; Y: " + y);
             #endregion
 
             base.Update();
